@@ -1,0 +1,60 @@
+//-------------------------BASE----------------------------//
+
+body, 
+main,
+html {
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+    overflow-x: hidden;
+}
+
+.container {
+    
+    padding: 0 150px;
+
+    @media (max-width: 1140px) {
+        padding: 0 50px;
+    }
+
+    @media (max-width:768px) {
+        padding: 0 20px;
+    }
+
+    @media (max-width: 375px) {
+        padding: 0 15px;
+    }
+}
+
+.h100 {
+    height: 100%;
+    margin: 150px 0 0;
+
+    @media (max-width: 1140px) {
+        padding: 0 70px;
+        margin: 100px 0 0;
+    }
+
+    @media (max-width:768px) {
+        margin: 70px 0 0;
+        padding: 0 35px;
+        text-align: center;
+    }
+
+    @media (max-width: 375px) {
+        margin: 25px 0 0;
+        padding: 0 15px;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+*{
+    transition: all 0.25s ease 0.05s;
+}
+
+//-------------------------BASE end----------------------------//
