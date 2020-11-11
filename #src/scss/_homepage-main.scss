@@ -91,6 +91,7 @@
     &__description {
         @include title-h3;
         margin: 25px 0 0 0;
+
         @media (max-width:768px) {
             text-align: center;
         }
@@ -100,6 +101,7 @@
         @include button (36px, 29px);
         margin: 35px 0 0 0;
         width: 350px;
+
         @media (max-width:768px) {
             text-align: center;
             width: 80%;
@@ -290,13 +292,14 @@
 
     &__title {
         @include title-h3;
+
         @media (max-width:768px) {
             display: flex;
             justify-content: center;
         }
     }
 
-    &__body{
+    &__body {
         margin-top: 2rem;
         padding: 1.5rem;
         box-shadow: 20px 20px 40px #d3dbe6, -20px -20px 40px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
@@ -306,13 +309,14 @@
 
     &__list {
         text-align: left;
+
         @media (max-width:768px) {
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
     }
-    
+
     &__list-item {
         @include title-h4;
         font-size: 1.35rem; //(0.78 коэф)
@@ -341,6 +345,73 @@
 
 //-------------------------all-simple----------------------//
 
+.all-simple {
+    margin-top: 150px;
 
+    @media (max-width: 768px) {
+        margin-right: 0;
+    }
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 50px 0;
+    }
+
+    &__slider {
+        width: 375px;
+        height: 667px;
+
+        @include shadow;
+    }
+
+    &__title {
+        margin-bottom: 100px;
+        font-family: 'PT Sans', sans-serif;
+        color: $pallete-fonts;
+        text-transform: uppercase;
+        font-size: 3rem;
+        font-weight: 400;
+        letter-spacing: 21.6px;
+        @media (max-width: 1140px) {
+            font-size: 2.5rem;
+            line-height: 2.75rem;
+        }
+        @media (max-width: 768px) {
+            font-size: 2rem;
+            line-height: 2.25rem;
+        }
+        @media (max-width: 375px) {
+            font-size: 1.5rem;
+            line-height: 1.95rem;
+        }
+
+    }
+}
+
+.list-block {
+
+    // .list-block__item
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        margin: 25px;
+    }
+
+    // .list-block__item--mark
+
+    &__item--mark {
+        margin-left: 0;
+    }
+
+    // .list-block__item--text
+
+    &__item--text {
+        @include title-h4;
+    }
+}
 
 //-------------------------all-simple END----------------------//
