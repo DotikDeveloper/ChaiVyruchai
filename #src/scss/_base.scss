@@ -1,7 +1,6 @@
 //-------------------------BASE----------------------------//
 
 body, 
-main,
 html {
     height: 100%;
     width: 100vw;
@@ -51,6 +50,8 @@ html {
 
 .hide {
     display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 
 *{

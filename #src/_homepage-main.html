@@ -104,13 +104,13 @@
                 <div class="all-simple__slider-wrapper">
                     <div class="all-simple__slider-inner">
                         <div class="all-simple__slide">
-                            <img src="img/homepage/all-simple/all-simple__bg.png" alt="Сканирование QR кода">
+                            <img src="img/homepage/all-simple/payment-page.png" alt="Сканирование QR кода">
                         </div>
                         <div class="all-simple__slide">
-                            <img src="img/homepage/all-simple/all-simple__bg.png" alt="Оплата чаевых">
+                            <img src="img/homepage/all-simple/payment-page.png" alt="Оплата чаевых">
                         </div>
                         <div class="all-simple__slide">
-                            <img src="img/homepage/all-simple/all-simple__bg.png" alt="Личный кабинет">
+                            <img src="img/homepage/all-simple/payment-page.png" alt="Личный кабинет">
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                     <span id="total">04</span>
                     <div class="all-simple__slider-next">
                         <img src="img/homepage/all-simple/next.png" alt="next">
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="all-simple__content">
@@ -153,4 +153,55 @@
             </div>
         </div>
     </section>
+
+    <section class="main-call-to-action container">
+        <div class="main-call-to-action__body">
+            <div class="main-call-to-action__content">
+                <h3 class="main-call-to-action__title">Получай чаевые на карту</h3>
+                <p class="main-call-to-action__paragraph">Открой мир новых возможностей. Подключи наш сервис и начни
+                    получать чаевые в этот же день!</p>
+            </div>
+            <a href="/registration.html" target="_blank" class="main-call-to-action__button">Подключиться</a>
+        </div>
+    </section>
+
+    <section class="partners container">
+        <div class="partners__body">
+            <h2 class="partners__title">Наши партнеры</h2>
+            <div class="partners__content">
+                <div class="partners__logo partners__logo--1"></div>
+                <div class="partners__logo partners__logo--2"></div>
+                <div class="partners__logo partners__logo--3"></div>
+                <div class="partners__logo partners__logo--4"></div>
+                <div class="partners__logo partners__logo--5"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="overlay hide">
+        <div class="modal">
+            <button data-button="close-modal" class="modal__close">&times;</button>
+            <div class="modal__title">Войти в личный кабинет</div>
+            <div class="modal__description--danger">логин или пароль введены неверно</div>
+
+            <form class="modal__form form" action="#">
+                <input class="form__input" name="phone" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
+                    required placeholder="+7 000 000 00 00" type="tel"></input>
+                <input class="form__input" id="form__password" name="form__password" required type="password"
+                    placeholder="пароль"></input>
+                <a href="#" class="password-control">
+                    <img src="img/modal/eye-close.svg" alt="скрыто" height="15">
+                </a>
+                <input class="form__input form__input--check" type="checkbox" id="modal__check" name="modal__check"
+                    checked>
+                <label class="form__label" for="modal__check">запомнить логин и пароль</label>
+
+                <button class="form__input form__input--submit" type="submit" name="submit">войти</button>
+            </form>
+        </div>
+    </div>
+
+
+
 </main>

@@ -1,0 +1,199 @@
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(105, 102, 102, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+
+    position: relative;
+    padding: 35px 45px;
+    max-width: 650px;
+    border-radius: 50px;
+    background-color: $pallete-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width:768px) {
+        width: 90%;
+    }
+
+    &__close{
+        position: relative;
+        right: -50%;
+        margin-right: -15px;
+        top: -10px;
+        color: $pallete-fonts;
+        font-size: 28px;
+        width: 47px;
+        height: 47px;
+        box-shadow: 10px 10px 25px #d3dbe6, -10px -10px 25px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
+        background-color: $pallete-background;
+        border-radius: 100%;
+
+        &:hover {
+            box-shadow: 0 0 0 0.2rem #ca583e52;
+            color: $pallete-secondary;
+        }
+
+        @media (max-width: 768px) {
+            right: 30;
+        }
+    }
+
+    &__title {
+        @include title-h3;
+        color: $pallete-fonts;
+        font-size: 1.5rem;
+
+        @media (max-width: 1140px) {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+
+    &__description--danger {
+        @include fonts (0.8rem, 700, $pallete-secondary, lowercase);
+        opacity: 0;
+
+        @media (max-width: 1140px) {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    
+    &__message {
+        height: 100%;
+        display: flex;
+    }
+
+    &__input {
+        padding: 19px 32px;
+        margin: 25px 0;
+        box-shadow: 20px 20px 40px #d3dbe6, -20px -20px 40px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
+        border-radius: 15px;
+        background-color: $pallete-background;
+        @include fonts (18px, 400, $pallete-fonts, normal);
+
+        &:hover {
+            box-shadow: 0 0 0 0.2rem #ca583e52;
+        }
+    }
+
+    &__label {
+        color: $pallete-fonts;
+    }
+
+    &__input--check{
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+
+        &+label {
+            margin: 0 15px;
+            display: inline-flex;
+            align-items: center;
+            user-select: none;
+        }
+
+        &+label::before {
+            content: '';
+            display: inline-block;
+            width: 1.25em;
+            height: 1.25em;
+            flex-shrink: 0;
+            flex-grow: 0;
+            border: 1px solid $pallete-fonts;
+            border-radius: 1.25em;
+            margin-right: 0.5em;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 50% 50%;
+        }
+
+        &:checked+label::before {
+            border-color: $pallete-secondary;
+            background-color: $pallete-secondary;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+        }
+
+        &:hover+label::before {
+            box-shadow: 0 0 0 0.2rem #ca583e52;
+        }
+    }
+
+    &__input--submit {
+        @include button (1em, 1em);
+
+    }
+
+    &__many-output {
+        display: flex;
+    }
+
+}
+
+.form__colume.many-output {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.many-output{
+    &__title {
+        @include title-h3;
+        font-size: 1.5em;
+    }
+
+    &__volume {
+        @include title-h3;
+        font-size: 1.2em;
+    }
+
+    &__number {
+        font-size: 3em;
+        color: $pallete-primary;
+        text-shadow: 7px 7px 10px $pallete-secondary-light;
+    }
+
+    &__item {
+        margin: 25px 0;
+    }
+}
+
+.password-control {
+    position: relative;
+    align-items: end;
+    top: -63px;
+    text-align: right;
+    margin-right: 15px;
+    height: 1px;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    height: 100%;
+}
