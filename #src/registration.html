@@ -12,12 +12,61 @@
     <link rel="stylesheet" href="css/style.min.css">
 
 </head>
+
 <body>
     @@include('_header.html')
 
     <main class="main__registration container">
         <section class="registration">
-            
+            <h2 class="registration__title">Регистрация</h2>
+            <div class="registration__body">
+                <div class="registration__img">
+                    <img class="registration__img registration__img--picture" src="img/registration/registration__bg.jpg" alt="Подключайся">
+                </div>
+                <div class="registration__content">
+                    <div id="tabsBtn" class="registration__tabs-container">
+                        <button class="registration__btn" type="submit">Физическое
+                            лицо</button>
+                        <button class="registration__btn" type="submit">Юридическое
+                            лицо</button>
+                    </div>
+                    <div class="registration__list-block list-block ">
+                        <form class="modal__form form registration__form" data-form="user" action="#">
+                            <input class="form__input" type="text" required pattern="\w" name="first_name"
+                                id="first_name" placeholder="Имя">
+                            <input class="form__input" type="text" required name="last_name" id="last_name"
+                                placeholder="Фамилия">
+                            <input class="form__input" type="tel"
+                                pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required
+                                placeholder="+7 000 000 00 00" name="phone" id="phone"></input>
+                            <input class="form__input" type="password" required name="password" id="password"
+                                placeholder="Пароль" minlength="8" maxlength="20"></input>
+                            <input class="form__input" type="email" required name="mail" id="mail"
+                                placeholder="email"></input>
+                            <select class="form__input registration__select" required name="org">
+                                <option class="registration__option">официант</option>
+                            </select>
+                            <input class="form__input" type="text" required name="role" id="role"
+                                placeholder="должность"></input>
+                            <button class="form__input form__input--submit" type="submit" name="user_add"
+                                id="user_add">Зарегистрироваться</button>
+                        </form>
+                        <form class="modal__form form registration__form" data-form="business" action="#">
+                            <input class="form__input" type="text" required name="org_name" id="org_name"
+                                placeholder="Название организации">
+                            <input class="form__input" type="text" required name="org_address" id="org_address"
+                                placeholder="Адрес организации">
+                            <input class="form__input" type="tel"
+                                pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required
+                                placeholder="+7 000 000 00 00" name="org_phone" id="org_phone"></input>
+                            <input class="form__input" type="email" required name="org_mail" id="org_mail"
+                                placeholder="email"></input>
+                            <button class="form__input form__input--submit" type="submit" id="org_add"
+                                name="org_add">отправить запрос</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -25,4 +74,5 @@
     @@include('_footer.html')
     <script src="js/bundle.min.js"></script>
 </body>
+
 </html>

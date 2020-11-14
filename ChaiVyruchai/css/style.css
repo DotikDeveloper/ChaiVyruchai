@@ -877,6 +877,128 @@ button.active {
   color: #ca583e;
 }
 
+.registration {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 150px;
+}
+
+.registration__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  margin-top: 50px;
+}
+
+.registration__img {
+  -webkit-box-shadow: 20px 20px 40px #d3dbe6, -20px -20px 40px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
+          box-shadow: 20px 20px 40px #d3dbe6, -20px -20px 40px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.registration__img--picture {
+  max-height: 750px;
+}
+
+.registration__title {
+  font-family: 'PT Sans', sans-serif;
+  color: #696666;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 21.6px;
+  margin: 150px auto 50px;
+}
+
+.registration__btn {
+  -webkit-box-shadow: 20px 20px 40px #d3dbe6, -20px -20px 40px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
+          box-shadow: 20px 20px 40px #d3dbe6, -20px -20px 40px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  border: 1px solid #ca583e;
+  background-color: #ca583e;
+  padding: 0.9rem 1.56rem;
+  color: #e6e9ef;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  margin: 0 10px 23px;
+  background-color: #e6e9ef;
+  color: #ca583e;
+}
+
+.registration__btn:hover {
+  opacity: 0.9;
+  -webkit-box-shadow: 0 0 0 0.2rem #ca583e52;
+          box-shadow: 0 0 0 0.2rem #ca583e52;
+}
+
+.registration__btn :focus {
+  background-color: #fff;
+}
+
+.registration__form {
+  margin-bottom: 100px;
+}
+
+.registration__list-block.list-block {
+  margin: 0 10px;
+}
+
+.registration__option {
+  background-color: rgba(230, 233, 239, 0.5);
+  font-size: inherit;
+  padding: 10px;
+}
+
+.contacts__body {
+  width: 100%;
+  height: 100%;
+}
+
+.contacts__title {
+  font-family: 'PT Sans', sans-serif;
+  color: #696666;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 21.6px;
+  color: #ca583e;
+}
+
+.contacts__content--block {
+  margin: 25px 0 0 0;
+}
+
+.contacts__content--title {
+  font-family: 'PT Sans', sans-serif;
+  color: #709591;
+  font-size: 1.5em;
+  margin: 15px 0 5px 0;
+}
+
+.contacts__content--text {
+  font-family: 'PT Sans', sans-serif;
+  color: #696666;
+  margin: 0 0 5px 0;
+}
+
 .overlay {
   position: fixed;
   width: 100%;
@@ -1134,38 +1256,6 @@ textarea {
   height: 100%;
 }
 
-.contacts__body {
-  width: 100%;
-  height: 100%;
-}
-
-.contacts__title {
-  font-family: 'PT Sans', sans-serif;
-  color: #696666;
-  text-transform: uppercase;
-  font-size: 3rem;
-  font-weight: 400;
-  letter-spacing: 21.6px;
-  color: #ca583e;
-}
-
-.contacts__content--block {
-  margin: 25px 0 0 0;
-}
-
-.contacts__content--title {
-  font-family: 'PT Sans', sans-serif;
-  color: #709591;
-  font-size: 1.5em;
-  margin: 15px 0 5px 0;
-}
-
-.contacts__content--text {
-  font-family: 'PT Sans', sans-serif;
-  color: #696666;
-  margin: 0 0 5px 0;
-}
-
 @media (max-width: 1140px) {
   .container {
     padding: 0 50px;
@@ -1293,6 +1383,24 @@ textarea {
     font-size: 1.2rem;
   }
 
+  .registration__img {
+    max-height: 500px;
+  }
+
+  .registration__title {
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+  }
+
+  .registration__btn {
+    font-size: 15px;
+  }
+
+  .contacts__title {
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+  }
+
   .modal__title {
     font-size: 2.5rem;
   }
@@ -1315,11 +1423,6 @@ textarea {
 
   .many-output__volume {
     font-size: 2.5rem;
-  }
-
-  .contacts__title {
-    font-size: 2.5rem;
-    line-height: 2.75rem;
   }
 }
 
@@ -1348,6 +1451,12 @@ textarea {
 
 @media (max-width: 1024px) and (max-height: 375px) {
   .footer__call-to-action {
+    display: none;
+  }
+}
+
+@media (max-width: 812px) {
+  .registration__img {
     display: none;
   }
 }
@@ -1653,6 +1762,30 @@ textarea {
     display: none;
   }
 
+  .registration__img--picture {
+    display: none;
+  }
+
+  .registration__title {
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
+
+  .registration__title {
+    margin: 50px auto 10px;
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+  }
+
+  .registration__btn {
+    font-size: 12px;
+  }
+
+  .contacts__title {
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
+
   .modal {
     width: 90%;
   }
@@ -1683,11 +1816,6 @@ textarea {
 
   .many-output__volume {
     font-size: 2rem;
-  }
-
-  .contacts__title {
-    font-size: 2rem;
-    line-height: 2.25rem;
   }
 }
 
@@ -1814,6 +1942,26 @@ textarea {
     font-size: 0.84rem;
   }
 
+  .registration__title {
+    font-size: 1.5rem;
+    line-height: 1.95rem;
+  }
+
+  .registration__title {
+    margin: 50px auto 10px;
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+  }
+
+  .registration__btn {
+    font-size: 7.5px;
+  }
+
+  .contacts__title {
+    font-size: 1.5rem;
+    line-height: 1.95rem;
+  }
+
   .modal__title {
     font-size: 1.2rem;
   }
@@ -1828,11 +1976,6 @@ textarea {
 
   .many-output__volume {
     font-size: 1.2rem;
-  }
-
-  .contacts__title {
-    font-size: 1.5rem;
-    line-height: 1.95rem;
   }
 }
 @supports (-webkit-appearance:none){
@@ -1858,6 +2001,14 @@ textarea {
 }
 
  @media (max-width: 1024px) and (max-height: 375px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 812px){
 
 @supports (-webkit-appearance:none){
 

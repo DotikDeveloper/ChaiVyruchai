@@ -1,0 +1,85 @@
+.registration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 150px;
+
+    &__body {
+        display: flex;
+        justify-content: space-around;
+        align-items: start;
+        margin-top: 50px;
+    }
+
+    &__img {
+        box-shadow: 20px 20px 40px #d3dbe6,
+            -20px -20px 40px #ffffff,
+            -1px -1px 1px rgba(255, 255, 255, 0.6);
+
+        @media (max-width: 1140px) {
+            max-height: 500px;
+        }
+
+        @media (max-width: 812px) {
+            display: none;
+        }
+    }
+
+
+    &__img--picture {
+        max-height: 750px;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &__title {
+        @include title-h2;
+        margin: 150px auto 50px;
+
+        @media (max-width: 768px) {
+            margin: 50px auto 10px;
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+        }
+
+        @media (max-width: 375px) {
+            margin: 50px auto 10px;
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+        }
+    }
+
+    &__btn {
+        @include button (15px, 10px);
+        margin: 0 10px 23px;
+        background-color: $pallete-background;
+        color: $pallete-secondary;
+
+        :focus {
+            background-color: #fff;
+        }
+    }
+
+    &__form {
+        margin-bottom: 100px;
+
+    }
+
+    &__list-block.list-block {
+        margin: 0 10px;
+    }
+
+    // &__select{
+    // }
+
+    &__option {
+        background-color: rgba(230, 233, 239, 0.5);
+        font-size: inherit;
+        padding: 10px;
+
+    }
+
+
+}
