@@ -113,8 +113,12 @@
     }
 
     &__copyright {
+        background-color: $pallete-fonts;
         display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
+        min-height: 30px;
     }
 
     &__link {
@@ -140,7 +144,6 @@
 .copyright {
 
     &__text {
-        margin-top: 15px;
         @include fonts(12px, 400, $pallete-background, normal);
 
         @media (max-width:1024px) {

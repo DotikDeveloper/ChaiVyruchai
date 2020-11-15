@@ -99,16 +99,8 @@
     &:hover {
         opacity: 0.9;
         box-shadow: 0 0 0 0.2rem #ca583e52;
-        // border: 1px solid $pallete-background;
     }
 
-    // &:focus {
-    //     position: relative;
-    //     background: $pallete-secondary;
-    //     color: $pallete-background;
-    //     border: 1px solid $pallete-secondary;
-
-    // }
 
     box-shadow: 20px 20px 40px #d3dbe6,
     -20px -20px 40px #ffffff,
@@ -135,10 +127,6 @@
 
     font-weight: 700;
     text-transform: uppercase;
-    -webkit-border-radius: $border-radius;
-    -moz-border-radius: $border-radius;
-    -ms-border-radius: $border-radius;
-    -o-border-radius: $border-radius;
 }
 
 @mixin shadow {
