@@ -834,6 +834,14 @@ button.active {
   color: #ca583e;
 }
 
+.footer__date {
+  font-size: 12px;
+  font-weight: 400;
+  color: #e6e9ef;
+  text-transform: normal;
+  font-family: 'PT Sans', sans-serif;
+}
+
 .copyright__text {
   font-size: 12px;
   font-weight: 400;
@@ -1850,6 +1858,10 @@ input.input__file {
   width: 100%;
 }
 
+.contacts {
+  margin: 70px 0 50px 0;
+}
+
 .contacts__body {
   width: 100%;
   height: 100%;
@@ -1858,10 +1870,9 @@ input.input__file {
 .contacts__title {
   font-family: 'PT Sans', sans-serif;
   color: #696666;
+  font-size: 2.25rem;
+  font-weight: 700;
   text-transform: uppercase;
-  font-size: 3rem;
-  font-weight: 400;
-  letter-spacing: 21.6px;
   color: #ca583e;
 }
 
@@ -2289,7 +2300,6 @@ textarea {
 
   .contacts__title {
     font-size: 2.5rem;
-    line-height: 2.75rem;
   }
 
   .modal__title {
@@ -2329,6 +2339,10 @@ textarea {
 
   .footer__text {
     font-size: .5em;
+  }
+
+  .footer__date {
+    font-size: 8px;
   }
 
   .copyright__text {
@@ -2690,7 +2704,6 @@ textarea {
 
   .contacts__title {
     font-size: 2rem;
-    line-height: 2.25rem;
   }
 
   .modal {
@@ -2883,8 +2896,7 @@ textarea {
   }
 
   .contacts__title {
-    font-size: 1.5rem;
-    line-height: 1.95rem;
+    font-size: 1.2rem;
   }
 
   .modal__title {

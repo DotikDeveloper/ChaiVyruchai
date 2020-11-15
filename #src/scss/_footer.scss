@@ -137,6 +137,13 @@
             }
         }
     }
+    &__date{
+        @include fonts(12px, 400, $pallete-background, normal);
+
+        @media (max-width:1024px) {
+            font-size: 8px;
+        }
+    }
 
 
 }
@@ -161,4 +168,6 @@
             color: $pallete-secondary;
         }
     }
+
+    
 }
