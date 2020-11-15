@@ -16,7 +16,8 @@
     }
 
     &__logo {
-        background-image: url('/img/logo/logo__full.png');
+        background-image: url('img/logo/logo__full.png');
+        background-image: url('/img/logo/logo__full.png'); //TODO: remove
         background-repeat: no-repeat;
         background-size: cover;
         width: 500px;
