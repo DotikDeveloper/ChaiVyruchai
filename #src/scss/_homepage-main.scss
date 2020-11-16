@@ -98,9 +98,10 @@
     }
 
     &__button {
-        @include button (36px, 29px);
+        @include button (24px, 29px);
         margin: 35px 0 0 0;
-        width: 350px;
+        max-width: 350px;
+
 
         @media (max-width:768px) {
             text-align: center;
