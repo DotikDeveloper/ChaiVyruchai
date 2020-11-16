@@ -1,8 +1,8 @@
-function charts(selectorTotalStatistic, selectorCompanyStatistics) {
+function charts() {
     console.log('charts');
 
     // Общая статистика
-    var ctx = document.getElementById(selectorTotalStatistic).getContext('2d');
+    var ctx = document.getElementById('totalStats').getContext('2d');
     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'line',
@@ -24,7 +24,7 @@ function charts(selectorTotalStatistic, selectorCompanyStatistics) {
 
     // Статистика по компаниям
 
-    var ctx = document.getElementById(selectorCompanyStatistics).getContext('2d');
+    var ctx = document.getElementById('companyStatistics').getContext('2d');
     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'pie',

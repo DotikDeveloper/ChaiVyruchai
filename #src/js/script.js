@@ -5,13 +5,11 @@ import modal from './modules/modal';
 import registration from './modules/registration';
 import slides from './modules/slides';
 import charts from './modules/charts';
-import test from './modules/test';
 
 window.addEventListener('DOMContentLoaded', () => {
 
     date('.footer__date');
     modal();
-    test();
     try {
         slides();
     } catch (error) {
@@ -22,11 +20,8 @@ window.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
         console.log(error);
     }
-    try {
-        charts('totalStats', 'companyStatistics');
-    } catch (error) {
-        console.log(error);
-    }
+
+    charts();
     
 
 });

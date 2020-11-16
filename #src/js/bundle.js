@@ -95,10 +95,10 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function charts(selectorTotalStatistic, selectorCompanyStatistics) {
+function charts() {
   console.log('charts'); // Общая статистика
 
-  var ctx = document.getElementById(selectorTotalStatistic).getContext('2d');
+  var ctx = document.getElementById('totalStats').getContext('2d');
   var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
@@ -116,7 +116,7 @@ function charts(selectorTotalStatistic, selectorCompanyStatistics) {
     options: {}
   }); // Статистика по компаниям
 
-  var ctx = document.getElementById(selectorCompanyStatistics).getContext('2d');
+  var ctx = document.getElementById('companyStatistics').getContext('2d');
   var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'pie',
@@ -413,23 +413,6 @@ function slides() {
 
 /***/ }),
 
-/***/ "./#src/js/modules/test.js":
-/*!*********************************!*\
-  !*** ./#src/js/modules/test.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function test() {
-  console.log('test');
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (test);
-
-/***/ }),
-
 /***/ "./#src/js/script.js":
 /*!***************************!*\
   !*** ./#src/js/script.js ***!
@@ -444,9 +427,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_registration__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/registration */ "./#src/js/modules/registration.js");
 /* harmony import */ var _modules_slides__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slides */ "./#src/js/modules/slides.js");
 /* harmony import */ var _modules_charts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/charts */ "./#src/js/modules/charts.js");
-/* harmony import */ var _modules_test__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/test */ "./#src/js/modules/test.js");
 'use string';
-
 
 
 
@@ -456,7 +437,6 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_date__WEBPACK_IMPORTED_MODULE_0__["default"])('.footer__date');
   Object(_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  Object(_modules_test__WEBPACK_IMPORTED_MODULE_5__["default"])();
 
   try {
     Object(_modules_slides__WEBPACK_IMPORTED_MODULE_3__["default"])();
@@ -470,11 +450,7 @@ window.addEventListener('DOMContentLoaded', function () {
     console.log(error);
   }
 
-  try {
-    Object(_modules_charts__WEBPACK_IMPORTED_MODULE_4__["default"])('totalStats', 'companyStatistics');
-  } catch (error) {
-    console.log(error);
-  }
+  Object(_modules_charts__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
 
 /***/ }),

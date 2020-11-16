@@ -90,7 +90,6 @@ h6 {
 
 body,
 html {
-  height: 100%;
   width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1353,6 +1352,11 @@ button.active {
 .dashboard__filter-menu--item:hover {
   color: #ca583e;
   cursor: pointer;
+}
+
+#totalStats,
+#companyStatistics {
+  padding: 15px 25px;
 }
 
 .moderation-requests__list {
