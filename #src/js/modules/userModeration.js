@@ -1,11 +1,9 @@
 function userModeration(selector) {
 
     const reqUser = document.querySelectorAll(selector);
-    console.log(reqUser);
 
     reqUser.forEach((user) => {
         user.addEventListener('click', (e) => {
-            // console.log(e.target);
             if (e.target.getAttribute('data-req') == "yes") {
                 user.style.backgroundColor = 'rgba(111, 149, 145, 0.25)';
                 user.style.border = '5px solid rgba(111, 149, 145, 0.25)';

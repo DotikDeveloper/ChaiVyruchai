@@ -11,7 +11,7 @@ function filterDashboard() {
             }
         });
     });
-    // console.log(filterBtn);
+    
 }
 
 export default filterDashboard;

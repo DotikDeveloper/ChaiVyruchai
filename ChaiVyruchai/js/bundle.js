@@ -96,8 +96,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 function charts() {
-  console.log('charts'); // Общая статистика
-
+  // Общая статистика
   var ctx = document.getElementById('totalStats').getContext('2d');
   var chart = new Chart(ctx, {
     // The type of chart we want to create
@@ -181,7 +180,7 @@ function filterDashboard() {
         e.target.parentElement.parentElement.nextElementSibling.classList.add('hide');
       }
     });
-  }); // console.log(filterBtn);
+  });
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (filterDashboard);
@@ -220,7 +219,6 @@ function modal() {
   });
   loginBtn.addEventListener("click", function () {
     var modalPage = document.querySelector('.overlay');
-    console.log("modal", modalPage);
     modalPage.classList.remove("hide");
   });
   var modalPassword = document.querySelector("#form__password"),
@@ -320,8 +318,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function selectMenuBtn() {
   try {
-    var menuBtn = function menuBtn(selectorMenuBtn) {
-      var btn = document.querySelectorAll(selectorMenuBtn);
+    var menuBtn = function menuBtn() {
+      var btn = document.querySelectorAll('button.menu__item');
       var leftTop = document.querySelector('[data-itemDashboard="leftTop"]'),
           rightTop = document.querySelector('[data-itemDashboard="rightTop"]'),
           leftDown = document.querySelector('[data-itemDashboard="leftDown"]'),
@@ -352,10 +350,7 @@ function selectMenuBtn() {
         var userMessages = function userMessages(selector) {
           var reqUser = document.querySelectorAll(selector);
           reqUser.forEach(function (user) {
-            console.log(user);
             user.addEventListener('click', function (e) {
-              console.log(e.target);
-
               if (e.target.getAttribute('data-req') == "yes") {
                 user.style.backgroundColor = 'rgba(111, 149, 145, 0.25)';
                 user.style.border = '5px solid rgba(111, 149, 145, 0.25)';
@@ -378,69 +373,71 @@ function selectMenuBtn() {
 
       btn.forEach(function (item) {
         item.addEventListener('click', function (e) {
-          console.log(e.target.dataset.btnmenu);
+          try {
+            switch (e.target.dataset.btnmenu) {
+              case 'dashboard':
+                location.href = location.href;
+                tabHideContent(restoransAdd);
+                tabHideContent(message);
+                tabHideContent(settings);
+                break;
 
-          switch (e.target.dataset.btnmenu) {
-            case 'dashboard':
-              location.href = location.href;
-              tabHideContent(restoransAdd);
-              tabHideContent(message);
-              tabHideContent(settings);
-              break;
+              case 'restorans':
+                console.log('restorans');
+                tabBigContent(restoransAdd);
+                tabHideContent(leftTop);
+                tabHideContent(rightTop);
+                tabHideContent(leftDown);
+                tabHideContent(rightDown);
+                tabHideContent(message);
+                tabHideContent(settings);
+                break;
 
-            case 'restorans':
-              console.log('restorans');
-              tabBigContent(restoransAdd);
-              tabHideContent(leftTop);
-              tabHideContent(rightTop);
-              tabHideContent(leftDown);
-              tabHideContent(rightDown);
-              tabHideContent(message);
-              tabHideContent(settings);
-              break;
+              case 'waiters':
+                console.log('запрос на модерацию');
+                tabHideContent(restoransAdd);
+                tabHideContent(leftTop);
+                tabHideContent(rightTop);
+                tabBigContent(leftDown);
+                tabHideContent(rightDown);
+                tabHideContent(message);
+                tabHideContent(settings);
+                break;
 
-            case 'waiters':
-              console.log('запрос на модерацию');
-              tabHideContent(restoransAdd);
-              tabHideContent(leftTop);
-              tabHideContent(rightTop);
-              tabBigContent(leftDown);
-              tabHideContent(rightDown);
-              tabHideContent(message);
-              tabHideContent(settings);
-              break;
+              case 'messages':
+                console.log('messages');
+                tabHideContent(restoransAdd);
+                tabHideContent(leftTop);
+                tabHideContent(rightTop);
+                tabHideContent(leftDown);
+                tabHideContent(rightDown);
+                tabBigContent(message);
+                tabHideContent(settings);
+                break;
 
-            case 'messages':
-              console.log('messages');
-              tabHideContent(restoransAdd);
-              tabHideContent(leftTop);
-              tabHideContent(rightTop);
-              tabHideContent(leftDown);
-              tabHideContent(rightDown);
-              tabBigContent(message);
-              tabHideContent(settings);
-              break;
+              case 'settings':
+                console.log('settings');
+                tabHideContent(restoransAdd);
+                tabHideContent(leftTop);
+                tabHideContent(rightTop);
+                tabHideContent(leftDown);
+                tabHideContent(rightDown);
+                tabHideContent(message);
+                tabBigContent(settings);
+                break;
 
-            case 'settings':
-              console.log('settings');
-              tabHideContent(restoransAdd);
-              tabHideContent(leftTop);
-              tabHideContent(rightTop);
-              tabHideContent(leftDown);
-              tabHideContent(rightDown);
-              tabHideContent(message);
-              tabBigContent(settings);
-              break;
-
-            default:
-              console.log('error');
-              break;
+              default:
+                console.log('error');
+                break;
+            }
+          } catch (error) {
+            console.log(error);
           }
         });
       });
     };
 
-    menuBtn('[data-btnMenu]');
+    menuBtn();
   } catch (error) {
     console.log(error);
   }
@@ -612,10 +609,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function userModeration(selector) {
   var reqUser = document.querySelectorAll(selector);
-  console.log(reqUser);
   reqUser.forEach(function (user) {
     user.addEventListener('click', function (e) {
-      // console.log(e.target);
       if (e.target.getAttribute('data-req') == "yes") {
         user.style.backgroundColor = 'rgba(111, 149, 145, 0.25)';
         user.style.border = '5px solid rgba(111, 149, 145, 0.25)';

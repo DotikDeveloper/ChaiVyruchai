@@ -35,30 +35,31 @@
 
                 <nav class="sidebar__menu menu menu__nav">
                     <button class="menu__item" href="admin-panel_adm.html" data-btnMenu="dashboard">
-                        <img src="img/admin/icon__dashbord.svg" alt="dashboard" data-btnMenu="dashboard">
-                        <span class="menu__item--title" data-btnMenu="dashboard">dashboard</span>
+                        <img src="img/admin/icon__dashbord.svg" alt="dashboard">
+                        <span class="menu__item--title">dashboard</span>
                     </button>
                     <button class="menu__item" data-btnMenu="restorans">
-                        <img class="menu__icon" src="img/admin/icon__restaurants.svg" alt="R" data-btnMenu="restorans">
-                        <span class="menu__item--title" data-btnMenu="restorans">рестораны</span>
+                        <img class="menu__icon" src="img/admin/icon__restaurants.svg" alt="R">
+                        <!-- <span class="menu__item--title">рестораны</span> -->
+                        <span class="menu__item--title">рестораны</span>
                     </button>
                     <button class="menu__item" data-btnMenu="waiters">
-                        <img class="menu__icon" src="img/admin/icon__waiters.svg" alt="W" data-btnMenu="waiters">
+                        <img class="menu__icon" src="img/admin/icon__waiters.svg" alt="W">
                         <span class="menu__item--title" data-btnMenu="waiters">официанты</span></button>
                     <button class="menu__item" data-btnMenu="messages">
-                        <img class="menu__icon" src="img/admin/icon__messages.svg" alt="M" data-btnMenu="messages">
-                        <span class="menu__item--title" data-btnMenu="messages">сообщения</span></button>
+                        <img class="menu__icon" src="img/admin/icon__messages.svg" alt="M">
+                        <span class="menu__item--title">сообщения</span></button>
                 </nav>
             </div>
             <div class="sidebar__bottom">
                 <button class="sidebar__settings menu__item menu" data-btnMenu="settings">
-                    <img class="menu__icon" src="img/admin/icon__settings.svg" data-btnMenu="settings">
-                    <span class="menu__item--title" data-btnMenu="settings">настройки</span>
+                    <img class="menu__icon" src="img/admin/icon__settings.svg">
+                    <span class="menu__item--title">настройки</span>
                 </button>
             </div>
         </div>
         <div class="adm__dashboard dashboard">
-            <div class="dashboard__item dashboard__item--total-stats" data-itemDashboard="totalStats">
+            <div class="dashboard__item dashboard__item--total-stats" data-itemDashboard="leftTop">
                 <div class="dashboard__content--header">
                     <h3 class="dashboard__content-title">Общая статистика</h3>
                     <div class="dashboard__filter">
@@ -76,7 +77,7 @@
                     <canvas id="totalStats"></canvas>
                 </div>
             </div>
-            <div class="dashboard__item dashboard__item--company-statistics" data-itemDashboard="companyStatistics">
+            <div class="dashboard__item dashboard__item--company-statistics" data-itemDashboard="rightTop">
                 <div class="dashboard__content--header">
                     <h3 class="dashboard__content-title">статистика по по компаниям</h3>
                     <div class="dashboard__filter">
@@ -95,7 +96,7 @@
                 </div>
             </div>
             <div class="dashboard__item dashboard__item--moderation-requests moderation-requests"
-                data-itemDashboard="moderationRequests">
+                data-itemDashboard="leftDown">
                 <div class="dashboard__content--header">
                     <h3 class="dashboard__content-title">запросы на модерацию</h3>
                     <div class="dashboard__filter">
@@ -154,19 +155,16 @@
                                 <div class="moderation-requests__item--last_name">Ланина</div>
                                 <div class="moderation-requests__item--org_name">Finnegan's</div>
                             </div>
-
                             <div class="moderation-requests__item--role">Официант</div>
                             <div class="moderation-requests__item-block-btn">
                                 <button class="moderation-requests__item--yes" data-req='yes'>да</button>
                                 <button class="moderation-requests__item--no" data-req='no'>нет</button>
                             </div>
-
                         </li>
-
                     </ul>
                 </div>
             </div>
-            <div class="dashboard__item dashboard__item--waiters-rating" data-itemDashboard="waitersRating">
+            <div class="dashboard__item dashboard__item--waiters-rating" data-itemDashboard="rightDown">
                 <div class="dashboard__content--header">
                     <h3 class="dashboard__content-title">рейтинг официантов</h3>
                     <div class="dashboard__filter">

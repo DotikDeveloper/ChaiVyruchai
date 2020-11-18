@@ -17,8 +17,6 @@ function modal() {
 
     loginBtn.addEventListener("click", () => {
         const modalPage = document.querySelector('.overlay');
-
-        console.log("modal", modalPage);
         modalPage.classList.remove("hide");
 
     });

@@ -1,5 +1,4 @@
 function charts() {
-    console.log('charts');
 
     // Общая статистика
     var ctx = document.getElementById('totalStats').getContext('2d');

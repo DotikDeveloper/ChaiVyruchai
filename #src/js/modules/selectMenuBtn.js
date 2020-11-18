@@ -1,7 +1,7 @@
 function selectMenuBtn() {
     try {
-        const menuBtn = (selectorMenuBtn) => {
-            const btn = document.querySelectorAll(selectorMenuBtn);
+        const menuBtn = () => {
+            const btn = document.querySelectorAll('button.menu__item');
    
             const leftTop = document.querySelector('[data-itemDashboard="leftTop"]'),
                 rightTop = document.querySelector('[data-itemDashboard="rightTop"]'),
@@ -33,9 +33,7 @@ function selectMenuBtn() {
                 const userMessages = function (selector) {
                     const reqUser = document.querySelectorAll(selector);
                     reqUser.forEach((user) => {
-                        console.log(user);
                         user.addEventListener('click', (e) => {
-                            console.log(e.target);
                             if (e.target.getAttribute('data-req') == "yes") {
                                 user.style.backgroundColor = 'rgba(111, 149, 145, 0.25)';
                                 user.style.border = '5px solid rgba(111, 149, 145, 0.25)';
@@ -57,65 +55,70 @@ function selectMenuBtn() {
             btn.forEach((item) => {
    
                 item.addEventListener('click', (e) => {
-                    console.log(e.target.dataset.btnmenu);
-   
-                    switch (e.target.dataset.btnmenu) {
-                        case 'dashboard':
-                            location.href = location.href;
-                            tabHideContent(restoransAdd);
-                            tabHideContent(message);
-                            tabHideContent(settings);
-                            break;
-                        case 'restorans':
-                            console.log('restorans');
-                            tabBigContent(restoransAdd);
-                            tabHideContent(leftTop);
-                            tabHideContent(rightTop);
-                            tabHideContent(leftDown);
-                            tabHideContent(rightDown);
-                            tabHideContent(message);
-                            tabHideContent(settings);
-                            break;
-                        case 'waiters':
-                            console.log('запрос на модерацию');
-                            tabHideContent(restoransAdd);
-                            tabHideContent(leftTop);
-                            tabHideContent(rightTop);
-                            tabBigContent(leftDown);
-                            tabHideContent(rightDown);
-                            tabHideContent(message);
-                            tabHideContent(settings);
-                            break;
-                        case 'messages':
-                            console.log('messages');
-                            tabHideContent(restoransAdd);
-                            tabHideContent(leftTop);
-                            tabHideContent(rightTop);
-                            tabHideContent(leftDown);
-                            tabHideContent(rightDown);
-                            tabBigContent(message);
-                            tabHideContent(settings);
-                            break;
-                        case 'settings':
-                            console.log('settings');
-                            tabHideContent(restoransAdd);
-                            tabHideContent(leftTop);
-                            tabHideContent(rightTop);
-                            tabHideContent(leftDown);
-                            tabHideContent(rightDown);
-                            tabHideContent(message);
-                            tabBigContent(settings);
-                            break;
-   
-                        default:
-                            console.log('error');
-                            break;
+
+                    try {
+                        switch (e.target.dataset.btnmenu) {
+                            case 'dashboard':
+                                location.href = location.href;
+                                tabHideContent(restoransAdd);
+                                tabHideContent(message);
+                                tabHideContent(settings);
+                                break;
+                            case 'restorans':
+                                console.log('restorans');
+                                tabBigContent(restoransAdd);
+                                tabHideContent(leftTop);
+                                tabHideContent(rightTop);
+                                tabHideContent(leftDown);
+                                tabHideContent(rightDown);
+                                tabHideContent(message);
+                                tabHideContent(settings);
+                                break;
+                            case 'waiters':
+                                console.log('запрос на модерацию');
+                                tabHideContent(restoransAdd);
+                                tabHideContent(leftTop);
+                                tabHideContent(rightTop);
+                                tabBigContent(leftDown);
+                                tabHideContent(rightDown);
+                                tabHideContent(message);
+                                tabHideContent(settings);
+                                break;
+                            case 'messages':
+                                console.log('messages');
+                                tabHideContent(restoransAdd);
+                                tabHideContent(leftTop);
+                                tabHideContent(rightTop);
+                                tabHideContent(leftDown);
+                                tabHideContent(rightDown);
+                                tabBigContent(message);
+                                tabHideContent(settings);
+                                break;
+                            case 'settings':
+                                console.log('settings');
+                                tabHideContent(restoransAdd);
+                                tabHideContent(leftTop);
+                                tabHideContent(rightTop);
+                                tabHideContent(leftDown);
+                                tabHideContent(rightDown);
+                                tabHideContent(message);
+                                tabBigContent(settings);
+                                break;
+       
+                            default:
+                                console.log('error');
+                                break;
+                        }
+                    } catch (error) {
+                        console.log(error);
                     }
+   
+                    
                 });
             });
         };
    
-        menuBtn('[data-btnMenu]');
+        menuBtn();
    
     } catch (error) {
         console.log(error);
