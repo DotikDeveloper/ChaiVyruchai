@@ -1451,14 +1451,6 @@ button.active {
   font-family: 'PT Sans', sans-serif;
 }
 
-.moderation-requests__item--type {
-  font-size: 12px;
-  font-weight: normal;
-  color: #ca583e;
-  text-transform: lowercase;
-  font-family: 'PT Sans', sans-serif;
-}
-
 .moderation-requests__item-block-btn {
   margin: 0 10px 0 0;
 }
@@ -1713,7 +1705,7 @@ button#org_add {
 }
 
 .messages__user--first_name {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   color: #696666;
   text-transform: uppercase;
@@ -1721,7 +1713,7 @@ button#org_add {
 }
 
 .messages__user--last_name {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   color: #696666;
   text-transform: uppercase;
@@ -1729,16 +1721,16 @@ button#org_add {
 }
 
 .messages__user--org_name {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: normal;
   color: #709591;
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-family: 'PT Sans', sans-serif;
 }
 
 .messages__user--role {
-  font-size: 12px;
-  font-weight: normal;
+  font-size: 14px;
+  font-weight: bold;
   color: #696666;
   text-transform: lowercase;
   font-family: 'PT Sans', sans-serif;
@@ -2300,12 +2292,105 @@ textarea {
     padd: 10px 20px 10px;
   }
 
+  .dashboard__content-title {
+    font-size: 20px;
+    font-weight: normal;
+    color: #696666;
+    text-transform: uppercase;
+    font-family: 'PT Sans', sans-serif;
+  }
+
+  .moderation-requests__item--avatar {
+    width: 80px;
+    height: 80px;
+    margin: 8px;
+  }
+
+  .moderation-requests__item--first_name {
+    font-size: 16px;
+  }
+
+  .moderation-requests__item--last_name {
+    font-size: 16px;
+  }
+
+  .moderation-requests__item--org_name {
+    font-size: 16px;
+  }
+
+  .moderation-requests__item--role {
+    font-size: 16px;
+  }
+
   .moderation-requests__item--yes {
     font-size: 10px;
   }
 
   .moderation-requests__item--no {
     font-size: 10px;
+  }
+
+  .waiters-rating__item--avatar {
+    width: 80px;
+    height: 80px;
+    margin: 8px;
+  }
+
+  .waiters-rating__item--first_name {
+    font-size: 16px;
+  }
+
+  .waiters-rating__item--last_name {
+    font-size: 16px;
+  }
+
+  .waiters-rating__item--org_name {
+    font-size: 16px;
+  }
+
+  .waiters-rating__item--role {
+    font-size: 16px;
+  }
+
+  .waiters-rating__item--level {
+    font-size: 18px;
+  }
+
+  .reg-form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .messages__user--avatar {
+    width: 80px;
+    height: 80px;
+    margin: 8px;
+  }
+
+  .messages__user--first_name {
+    font-size: 16px;
+  }
+
+  .messages__user--last_name {
+    font-size: 16px;
+  }
+
+  .messages__user--org_name {
+    font-size: 16px;
+  }
+
+  .messages__user--role {
+    font-size: 16px;
+  }
+
+  .messages__text {
+    font-size: 16px;
+  }
+
+  .messages__date {
+    font-size: 14px;
   }
 
   .messages__btn {
@@ -2726,6 +2811,36 @@ textarea {
     padd: 10px 20px 10px;
   }
 
+  .dashboard__content-title {
+    font-size: 18px;
+    font-weight: normal;
+    color: #696666;
+    text-transform: uppercase;
+    font-family: 'PT Sans', sans-serif;
+  }
+
+  .moderation-requests__item--avatar {
+    width: 75px;
+    height: 75px;
+    margin: 7px;
+  }
+
+  .moderation-requests__item--first_name {
+    font-size: 16px;
+  }
+
+  .moderation-requests__item--last_name {
+    font-size: 16px;
+  }
+
+  .moderation-requests__item--org_name {
+    font-size: 16px;
+  }
+
+  .moderation-requests__item--role {
+    font-size: 16px;
+  }
+
   .moderation-requests__item--yes {
     font-size: 8px;
   }
@@ -2734,8 +2849,81 @@ textarea {
     font-size: 8px;
   }
 
+  .waiters-rating__item--avatar {
+    width: 75px;
+    height: 75px;
+    margin: 7px;
+  }
+
+  .waiters-rating__item--first_name {
+    font-size: 16px;
+  }
+
+  .waiters-rating__item--last_name {
+    font-size: 16px;
+  }
+
+  .waiters-rating__item--org_name {
+    font-size: 16px;
+  }
+
+  .waiters-rating__item--role {
+    font-size: 16px;
+  }
+
+  .waiters-rating__item--level {
+    font-size: 16px;
+  }
+
+  .reg-form {
+    font-size: 16px;
+  }
+
+  .messages__list {
+    padding: 5px 5px;
+  }
+
+  .messages__user {
+    padding: 5px 5px;
+  }
+
+  .messages__user--avatar {
+    width: 75px;
+    height: 75px;
+    margin: 7px;
+  }
+
+  .messages__user--first_name {
+    font-size: 16px;
+  }
+
+  .messages__user--last_name {
+    font-size: 16px;
+  }
+
+  .messages__user--org_name {
+    font-size: 16px;
+  }
+
+  .messages__user--role {
+    font-size: 16px;
+  }
+
+  .messages__text {
+    font-size: 14px;
+    padding: 15px 5px 5px;
+  }
+
+  .messages__date {
+    font-size: 12px;
+  }
+
   .messages__btn {
     font-size: 14.4px;
+  }
+
+  .messages__btn {
+    font-size: 10px;
   }
 
   .contacts__title {
@@ -2941,6 +3129,36 @@ textarea {
     padd: 10px 20px 10px;
   }
 
+  .dashboard__content-title {
+    font-size: 16px;
+    font-weight: normal;
+    color: #696666;
+    text-transform: uppercase;
+    font-family: 'PT Sans', sans-serif;
+  }
+
+  .moderation-requests__item--avatar {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+  }
+
+  .moderation-requests__item--first_name {
+    font-size: 10px;
+  }
+
+  .moderation-requests__item--last_name {
+    font-size: 12px;
+  }
+
+  .moderation-requests__item--org_name {
+    font-size: 12px;
+  }
+
+  .moderation-requests__item--role {
+    font-size: 12px;
+  }
+
   .moderation-requests__item--yes {
     font-size: 5px;
   }
@@ -2949,8 +3167,110 @@ textarea {
     font-size: 5px;
   }
 
+  .waiters-rating__item--avatar {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+  }
+
+  .waiters-rating__item--first_name {
+    font-size: 10px;
+  }
+
+  .waiters-rating__item--last_name {
+    font-size: 12px;
+  }
+
+  .waiters-rating__item--org_name {
+    font-size: 12px;
+  }
+
+  .waiters-rating__item--role {
+    font-size: 12px;
+  }
+
+  .waiters-rating__item--level {
+    font-size: 14px;
+  }
+
+  .reg-form {
+    font-size: 10px;
+  }
+
+  .messages__item {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .messages__user {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+
+  .messages__user--avatar {
+    display: none;
+  }
+
+  .messages__user--first_name {
+    font-size: 12px;
+    margin: 0 .5em 0 0;
+  }
+
+  .messages__user--last_name {
+    font-size: 12px;
+    margin: 0 2.5em 0 0;
+  }
+
+  .messages__user--org_name {
+    font-size: 12px;
+    font-weight: normal;
+    color: #709591;
+    text-transform: uppercase;
+    font-family: 'PT Sans', sans-serif;
+    margin: 0 .5em 0 0;
+  }
+
+  .messages__user--role {
+    font-size: 12px;
+  }
+
+  .messages__text {
+    font-size: 12px;
+  }
+
+  .messages__date {
+    font-size: 10px;
+  }
+
+  .messages__status {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+    margin: 5px 10px 10px;
+  }
+
   .messages__btn {
     font-size: 9px;
+  }
+
+  .messages__btn {
+    font-size: 12px;
   }
 
   .contacts__title {

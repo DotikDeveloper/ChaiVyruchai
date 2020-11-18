@@ -2,7 +2,7 @@
 
 .adm {
     margin: 35px 0 35px 0;
-    
+
 
     &__main {
         display: flex;
@@ -290,6 +290,18 @@
             color: $pallete-fonts;
             align-items: center;
             @include fonts (24px, normal, $pallete-fonts, uppercase);
+
+            @media (max-width: 1140px) {
+                @include fonts (20px, normal, $pallete-fonts, uppercase);
+            }
+
+            @media (max-width:768px) {
+                @include fonts (18px, normal, $pallete-fonts, uppercase);
+            }
+
+            @media (max-width: 375px) {
+                @include fonts (16px, normal, $pallete-fonts, uppercase);
+            }
         }
 
         &--header {
@@ -385,6 +397,24 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+
+            @media (max-width: 1140px) {
+                width: 80px;
+                height: 80px;
+                margin: 8px;
+            }
+
+            @media (max-width:768px) {
+                width: 75px;
+                height: 75px;
+                margin: 7px;
+            }
+
+            @media (max-width: 375px) {
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+            }
         }
 
         &--avatar-img {
@@ -398,22 +428,66 @@
 
         &--first_name {
             @include fonts (18px, bold, $pallete-fonts, uppercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 10px;
+            }
         }
 
         &--last_name {
             @include fonts (18px, bold, $pallete-fonts, uppercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 12px;
+            }
         }
 
         &--org_name {
             @include fonts (16px, normal, $pallete-primary, lowercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 12px;
+            }
         }
 
         &--role {
             @include fonts (14px, bold, $pallete-fonts, lowercase);
-        }
 
-        &--type {
-            @include fonts (12px, normal, $pallete-secondary, lowercase);
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 12px;
+            }
         }
 
         &-block-btn {
@@ -526,6 +600,24 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+
+            @media (max-width: 1140px) {
+                width: 80px;
+                height: 80px;
+                margin: 8px;
+            }
+
+            @media (max-width:768px) {
+                width: 75px;
+                height: 75px;
+                margin: 7px;
+            }
+
+            @media (max-width: 375px) {
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+            }
         }
 
         &--avatar-img {
@@ -539,23 +631,83 @@
 
         &--first_name {
             @include fonts (18px, bold, $pallete-fonts, uppercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 10px;
+            }
         }
 
         &--last_name {
             @include fonts (18px, bold, $pallete-fonts, uppercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 12px;
+            }
         }
 
         &--org_name {
             @include fonts (16px, normal, $pallete-primary, lowercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 12px;
+            }
         }
 
         &--role {
             @include fonts (14px, bold, $pallete-fonts, lowercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 12px;
+            }
         }
 
         &--level {
             @include fonts (24px, bold, $pallete-secondary, uppercase);
             margin: 0 10px 0 0;
+
+            @media (max-width: 1140px) {
+                font-size: 18px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 14px;
+            }
         }
     }
 
@@ -564,6 +716,18 @@
 
 .reg-form {
     display: flex;
+
+    @media (max-width: 1140px) {
+        flex-direction: column;
+    }
+
+    @media (max-width:768px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 375px) {
+        font-size: 10px;
+    }
 
     &__colume {
         width: 100%;
@@ -592,6 +756,10 @@ button#org_add {
         flex-direction: column;
         justify-content: space-between;
         align-items: start;
+
+        @media (max-width:768px) {
+            padding: 5px 5px;
+        }
     }
 
     &__item {
@@ -601,6 +769,12 @@ button#org_add {
         align-items: center;
         border-bottom: 1px solid $pallete-fonts;
         margin-bottom: 5px;
+
+        @media (max-width: 375px) {
+            justify-content: start;
+            align-items: center;
+            flex-direction: column;
+        }
     }
 
     &__user {
@@ -611,6 +785,17 @@ button#org_add {
         width: 250px;
         padding: 25px 15px;
 
+        @media (max-width:768px) {
+            padding: 5px 5px;
+        }
+
+        @media (max-width: 375px) {
+            width: 100%;
+            flex-direction: row;
+            justify-content: start;
+        }
+
+
         &--avatar {
             width: 85px;
             height: 85px;
@@ -619,6 +804,22 @@ button#org_add {
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+
+            @media (max-width: 1140px) {
+                width: 80px;
+                height: 80px;
+                margin: 8px;
+            }
+
+            @media (max-width:768px) {
+                width: 75px;
+                height: 75px;
+                margin: 7px;
+            }
+
+            @media (max-width: 375px) {
+                display: none;
+            }
 
             &-img {
                 width: 100%;
@@ -631,19 +832,70 @@ button#org_add {
         }
 
         &--first_name {
-            @include fonts (22px, bold, $pallete-fonts, uppercase);
+            @include fonts (18px, bold, $pallete-fonts, uppercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 12px;
+                margin: 0 .5em 0 0;
+            }
         }
 
         &--last_name {
-            @include fonts (22px, bold, $pallete-fonts, uppercase);
+            @include fonts (18px, bold, $pallete-fonts, uppercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 12px;
+                margin: 0 2.5em 0 0;
+            }
         }
 
         &--org_name {
-            @include fonts (24px, bold, $pallete-primary, uppercase);
+            @include fonts (16px, normal, $pallete-primary, lowercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                @include fonts (12px, normal, $pallete-primary, uppercase);
+                margin: 0 .5em 0 0;
+            }
         }
 
         &--role {
-            @include fonts (12px, normal, $pallete-fonts, lowercase);
+            @include fonts (14px, bold, $pallete-fonts, lowercase);
+
+            @media (max-width: 1140px) {
+                font-size: 16px;
+            }
+
+            @media (max-width:768px) {
+                font-size: 16px;
+            }
+
+            @media (max-width: 375px) {
+                font-size: 12px;
+            }
         }
     }
 
@@ -651,10 +903,35 @@ button#org_add {
         @include fonts (18px, normal, $pallete-fonts, normal);
         padding: 25px;
         line-height: 1.5em;
+
+        @media (max-width: 1140px) {
+            font-size: 16px;
+        }
+
+        @media (max-width:768px) {
+            font-size: 14px;
+            padding: 15px 5px 5px;
+        }
+
+        @media (max-width: 375px) {
+            font-size: 12px;
+        }
     }
 
     &__date {
         @include fonts (18px, bold, $pallete-secondary, uppercase);
+
+        @media (max-width: 1140px) {
+            font-size: 14px;
+        }
+
+        @media (max-width:768px) {
+            font-size: 12px;
+        }
+
+        @media (max-width: 375px) {
+            font-size: 10px;
+        }
     }
 
     &__status {
@@ -664,6 +941,12 @@ button#org_add {
         justify-content: space-around;
         margin: 25px 10px 50px;
         width: 200px;
+
+        @media (max-width: 375px) {
+            flex-direction: row;
+            width: 100%;
+            margin: 5px 10px 10px;
+        }
     }
 
     &__btn {
@@ -672,7 +955,20 @@ button#org_add {
         width: 100%;
         text-align: center;
         @include shadow;
-        @include button(18px, 15px)
+
+        @include button(18px, 15px);
+
+        @media (max-width: 1140px) {
+            // @include button(14px, 12px);
+        }
+
+        @media (max-width:768px) {
+            font-size: 10px;
+        }
+
+        @media (max-width: 375px) {
+            font-size: 12px;
+        }
     }
 
 }
