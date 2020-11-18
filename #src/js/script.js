@@ -8,12 +8,17 @@ import filterDashboard from './modules/filterDashboard';
 import charts from './modules/charts';
 import userModeration from './modules/userModeration';
 import selectMenuBtn from './modules/selectMenuBtn';
+import openMenu from './modules/openMenu';
 
 
 window.addEventListener('DOMContentLoaded', () => {
 
     date('.footer__date');
-    modal();
+    try {
+        modal();
+    } catch (error) {
+        console.log(error);
+    }    
     try {
         slides();
     } catch (error) {
@@ -41,6 +46,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     try {
         selectMenuBtn();
+    } catch (error) {
+        console.log(error);
+    }
+    try {
+        openMenu();
     } catch (error) {
         console.log(error);
     }

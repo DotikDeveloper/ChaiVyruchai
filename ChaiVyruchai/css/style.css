@@ -956,10 +956,11 @@ button.active {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  position: relative;
 }
 
 .adm__sidebar {
-  width: 420px;
+  width: 370px;
   background: #e6e9ef;
   -webkit-box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
           box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
@@ -2275,6 +2276,30 @@ textarea {
     font-size: 15px;
   }
 
+  .adm__sidebar {
+    position: absolute;
+    z-index: 1000;
+    width: 0;
+    left: -450px;
+  }
+
+  .adm__dashboard {
+    margin: 0;
+  }
+
+  .dashboard {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padd: 10px 20px 10px;
+  }
+
   .moderation-requests__item--yes {
     font-size: 10px;
   }
@@ -2679,6 +2704,28 @@ textarea {
     font-size: 12px;
   }
 
+  .adm__sidebar {
+    width: 0;
+    left: -450px;
+  }
+
+  .adm__dashboard {
+    margin: 0;
+  }
+
+  .dashboard {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padd: 10px 20px 10px;
+  }
+
   .moderation-requests__item--yes {
     font-size: 8px;
   }
@@ -2870,6 +2917,28 @@ textarea {
 
   .registration__btn {
     font-size: 7.5px;
+  }
+
+  .adm__sidebar {
+    width: 0;
+    left: -450px;
+  }
+
+  .adm__dashboard {
+    margin: 0;
+  }
+
+  .dashboard {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padd: 10px 20px 10px;
   }
 
   .moderation-requests__item--yes {
