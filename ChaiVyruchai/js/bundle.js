@@ -155,6 +155,39 @@ function date(selector) {
 
 /***/ }),
 
+/***/ "./#src/js/modules/filterDashboard.js":
+/*!********************************************!*\
+  !*** ./#src/js/modules/filterDashboard.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function filterDashboard() {
+  var filterBtn = document.querySelectorAll('.dashboard__filter-btn');
+  filterBtn.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      if (e.target.parentElement.parentElement.nextElementSibling.classList.contains('hide')) {
+        e.target.parentElement.parentElement.nextElementSibling.classList.remove('hide');
+      } else {
+        e.target.parentElement.parentElement.nextElementSibling.classList.add('hide');
+      }
+    });
+  }); // console.log(filterBtn);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (filterDashboard);
+
+/***/ }),
+
 /***/ "./#src/js/modules/modal.js":
 /*!**********************************!*\
   !*** ./#src/js/modules/modal.js ***!
@@ -266,6 +299,154 @@ function registration(headerSelector, tabSelector, contentSelector, activeClass)
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (registration);
+
+/***/ }),
+
+/***/ "./#src/js/modules/selectMenuBtn.js":
+/*!******************************************!*\
+  !*** ./#src/js/modules/selectMenuBtn.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function selectMenuBtn() {
+  try {
+    var menuBtn = function menuBtn(selectorMenuBtn) {
+      var btn = document.querySelectorAll(selectorMenuBtn);
+      var leftTop = document.querySelector('[data-itemDashboard="leftTop"]'),
+          rightTop = document.querySelector('[data-itemDashboard="rightTop"]'),
+          leftDown = document.querySelector('[data-itemDashboard="leftDown"]'),
+          rightDown = document.querySelector('[data-itemDashboard="rightDown"]'),
+          restoransAdd = document.querySelector('[data-itemDashboard="restoransAdd"]'),
+          message = document.querySelector('[data-itemDashboard="message"]'),
+          settings = document.querySelector('[data-itemDashboard="settings"]');
+
+      function tabBigContent(selectorBig) {
+        if (!selectorBig.classList.contains('hide')) {
+          selectorBig.classList.add('dashboard__item--big');
+        } else {
+          selectorBig.classList.remove('hide');
+          selectorBig.classList.add('dashboard__item--big');
+        }
+      }
+
+      function tabHideContent(selectorHide) {
+        if (!selectorHide.classList.contains('dashboard__item--big')) {
+          selectorHide.classList.add('hide');
+        } else {
+          selectorHide.classList.remove('dashboard__item--big');
+          selectorHide.classList.add('hide');
+        }
+      }
+
+      try {
+        var userMessages = function userMessages(selector) {
+          var reqUser = document.querySelectorAll(selector);
+          reqUser.forEach(function (user) {
+            console.log(user);
+            user.addEventListener('click', function (e) {
+              console.log(e.target);
+
+              if (e.target.getAttribute('data-req') == "yes") {
+                user.style.backgroundColor = 'rgba(111, 149, 145, 0.25)';
+                user.style.border = '5px solid rgba(111, 149, 145, 0.25)';
+              }
+
+              if (e.target.getAttribute('data-req') == "no") {
+                user.style.backgroundColor = 'rgba(202, 88, 62, 0.25)';
+                user.style.border = '5px solid rgba(202, 88, 62, 0.25)';
+              } else {
+                console.log('не нажата кнопка модерации');
+              }
+            });
+          });
+        };
+
+        userMessages('.messages__item');
+      } catch (error) {
+        console.log(error);
+      }
+
+      btn.forEach(function (item) {
+        item.addEventListener('click', function (e) {
+          console.log(e.target.dataset.btnmenu);
+
+          switch (e.target.dataset.btnmenu) {
+            case 'dashboard':
+              location.href = location.href;
+              tabHideContent(restoransAdd);
+              tabHideContent(message);
+              tabHideContent(settings);
+              break;
+
+            case 'restorans':
+              console.log('restorans');
+              tabBigContent(restoransAdd);
+              tabHideContent(leftTop);
+              tabHideContent(rightTop);
+              tabHideContent(leftDown);
+              tabHideContent(rightDown);
+              tabHideContent(message);
+              tabHideContent(settings);
+              break;
+
+            case 'waiters':
+              console.log('запрос на модерацию');
+              tabHideContent(restoransAdd);
+              tabHideContent(leftTop);
+              tabHideContent(rightTop);
+              tabBigContent(leftDown);
+              tabHideContent(rightDown);
+              tabHideContent(message);
+              tabHideContent(settings);
+              break;
+
+            case 'messages':
+              console.log('messages');
+              tabHideContent(restoransAdd);
+              tabHideContent(leftTop);
+              tabHideContent(rightTop);
+              tabHideContent(leftDown);
+              tabHideContent(rightDown);
+              tabBigContent(message);
+              tabHideContent(settings);
+              break;
+
+            case 'settings':
+              console.log('settings');
+              tabHideContent(restoransAdd);
+              tabHideContent(leftTop);
+              tabHideContent(rightTop);
+              tabHideContent(leftDown);
+              tabHideContent(rightDown);
+              tabHideContent(message);
+              tabBigContent(settings);
+              break;
+
+            default:
+              console.log('error');
+              break;
+          }
+        });
+      });
+    };
+
+    menuBtn('[data-btnMenu]');
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (selectMenuBtn);
 
 /***/ }),
 
@@ -413,6 +594,49 @@ function slides() {
 
 /***/ }),
 
+/***/ "./#src/js/modules/userModeration.js":
+/*!*******************************************!*\
+  !*** ./#src/js/modules/userModeration.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function userModeration(selector) {
+  var reqUser = document.querySelectorAll(selector);
+  console.log(reqUser);
+  reqUser.forEach(function (user) {
+    user.addEventListener('click', function (e) {
+      // console.log(e.target);
+      if (e.target.getAttribute('data-req') == "yes") {
+        user.style.backgroundColor = 'rgba(111, 149, 145, 0.25)';
+        user.style.border = '5px solid rgba(111, 149, 145, 0.25)';
+        user.style.padding = '0';
+      }
+
+      if (e.target.getAttribute('data-req') == "no") {
+        user.style.backgroundColor = 'rgba(202, 88, 62, 0.25)';
+        user.style.border = '5px solid rgba(202, 88, 62, 0.25)';
+        user.style.padding = '0';
+      } else {
+        console.log('не нажата кнопка модерации');
+      }
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (userModeration);
+
+/***/ }),
+
 /***/ "./#src/js/script.js":
 /*!***************************!*\
   !*** ./#src/js/script.js ***!
@@ -426,8 +650,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ "./#src/js/modules/modal.js");
 /* harmony import */ var _modules_registration__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/registration */ "./#src/js/modules/registration.js");
 /* harmony import */ var _modules_slides__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slides */ "./#src/js/modules/slides.js");
-/* harmony import */ var _modules_charts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/charts */ "./#src/js/modules/charts.js");
+/* harmony import */ var _modules_filterDashboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/filterDashboard */ "./#src/js/modules/filterDashboard.js");
+/* harmony import */ var _modules_charts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/charts */ "./#src/js/modules/charts.js");
+/* harmony import */ var _modules_userModeration__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/userModeration */ "./#src/js/modules/userModeration.js");
+/* harmony import */ var _modules_selectMenuBtn__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/selectMenuBtn */ "./#src/js/modules/selectMenuBtn.js");
 'use string';
+
+
+
 
 
 
@@ -450,7 +680,29 @@ window.addEventListener('DOMContentLoaded', function () {
     console.log(error);
   }
 
-  Object(_modules_charts__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  try {
+    Object(_modules_filterDashboard__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    Object(_modules_charts__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    Object(_modules_userModeration__WEBPACK_IMPORTED_MODULE_6__["default"])('.moderation-requests__item');
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    Object(_modules_selectMenuBtn__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 /***/ }),

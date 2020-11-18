@@ -289,6 +289,7 @@ button.active {
   text-transform: uppercase;
   margin: 35px 0 0 0;
   max-width: 350px;
+  text-align: center;
 }
 
 .intro__button:hover {
@@ -1111,8 +1112,8 @@ button.active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   -webkit-box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
           box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
   border-radius: 50%;
@@ -1122,8 +1123,8 @@ button.active {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 70px;
-  height: 70px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
 }
 
@@ -1194,7 +1195,7 @@ button.active {
   width: 100%;
   height: 50px;
   margin: 30px 0 0;
-  padding: 0 0 0 15px;
+  padding: 0 0 0 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1388,6 +1389,7 @@ button.active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 5px 5px 4px 5px;
   border-bottom: 1px solid #696666;
   margin-bottom: 5px;
 }
@@ -1417,7 +1419,7 @@ button.active {
 }
 
 .moderation-requests__item--first_name {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   color: #696666;
   text-transform: uppercase;
@@ -1425,7 +1427,7 @@ button.active {
 }
 
 .moderation-requests__item--last_name {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   color: #696666;
   text-transform: uppercase;
@@ -1433,16 +1435,16 @@ button.active {
 }
 
 .moderation-requests__item--org_name {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: normal;
   color: #709591;
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-family: 'PT Sans', sans-serif;
 }
 
 .moderation-requests__item--role {
-  font-size: 12px;
-  font-weight: normal;
+  font-size: 14px;
+  font-weight: bold;
   color: #696666;
   text-transform: lowercase;
   font-family: 'PT Sans', sans-serif;
@@ -1456,7 +1458,12 @@ button.active {
   font-family: 'PT Sans', sans-serif;
 }
 
+.moderation-requests__item-block-btn {
+  margin: 0 10px 0 0;
+}
+
 .moderation-requests__item--yes {
+  margin: 0 5px 0 0;
   -webkit-box-shadow: 20px 20px 40px #d3dbe6, -20px -20px 40px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
           box-shadow: 20px 20px 40px #d3dbe6, -20px -20px 40px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
   border-radius: 4px;
@@ -1533,6 +1540,7 @@ button.active {
           align-items: center;
   border-bottom: 1px solid #696666;
   margin-bottom: 5px;
+  padding: 5px 5px 4px 5px;
 }
 
 .waiters-rating__item--avatar {
@@ -1560,7 +1568,7 @@ button.active {
 }
 
 .waiters-rating__item--first_name {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   color: #696666;
   text-transform: uppercase;
@@ -1568,7 +1576,7 @@ button.active {
 }
 
 .waiters-rating__item--last_name {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
   color: #696666;
   text-transform: uppercase;
@@ -1576,16 +1584,16 @@ button.active {
 }
 
 .waiters-rating__item--org_name {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: normal;
   color: #709591;
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-family: 'PT Sans', sans-serif;
 }
 
 .waiters-rating__item--role {
-  font-size: 12px;
-  font-weight: normal;
+  font-size: 14px;
+  font-weight: bold;
   color: #696666;
   text-transform: lowercase;
   font-family: 'PT Sans', sans-serif;
@@ -1597,6 +1605,7 @@ button.active {
   color: #ca583e;
   text-transform: uppercase;
   font-family: 'PT Sans', sans-serif;
+  margin: 0 10px 0 0;
 }
 
 .reg-form {

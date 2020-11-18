@@ -100,8 +100,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 80px;
-        height: 80px;
+        width: 50px;
+        height: 50px;
         @include shadow;
         border-radius: 50%;
 
@@ -109,8 +109,8 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            width: 70px;
-            height: 70px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
         }
     }
@@ -168,7 +168,7 @@
         width: 100%;
         height: 50px;
         margin: 30px 0 0;
-        padding: 0 0 0 15px;
+        padding: 0 0 0 25px;
         display: flex;
         align-items: center;
         justify-content: start;
@@ -322,6 +322,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 5px 5px 4px 5px;
         border-bottom: 1px solid $pallete-fonts;
         margin-bottom: 5px;
 
@@ -345,26 +346,31 @@
         }
 
         &--first_name {
-            @include fonts (22px, bold, $pallete-fonts, uppercase);
+            @include fonts (18px, bold, $pallete-fonts, uppercase);
         }
 
         &--last_name {
-            @include fonts (22px, bold, $pallete-fonts, uppercase);
+            @include fonts (18px, bold, $pallete-fonts, uppercase);
         }
 
         &--org_name {
-            @include fonts (24px, bold, $pallete-primary, uppercase);
+            @include fonts (16px, normal, $pallete-primary, lowercase);
         }
 
         &--role {
-            @include fonts (12px, normal, $pallete-fonts, lowercase);
+            @include fonts (14px, bold, $pallete-fonts, lowercase);
         }
 
         &--type {
             @include fonts (12px, normal, $pallete-secondary, lowercase);
         }
 
+        &-block-btn{
+            margin: 0 10px 0 0;
+        }
+
         &--yes {
+            margin: 0 5px 0 0;
             &:hover {
                 opacity: 0.9;
                 box-shadow: 0 0 0 0.2rem #70959127;
@@ -458,6 +464,7 @@
         align-items: center;
         border-bottom: 1px solid $pallete-fonts;
         margin-bottom: 5px;
+        padding: 5px 5px 4px 5px;
 
         &--avatar {
             width: 85px;
@@ -479,23 +486,24 @@
         }
 
         &--first_name {
-            @include fonts (22px, bold, $pallete-fonts, uppercase);
+            @include fonts (18px, bold, $pallete-fonts, uppercase);
         }
 
         &--last_name {
-            @include fonts (22px, bold, $pallete-fonts, uppercase);
+            @include fonts (18px, bold, $pallete-fonts, uppercase);
         }
 
         &--org_name {
-            @include fonts (24px, bold, $pallete-primary, uppercase);
+            @include fonts (16px, normal, $pallete-primary, lowercase);
         }
 
         &--role {
-            @include fonts (12px, normal, $pallete-fonts, lowercase);
+            @include fonts (14px, bold, $pallete-fonts, lowercase);
         }
 
         &--level {
             @include fonts (24px, bold, $pallete-secondary, uppercase);
+            margin: 0 10px 0 0;
         }
     }
 
