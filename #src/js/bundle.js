@@ -207,7 +207,14 @@ function modal() {
   var modalBg = document.querySelector(".overlay"),
       logoutBtn = document.querySelector("button[data-button=close-modal]"),
       loginBtn = document.querySelector("button[data-button=login]"),
-      inputModal = document.querySelectorAll("input");
+      inputModal = document.querySelectorAll("input"),
+      closeStatus = document.querySelector("[data-button=close-modal-status]"),
+      errorModal = document.querySelector(".overlay.overlay__status");
+  closeStatus.addEventListener('click', function () {
+    if (!errorModal.classList.contains("hide")) {
+      errorModal.classList.add("hide");
+    }
+  });
   logoutBtn.addEventListener("click", function () {
     modalBg.classList.add("hide"); //  reset form__password
 
@@ -247,9 +254,8 @@ function modal() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// data-button="menu-admin"
 function openMenu() {
-  var btnMenuAdmin = document.querySelector('[data-button=menu-admin]'),
+  var btnMenuAdmin = document.querySelector('[data-input=login]'),
       sidebar = document.querySelector('.adm__sidebar');
   btnMenuAdmin.addEventListener('click', function () {
     if (sidebar.style.width == '0' || sidebar.style.left == '-450px') {
@@ -677,7 +683,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_charts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/charts */ "./#src/js/modules/charts.js");
 /* harmony import */ var _modules_userModeration__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/userModeration */ "./#src/js/modules/userModeration.js");
 /* harmony import */ var _modules_selectMenuBtn__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/selectMenuBtn */ "./#src/js/modules/selectMenuBtn.js");
-/* harmony import */ var _modules_openMenu__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/openMenu */ "./#src/js/modules/openMenu.js");
+/* harmony import */ var _modules_openMenu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/openMenu */ "./#src/js/modules/openMenu.js");
 'use string';
 
 
@@ -735,7 +741,7 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   try {
-    Object(_modules_openMenu__WEBPACK_IMPORTED_MODULE_9__["default"])();
+    Object(_modules_openMenu__WEBPACK_IMPORTED_MODULE_8__["default"])();
   } catch (error) {
     console.log(error);
   }

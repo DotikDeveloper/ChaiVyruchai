@@ -3,9 +3,18 @@ function modal() {
     const modalBg = document.querySelector(".overlay"),
         logoutBtn = document.querySelector("button[data-button=close-modal]"),
         loginBtn = document.querySelector("button[data-button=login]"),
-        inputModal = document.querySelectorAll("input");
+        inputModal = document.querySelectorAll("input"),
+        closeStatus = document.querySelector("[data-button=close-modal-status]"),
+        errorModal = document.querySelector(".overlay.overlay__status");
 
-    logoutBtn.addEventListener("click", () => {
+        closeStatus.addEventListener('click', () => {
+            if (!errorModal.classList.contains("hide")) {
+                errorModal.classList.add("hide");
+            }             
+        });
+
+    
+        logoutBtn.addEventListener("click", () => {
         modalBg.classList.add("hide");
         //  reset form__password
         inputModal.forEach((i) => {

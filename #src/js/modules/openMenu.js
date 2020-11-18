@@ -1,7 +1,6 @@
-// data-button="menu-admin"
 
 function openMenu() {
-    const btnMenuAdmin = document.querySelector('[data-button=menu-admin]'),
+    const btnMenuAdmin = document.querySelector('[data-input=login]'),
         sidebar = document.querySelector('.adm__sidebar');
 
     btnMenuAdmin.addEventListener('click', () => {

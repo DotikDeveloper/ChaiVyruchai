@@ -49,6 +49,14 @@
         }
     }
 
+    &__picture{
+        background: url('../img/modal/mistake.jpg') no-repeat center center/ cover;
+        width: 250px;
+        height: 150px;
+        margin: 15px auto;
+        @include shadow;
+    }
+
     &__title {
         @include title-h3;
         color: $pallete-fonts;
@@ -60,6 +68,9 @@
 
         @media (max-width: 768px) {
             font-size: 1rem;
+        }
+        &--status{
+            text-align: center;
         }
     }
 
