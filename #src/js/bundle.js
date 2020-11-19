@@ -255,15 +255,20 @@ function modal() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 function openMenu() {
-  var btnMenuAdmin = document.querySelector('[data-input=login]'),
+  var btnMenuAdmin = document.querySelector('[data-button=menu-admin]'),
       sidebar = document.querySelector('.adm__sidebar');
+  console.log(sidebar, btnMenuAdmin);
   btnMenuAdmin.addEventListener('click', function () {
+    console.log('message');
+
     if (sidebar.style.width == '0' || sidebar.style.left == '-450px') {
       sidebar.style.left = '0';
       sidebar.style.width = '370px';
+      sidebar.style.display = 'flex';
     } else {
       sidebar.style.left = '-450px';
       sidebar.style.width = '0';
+      sidebar.style.display = 'none';
     }
   });
 }
@@ -743,7 +748,7 @@ window.addEventListener('DOMContentLoaded', function () {
   try {
     Object(_modules_openMenu__WEBPACK_IMPORTED_MODULE_8__["default"])();
   } catch (error) {
-    console.log(error);
+    console.log('не работает openMenu', error);
   }
 });
 

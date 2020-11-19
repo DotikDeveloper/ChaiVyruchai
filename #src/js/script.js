@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
     try {
         openMenu();
     } catch (error) {
-        console.log(error);
+        console.log('не работает openMenu', error);
     }
 
 
