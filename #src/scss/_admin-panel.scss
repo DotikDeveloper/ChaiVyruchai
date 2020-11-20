@@ -1157,6 +1157,7 @@ input.input__file {
 
     &__title {
         @include title-h4;
+        font-family: "PT Sans";
         margin: 50px 0 0;
         text-align: center;
     }
@@ -1176,13 +1177,13 @@ input.input__file {
     &__id-user {
         @include title-h4;
         margin: 0 0 50px 0;
+        font-family: "PT Sans";
     }
 
     &__id-number {
         @include title-h4;
         margin: 0 0 50px 10px;
-
-
+        font-family: "PT Sans";
     }
 }
 

@@ -718,8 +718,7 @@ button.active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 15px 0;
-  background-color: #696666;
+  background-color: #928c8c;
   color: #e6e9ef;
   width: 100%;
 }
@@ -736,6 +735,7 @@ button.active {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  padding: 15px 0 15px;
 }
 
 .footer__call-to-action {
@@ -746,6 +746,9 @@ button.active {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
 }
 
@@ -764,8 +767,8 @@ button.active {
 
 .footer__button {
   max-height: 3rem;
-  -webkit-box-shadow: 20px 20px 40px #5a5656, -20px -20px 40px #5a5656, -1px -1px 1px #5851516e;
-          box-shadow: 20px 20px 40px #5a5656, -20px -20px 40px #5a5656, -1px -1px 1px #5851516e;
+  -webkit-box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
+          box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
   border-radius: 15px;
   background-color: #ca583e;
   padding: 0.7rem 1.35rem;
@@ -1997,6 +2000,7 @@ input.input__file {
   font-size: 1.75rem;
   font-weight: 400;
   text-transform: uppercase;
+  font-family: "PT Sans";
   margin: 50px 0 0;
   text-align: center;
 }
@@ -2021,6 +2025,7 @@ input.input__file {
   font-weight: 400;
   text-transform: uppercase;
   margin: 0 0 50px 0;
+  font-family: "PT Sans";
 }
 
 .business-card__id-number {
@@ -2030,6 +2035,7 @@ input.input__file {
   font-weight: 400;
   text-transform: uppercase;
   margin: 0 0 50px 10px;
+  font-family: "PT Sans";
 }
 
 .contacts {
@@ -2666,7 +2672,6 @@ textarea {
 @media (max-width: 1024px) {
   .footer {
     text-align: left;
-    padding: 0 0 10px;
   }
 
   .footer__title {
@@ -2975,7 +2980,6 @@ textarea {
 
   .footer {
     text-align: center;
-    padding: 0 0 5px;
   }
 
   .footer__call-to-action {
@@ -2997,6 +3001,11 @@ textarea {
     font-size: 2rem;
   }
 
+  .footer__title {
+    font-size: 1em;
+    margin: 0 0 15px;
+  }
+
   .footer__button {
     font-size: 0.96rem;
     margin: 15px 0 25px;
@@ -3005,6 +3014,17 @@ textarea {
 
   .footer__text {
     display: none;
+  }
+
+  .footer__link {
+    font-size: 0.85em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .registration__img--picture {
