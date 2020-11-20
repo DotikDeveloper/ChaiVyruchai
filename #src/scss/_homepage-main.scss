@@ -301,6 +301,8 @@
         @media (max-width:768px) {
             display: flex;
             justify-content: center;
+            align-items: center;
+            text-align: center;
         }
     }
 
@@ -534,6 +536,10 @@
         @include title-h3;
         color: $pallete-secondary;
         margin: 1.5rem 0;
+        @media (max-width: 768px) {
+            text-align: center;
+            font-size: 1.7em;
+        }
     }
 
     // .main-call-to-action__paragraph
@@ -585,12 +591,12 @@
         }
 
         @media (max-width: 768px) {
-            font-size: 2rem;
+            font-size: 1.75rem;
             line-height: 2.25rem;
         }
 
         @media (max-width: 375px) {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             line-height: 1.95rem;
         }
     }

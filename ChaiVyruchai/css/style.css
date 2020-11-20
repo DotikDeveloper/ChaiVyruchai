@@ -2873,6 +2873,10 @@ textarea {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
   }
 
   .card__list {
@@ -2948,6 +2952,11 @@ textarea {
     font-size: 2rem;
   }
 
+  .main-call-to-action__title {
+    text-align: center;
+    font-size: 1.7em;
+  }
+
   .main-call-to-action__paragraph {
     display: none;
   }
@@ -2961,7 +2970,7 @@ textarea {
   }
 
   .partners__title {
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 2.25rem;
   }
 
@@ -3398,7 +3407,7 @@ textarea {
   }
 
   .partners__title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.95rem;
   }
 
