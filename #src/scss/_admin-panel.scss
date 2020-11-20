@@ -218,6 +218,7 @@
 }
 
 .dashboard {
+    height: 100%;
     transition: all 3s ease 0.05s;
     display: inline-grid;
     gap: 25px;
@@ -733,7 +734,7 @@
     }
 }
 
-.form.form__reguest{
+.form.form__reguest {
     height: 70%;
 
 }
@@ -744,7 +745,8 @@
     width: 100%;
     padding: 10px 50px;
     @include shadow;
-    &--request{
+
+    &--request {
         padding: 10px 25px;
         box-shadow: 0 0 0;
     }
@@ -966,10 +968,6 @@ button#org_add {
 
         @include button(18px, 15px);
 
-        @media (max-width: 1140px) {
-            // @include button(14px, 12px);
-        }
-
         @media (max-width:768px) {
             font-size: 10px;
         }
@@ -1032,3 +1030,161 @@ input.input__file {
 }
 
 // ------------------ admin end-----------------//
+
+// ------------------ admin user-----------------//
+
+.form {
+    &__many-output {
+        display: flex;
+        @media (max-width:768px) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &__colume.many-output{
+        box-shadow: 0 0 0 ;
+        @media (max-width:768px) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+.many-output {
+    &.form__input{
+        width: 100%;
+    }
+        
+    &__title {
+        @include title-h3;
+        font-size: 1.5em;
+    }
+
+    &__volume {
+        @include title-h3;
+        font-size: 1.2em;
+    }
+
+    &__number {
+        font-size: 3em;
+        color: $pallete-primary;
+        text-shadow: 7px 7px 10px $pallete-secondary-light;
+    }
+
+    &__item {
+        margin: 25px 0;
+    }
+
+    &__btn{
+        width: 100%;       
+    }
+}
+
+.reviews {
+
+    padding: 0 0 0 25px;
+    @media (max-width:768px) {
+        padding: 0 15px 0 25px;
+    }
+
+    &__item{
+        display: grid;
+        grid-template-columns: 50px 100px 1fr;
+    }
+    &__volume{
+        @include title-h3;
+        color: $pallete-secondary;
+    }
+    &__cash{
+        @include title-h4;
+        font-size: 1em;
+        
+        &--number{
+            font-size: 1.5em;
+        }
+    }
+}
+
+.dashboard__bussiness-card{
+}
+
+.qr-code {
+    &__body {
+        @include shadow;
+        padding: 15px;
+        margin: 2.5em;
+        border-radius: 1em;
+    }
+
+    &__item {
+        @include shadow;
+        padding: 5px;
+        min-width: 150px;
+        min-height: 150px;
+    }
+}
+.id-code {
+
+    &__body {
+        @include shadow;
+        padding: 1.5em 2em;
+        border-radius: 1em;
+}
+
+    &__item {
+        @include fonts (3em, 700, $pallete-fonts, uppercase);
+        letter-spacing: .5em;
+    }
+}
+
+.business-card{
+    &.dashboard__content--body{
+        height: 100%;
+    }
+    &.form__colume{
+        height: 100%;
+    }
+}
+
+.business-card {
+    
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+        @include title-h4;
+        margin: 50px 0 0;
+        text-align: center;
+    }
+
+    &__qr-code {
+        min-width: 250px;
+        min-height: 250px;
+        @include shadow;
+        border-radius: 25px;
+        padding: 15px;
+        margin: 50px;
+        background-image: url(../img/admin/icon_qr-code.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    &__id-user {
+        @include title-h4;
+        margin: 0 0 50px 0;
+    }
+
+    &__id-number {
+        @include title-h4;
+        margin: 0 0 50px 10px;
+
+
+    }
+}
+
+
+// ------------------ admin user end-----------------//

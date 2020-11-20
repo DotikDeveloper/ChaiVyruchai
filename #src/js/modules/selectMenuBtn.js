@@ -9,7 +9,8 @@ function selectMenuBtn() {
                 rightDown = document.querySelector('[data-itemDashboard="rightDown"]'),
                 restoransAdd = document.querySelector('[data-itemDashboard="restoransAdd"]'),
                 message = document.querySelector('[data-itemDashboard="message"]'),
-                settings = document.querySelector('[data-itemDashboard="settings"]');
+                settings = document.querySelector('[data-itemDashboard="settings"]'),
+                businessCard = document.querySelector('[data-itemDashboard="businessCard"]');
    
             function tabBigContent(selectorBig) {
                 if (!selectorBig.classList.contains('hide')) {
@@ -63,6 +64,7 @@ function selectMenuBtn() {
                                 tabHideContent(restoransAdd);
                                 tabHideContent(message);
                                 tabHideContent(settings);
+                                tabHideContent(businessCard);
                                 break;
                             case 'restorans':
                                 console.log('restorans');
@@ -73,6 +75,7 @@ function selectMenuBtn() {
                                 tabHideContent(rightDown);
                                 tabHideContent(message);
                                 tabHideContent(settings);
+                                tabHideContent(businessCard);
                                 break;
                             case 'waiters':
                                 console.log('запрос на модерацию');
@@ -83,6 +86,7 @@ function selectMenuBtn() {
                                 tabHideContent(rightDown);
                                 tabHideContent(message);
                                 tabHideContent(settings);
+                                tabHideContent(businessCard);
                                 break;
                             case 'messages':
                                 console.log('messages');
@@ -93,6 +97,7 @@ function selectMenuBtn() {
                                 tabHideContent(rightDown);
                                 tabBigContent(message);
                                 tabHideContent(settings);
+                                tabHideContent(businessCard);
                                 break;
                             case 'settings':
                                 console.log('settings');
@@ -103,6 +108,18 @@ function selectMenuBtn() {
                                 tabHideContent(rightDown);
                                 tabHideContent(message);
                                 tabBigContent(settings);
+                                tabHideContent(businessCard);
+                                break;
+                            case 'businessCard':
+                                console.log('businessCard');
+                                tabHideContent(restoransAdd);
+                                tabHideContent(leftTop);
+                                tabHideContent(rightTop);
+                                tabHideContent(leftDown);
+                                tabHideContent(rightDown);
+                                tabHideContent(message);
+                                tabHideContent(settings);
+                                tabBigContent(businessCard);
                                 break;
        
                             default:
