@@ -327,6 +327,72 @@ button.active {
   margin: 0 0 0 150px;
 }
 
+.pay-tip {
+  margin: 150px 0 0 0;
+  width: 100vw;
+}
+
+.pay-tip__title {
+  font-family: 'PT Sans', sans-serif;
+  color: #696666;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 21.6px;
+}
+
+.pay-tip__body {
+  margin: 100px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.pay-tip__img--picture {
+  width: 450px;
+  -webkit-box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
+          box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
+  border: 10px solid #e6e9ef;
+  border-radius: 45px;
+}
+
+.pay-tip__input.form__input {
+  font-size: 36px;
+  text-align: center;
+  letter-spacing: .5em;
+}
+
+.pay-tip__input--submit.form__input--submit {
+  -webkit-box-shadow: 20px 20px 40px #d3dbe6, -20px -20px 40px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
+          box-shadow: 20px 20px 40px #d3dbe6, -20px -20px 40px #ffffff, -1px -1px 1px rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  border: 1px solid #ca583e;
+  background-color: #ca583e;
+  padding: 0.9rem 1.56rem;
+  color: #e6e9ef;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pay-tip__input--submit.form__input--submit:hover {
+  opacity: 0.9;
+  -webkit-box-shadow: 0 0 0 0.2rem #ca583e52;
+          box-shadow: 0 0 0 0.2rem #ca583e52;
+}
+
+.form__label {
+  color: #696666;
+  font-family: "PT Sans";
+  font-size: 1.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: 'PT Sans', sans-serif;
+}
+
 .why-we {
   margin: 150px 0 0 0;
 }
@@ -2394,6 +2460,28 @@ textarea {
     font-size: 24px;
   }
 
+  .pay-tip {
+    padding: 0 70px;
+  }
+
+  .pay-tip__title {
+    font-size: 2.5em;
+    line-height: 1.75em;
+  }
+
+  .pay-tip__img--picture {
+    width: 350px;
+  }
+
+  .pay-tip__input--submit.form__input--submit {
+    font-size: 36px;
+  }
+
+  .form__label {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+
   .why-we {
     padding: 0 70px;
   }
@@ -2804,6 +2892,49 @@ textarea {
   .intro__img--picture {
     opacity: 0;
     visibility: hidden;
+  }
+
+  .pay-tip {
+    padding: 0 35px;
+    text-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .pay-tip__title {
+    font-size: 2em;
+    line-height: 1.5em;
+  }
+
+  .pay-tip__body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 50px 0 0;
+  }
+
+  .pay-tip__img {
+    margin: 0 0 20px;
+  }
+
+  .pay-tip__img--picture {
+    width: 320px;
+  }
+
+  .pay-tip__label.form__label {
+    text-align: center;
+  }
+
+  .pay-tip__input--submit.form__input--submit {
+    font-size: 28.8px;
+  }
+
+  .form__label {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
   }
 
   .why-we {
@@ -3359,6 +3490,24 @@ textarea {
 
   .intro__button {
     font-size: 12px;
+  }
+
+  .pay-tip {
+    padding: 0 15px;
+  }
+
+  .pay-tip__title {
+    font-size: 1.5em;
+    line-height: 1.75em;
+  }
+
+  .pay-tip__input--submit.form__input--submit {
+    font-size: 18px;
+  }
+
+  .form__label {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
   }
 
   .why-we {

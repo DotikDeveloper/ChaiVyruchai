@@ -14,6 +14,25 @@
         </div>
     </section>
 
+    <section class="pay-tip container">
+        <h2 class="pay-tip__title">Оставить чаевые</h2>
+        <div class="pay-tip__body">
+            <div class="pay-tip__img">
+                <img class="pay-tip__img pay-tip__img--picture" src="img/homepage/pay-tip.jpg" alt="Оставить чаевые">
+            </div>
+            <div class="pay-tip__content">
+                <div class="pay-tip__block">
+                    <form class="modal__form form pay-tip__form" data-form="pay-tip" action="#">
+                        <label class="form__label pay-tip__label" for="id-waiters">Укажите ID официанта </label>
+                        <input class="form__input pay-tip__input" type="text" required pattern="[0-9]{6}" maxlength="6" name="id-waiters" id="id-waiters">
+                        <button class="form__input form__input--submit pay-tip__input--submit" type="submit" name="pay-tip__open"
+                            id="pay-tip__open">Оплатить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="why-we container">
         <h2 class="why-we__title">Почему мы</h2>
         <div class="why-we__body">
@@ -159,7 +178,8 @@
         <div class="main-call-to-action__body">
             <div class="main-call-to-action__content">
                 <h3 class="main-call-to-action__title">Получайте чаевые с карты</h3>
-                <p class="main-call-to-action__paragraph">Откройте для себя мир новых возможностей. Подключите наш сервис и получайте больше чаевых!</p>
+                <p class="main-call-to-action__paragraph">Откройте для себя мир новых возможностей. Подключите наш
+                    сервис и получайте больше чаевых!</p>
             </div>
             <a href="registration.html" target="_blank" class="main-call-to-action__button">Подключиться</a>
         </div>
@@ -178,30 +198,6 @@
         </div>
     </section>
 
-
-    <div class="overlay hide">
-        <div class="modal">
-            <button data-button="close-modal" class="modal__close">&times;</button>
-            <div class="modal__title">Войти в личный кабинет</div>
-            <div class="modal__description--danger">логин или пароль введены неверно</div>
-
-            <form class="modal__form form" action="#">
-                <input class="form__input" name="phone" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
-                    required placeholder="+7 000 000 00 00" type="tel"></input>
-                <input class="form__input" id="form__password" name="form__password" required type="password"
-                    placeholder="пароль"></input>
-                <a href="#" class="password-control">
-                    <img src="img/modal/eye-close.svg" alt="скрыто" height="15">
-                </a>
-                <input class="form__input form__input--check" type="checkbox" id="modal__check" name="modal__check"
-                    checked>
-                <label class="form__label" for="modal__check">запомнить логин и пароль</label>
-
-                <button class="form__input form__input--submit" type="submit" name="submit">войти</button>
-            </form>
-        </div>
-    </div>
-
-
+    @@include('_modal.html')
 
 </main>

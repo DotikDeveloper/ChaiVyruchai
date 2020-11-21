@@ -118,6 +118,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+
         @media (max-width: 768px) {
             display: none;
         }
@@ -144,6 +145,114 @@
 }
 
 //-------------------------intro END----------------------//
+// 
+//-------------------------pay-tip----------------------//
+
+.pay-tip {
+
+    margin: 150px 0 0 0;
+    width: 100vw;
+
+    @media (max-width: 1140px) {
+        padding: 0 70px;
+    }
+
+    @media (max-width:768px) {
+        padding: 0 35px;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    @media (max-width: 375px) {
+        padding: 0 15px;
+    }
+
+    &__title {
+        font-family: 'PT Sans', sans-serif;
+        color: $pallete-fonts;
+        text-transform: uppercase;
+        font-size: 3rem;
+        font-weight: 400;
+        letter-spacing: 21.6px;
+
+        @media (max-width: 1140px) {
+            font-size: 2.5em;
+            line-height: 1.75em;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 2em;
+            line-height: 1.5em;
+        }
+
+        @media (max-width: 375px) {
+            font-size: 1.5em;
+            line-height: 1.75em;
+        }
+    }
+
+    &__body {
+        margin: 100px 0 0;
+        display: flex;
+        justify-content: space-around;
+
+        @media (max-width:768px) {
+            flex-direction: column;
+            margin: 50px 0 0;
+        }
+    }
+
+    &__img {
+        @media (max-width:768px) {
+            margin: 0 0 20px;
+        }
+
+        &--picture {
+            width: 450px;
+            @include shadow;
+            border: 10px solid $pallete-background;
+            border-radius: 45px;
+
+            @media (max-width: 1140px) {
+                width: 350px;
+            }
+
+            @media (max-width:768px) {
+                width: 320px;
+            }
+        }
+    }
+
+    &__label.form__label {
+        @media (max-width:768px) {
+            text-align: center;
+        }
+    }
+
+    &__input.form__input {
+        font-size: 36px;
+        text-align: center;
+        letter-spacing: .5em;
+    }
+
+    &__input {
+        &--submit.form__input--submit {
+            @include button (36px, 15px);
+        }
+    }
+}
+
+.form {
+
+    &__label {
+        @include title-h4;
+        font-family: 'PT Sans', sans-serif;
+    }
+
+
+}
+
+//-------------------------pay-tip END----------------------//
 
 //-------------------------why ----------------------//
 
@@ -369,6 +478,7 @@
             @media (max-width: 768px) {
                 margin: 0;
             }
+
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -536,6 +646,7 @@
         @include title-h3;
         color: $pallete-secondary;
         margin: 1.5rem 0;
+
         @media (max-width: 768px) {
             text-align: center;
             font-size: 1.7em;
