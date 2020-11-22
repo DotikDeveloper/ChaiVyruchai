@@ -1,0 +1,135 @@
+.main {
+
+    &__payment {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 600px;
+    }
+}
+.payment {
+
+    &__login {
+    }
+
+    &__terminal {
+    }
+
+    &__reviews {
+    }
+}
+.login {
+
+    &__avatar {
+    }
+
+    &__avatar--img {
+    }
+
+    &__info {
+    }
+
+    &__info--item {
+    }
+
+    &__info--user-role {
+    }
+
+    &__info--user-name {
+    }
+
+    &__info--user-target {
+    }
+
+    &__info--user-company {
+    }
+
+    &__logo {
+    }
+
+    &__logo--img {
+    }
+}
+.terminal {
+
+    &__form {
+    }
+
+    &__block {
+    }
+
+    &__block--value {
+    }
+}
+.form {
+
+    &__block {
+    }
+
+    &__label {
+    }
+
+    &__input {
+    }
+
+    &__text {
+    }
+
+    &__block--percent {
+    }
+
+    &__input--submit {
+    }
+
+    &__input--check {
+    }
+}
+.btn {
+
+}
+.reviews {
+
+    &__form {
+    }
+
+    &__title {
+    }
+
+    &__block {
+    }
+
+    &__stars {
+    }
+
+    &__men {
+
+    }
+
+    &__men--delicious-food {
+    }
+
+    &__men--checkbox {
+    }
+
+    &__men--enough-purely {
+    }
+
+    &__men--good-service {
+    }
+
+    &__men--pleasant-atmosphere {
+    }
+
+    &__block--submit {
+    }
+}
+
+.rating-area {
+    
+}
+.overlay {
+
+    &__blur {
+
+    }
+}
