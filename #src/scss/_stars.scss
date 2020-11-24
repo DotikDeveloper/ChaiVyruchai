@@ -13,7 +13,7 @@
 	cursor: pointer;
 	font-size: 32px;
 	line-height: 32px;
-	color: lightgrey;
+	color: $pallete-primary-light;
 	text-shadow: 1px 1px #bbb;
 }
 .rating-area:not(:checked) > label:before {

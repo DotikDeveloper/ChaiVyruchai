@@ -1,0 +1,40 @@
+.main {
+
+    &__oups {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.oups {
+
+    &__content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        @media (max-width: 768px){
+            flex-direction: column;
+        }
+    }
+
+    &__colume {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;        
+        margin: 0 auto;
+    }
+
+    &__title {
+        @include title-h1;
+    }
+
+    &__description {
+        @include title-h4;
+
+    }
+}

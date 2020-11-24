@@ -58,8 +58,14 @@ html {
     display: none !important;
 }
 
+.color-secondary{
+    color: $pallete-secondary !important;
+}
+
 *{
     transition: all 0.25s ease 0.05s;
 }
+
+
 
 //-------------------------BASE end----------------------------//

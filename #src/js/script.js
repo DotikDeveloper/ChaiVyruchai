@@ -1,5 +1,6 @@
 'use string';
 
+
 import date from './modules/date';
 import modal from './modules/modal';
 import registration from './modules/registration';
@@ -9,16 +10,19 @@ import charts from './modules/charts';
 import userModeration from './modules/userModeration';
 import selectMenuBtn from './modules/selectMenuBtn';
 import openMenu from './modules/openMenu';
+import sumTips from './modules/sumTips';
+import checkReviews from './modules/checkReviews';
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
-
+    
     date('.footer__date');
     try {
         modal();
     } catch (error) {
         console.log(error);
-    }    
+    }
     try {
         slides();
     } catch (error) {
@@ -54,6 +58,14 @@ window.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
         console.log('не работает openMenu', error);
     }
-
-
+    try {
+        sumTips();
+    } catch (error) {
+        console.log(error);
+    }
+    try {
+        checkReviews();
+    } catch (error) {
+        console.log(error);
+    }
 });
