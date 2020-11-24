@@ -7,16 +7,15 @@ function modal() {
         closeStatus = document.querySelector("[data-button=close-modal-status]"),
         errorModal = document.querySelector(".overlay.overlay__status");
 
-        closeStatus.addEventListener('click', () => {
-            if (!errorModal.classList.contains("hide")) {
-                errorModal.classList.add("hide");
-            }             
-        });
+    closeStatus.addEventListener('click', () => {
+        if (!errorModal.classList.contains("hide")) {
+            errorModal.classList.add("hide");
+        }
+    });
 
-    
-        logoutBtn.addEventListener("click", () => {
+
+    logoutBtn.addEventListener("click", () => {
         modalBg.classList.add("hide");
-        //  reset form__password
         inputModal.forEach((i) => {
             if (true) {
                 i.value = '';
@@ -24,11 +23,14 @@ function modal() {
         });
     });
 
-    loginBtn.addEventListener("click", () => {
+
+    loginBtn.addEventListener("click", (e) => {
+        console.log(e.target);
         const modalPage = document.querySelector('.overlay');
         modalPage.classList.remove("hide");
-
     });
+
+
 
     const modalPassword = document.querySelector("#form__password"),
         btnShowPasswordImg = document.querySelector(".password-control img");

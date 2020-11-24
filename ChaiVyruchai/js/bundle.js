@@ -246,15 +246,15 @@ function modal() {
     }
   });
   logoutBtn.addEventListener("click", function () {
-    modalBg.classList.add("hide"); //  reset form__password
-
+    modalBg.classList.add("hide");
     inputModal.forEach(function (i) {
       if (true) {
         i.value = '';
       }
     });
   });
-  loginBtn.addEventListener("click", function () {
+  loginBtn.addEventListener("click", function (e) {
+    console.log(e.target);
     var modalPage = document.querySelector('.overlay');
     modalPage.classList.remove("hide");
   });
