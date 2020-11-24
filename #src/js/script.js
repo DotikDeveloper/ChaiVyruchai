@@ -12,6 +12,7 @@ import selectMenuBtn from './modules/selectMenuBtn';
 import openMenu from './modules/openMenu';
 import sumTips from './modules/sumTips';
 import checkReviews from './modules/checkReviews';
+import qrCode from './modules/qrcode';
 
 
 
@@ -65,6 +66,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     try {
         checkReviews();
+    } catch (error) {
+        console.log(error);
+    }
+    try {
+        qrCode();
     } catch (error) {
         console.log(error);
     }

@@ -1031,6 +1031,7 @@ button.active {
   display: flex;
   width: 100%;
   position: relative;
+  height: 100vh;
 }
 
 .adm__sidebar {
@@ -2075,22 +2076,19 @@ input.input__file {
   font-size: 1.75rem;
   font-weight: 400;
   text-transform: uppercase;
-  font-family: "PT Sans";
+  font-family: "PT Sans", sans-serif;
   margin: 50px 0 0;
   text-align: center;
 }
 
 .business-card__qr-code {
-  min-width: 250px;
-  min-height: 250px;
+  width: 250px;
+  height: 250px;
   -webkit-box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
           box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
   border-radius: 25px;
   padding: 15px;
   margin: 50px;
-  background-image: url(../img/admin/icon_qr-code.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 .business-card__id-user {
@@ -2100,7 +2098,7 @@ input.input__file {
   font-weight: 400;
   text-transform: uppercase;
   margin: 0 0 50px 0;
-  font-family: "PT Sans";
+  font-family: "PT Sans", sans-serif;
 }
 
 .business-card__id-number {
@@ -4509,7 +4507,6 @@ textarea {
 }
 @supports (-webkit-appearance:none){
 .intro__img--picture{background:url("../img/homepage/intro_bg.webp") no-repeat left center}
-.business-card__qr-code{background-image:url(../img/admin/icon_qr-code.svg)}
 .modal__picture{background:url("../img/modal/mistake.webp") no-repeat center center/cover}
 .form__input--check:checked + label::before{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e")}
 }

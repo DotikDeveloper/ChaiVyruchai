@@ -8,6 +8,7 @@
         display: flex;
         width: 100%;
         position: relative;
+        height: 100vh;
     }
 
     &__sidebar {
@@ -1106,8 +1107,6 @@ input.input__file {
     }
 }
 
-.dashboard__bussiness-card{
-}
 
 .qr-code {
     &__body {
@@ -1158,27 +1157,27 @@ input.input__file {
 
     &__title {
         @include title-h4;
-        font-family: "PT Sans";
+        font-family: "PT Sans", sans-serif;
         margin: 50px 0 0;
         text-align: center;
     }
 
     &__qr-code {
-        min-width: 250px;
-        min-height: 250px;
+        width: 250px;
+        height: 250px;
         @include shadow;
         border-radius: 25px;
         padding: 15px;
         margin: 50px;
-        background-image: url(../img/admin/icon_qr-code.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
+        // background-image: url(../img/admin/icon_qr-code.svg);
+        // background-size: contain;
+        // background-repeat: no-repeat;
     }
 
     &__id-user {
         @include title-h4;
         margin: 0 0 50px 0;
-        font-family: "PT Sans";
+        font-family: "PT Sans", sans-serif;
     }
 
     &__id-number {
