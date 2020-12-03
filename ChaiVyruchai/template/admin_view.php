@@ -18,26 +18,26 @@
 
                 <nav class="sidebar__menu menu menu__nav">
                     <button class="menu__item" href="admin-panel_adm.html" data-btnMenu="dashboard">
-                        <picture><source srcset="img/admin/icon__dashbord.svg" type="image/webp"><img src="img/admin/icon__dashbord.svg" alt="dashboard"></picture>
-                        <span class="menu__item--title">dashboard</span>
+                        <picture><source srcset="img/admin/icon__dashbord.svg" type="image/webp" data-btnMenu="dashboard"><img src="img/admin/icon__dashbord.svg" alt="dashboard" data-btnMenu="dashboard"></picture>
+                        <span class="menu__item--title" data-btnMenu="dashboard">dashboard</span>
                     </button>
                     <button class="menu__item" data-btnMenu="restorans">
-                        <picture><source srcset="img/admin/icon__restaurants.svg" type="image/webp"><img class="menu__icon" src="img/admin/icon__restaurants.svg" alt="R"></picture>
+                        <picture data-btnMenu="restorans"><source srcset="img/admin/icon__restaurants.svg" type="image/webp" data-btnMenu="restorans"><img class="menu__icon" data-btnMenu="restorans" src="img/admin/icon__restaurants.svg" alt="R"></picture>
                         <!-- <span class="menu__item--title">рестораны</span> -->
-                        <span class="menu__item--title">рестораны</span>
+                        <span class="menu__item--title" data-btnMenu="restorans">рестораны</span>
                     </button>
                     <button class="menu__item" data-btnMenu="waiters">
-                        <picture><source srcset="img/admin/icon__waiters.svg" type="image/webp"><img class="menu__icon" src="img/admin/icon__waiters.svg" alt="W"></picture>
-                        <span class="menu__item--title" data-btnMenu="waiters">официанты</span></button>
+                        <picture data-btnMenu="waiters"><source srcset="img/admin/icon__waiters.svg" type="image/webp" data-btnMenu="waiters"><img class="menu__icon" src="img/admin/icon__waiters.svg" alt="W" data-btnMenu="waiters"></picture>
+                        <span class="menu__item--title" data-btnMenu="waiters" data-btnMenu="waiters">официанты</span></button>
                     <button class="menu__item" data-btnMenu="messages">
-                        <picture><source srcset="img/admin/icon__messages.svg" type="image/webp"><img class="menu__icon" src="img/admin/icon__messages.svg" alt="M"></picture>
-                        <span class="menu__item--title">сообщения</span></button>
+                        <picture data-btnMenu="messages"><source srcset="img/admin/icon__messages.svg" type="image/webp" data-btnMenu="messages"><img class="menu__icon" src="img/admin/icon__messages.svg" alt="M" data-btnMenu="messages"></picture>
+                        <span class="menu__item--title" data-btnMenu="messages">сообщения</span></button>
                 </nav>
             </div>
             <div class="sidebar__bottom">
                 <button class="sidebar__settings menu__item menu" data-btnMenu="settings">
-                    <picture><source srcset="img/admin/icon__settings.svg" type="image/webp"><img class="menu__icon" src="img/admin/icon__settings.svg"></picture>
-                    <span class="menu__item--title">настройки</span>
+                    <picture data-btnMenu="settings"><source srcset="img/admin/icon__settings.svg" type="image/webp" data-btnMenu="settings"><img class="menu__icon" src="img/admin/icon__settings.svg" data-btnMenu="settings"></picture>
+                    <span class="menu__item--title" data-btnMenu="settings">настройки</span>
                 </button>
                 <button class="sidebar__settings menu__item menu">
                     <picture><source srcset="img/admin/icon__exit.svg" type="image/webp"><img class="menu__icon" src="img/admin/icon__exit.svg"></picture>
