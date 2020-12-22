@@ -26,17 +26,17 @@ class Controller_Main extends Controller
 					header('Location: /admin_org');
 				break;
 				case 3:
-					header('Location: /admin_personal');
+					header('Location: /admin_user');
 				break;
 			}
 		}
 		$this->view->generate('main_view.php', 'template_view.php', $user);
 	}
 
-		function action_logout()
-	{
-		session_unset();
-		session_destroy();
-		header('Location: /');
-	}
+	function action_logout()
+		{
+			session_unset();
+			session_destroy();
+			header('Location: /');
+		}
 }

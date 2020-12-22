@@ -7,7 +7,11 @@
                     </div>
                     <div class="login__info">
                         <div class="login__info--item login__info--user-role">Администратор</div>
-                        <div class="login__info--item login__info--user-name">Евгений</div>
+                        <div class="login__info--item login__info--user-name">
+                            <?php
+                                echo($_SESSION['user']);
+                            ?>
+                        </div>
                         <div class="login__info--item login__info--user-target">“Хочу в отпуск”</div>
                         <div class="login__info--item login__info--user-company">чай выучай</div>
                     </div>

@@ -36,8 +36,9 @@
 		$controller_name = 'Main';
 		$action_name = 'index';
 
-		$routes = explode('/', $_SERVER['REQUEST_URI']);
-
+		$routes = explode('?', $_SERVER['REQUEST_URI']); // убераем все переменные в запросе
+		$routes = explode('/', $routes[0]);
+        
 		// получаем имя контроллера
 		if ( !empty($routes[1]) )
 		{
@@ -49,6 +50,7 @@
 		{
 			$action_name = $routes[2];
 		}
+	
 
 		// добавляем префиксы
 		$model_name = 'Model_'.$controller_name;
@@ -59,17 +61,31 @@
 
 		$model_file = strtolower($model_name).'.php';
 		$model_path = "models/".$model_file;
+		
+// 		echo($model_path);
+//         exit;
+        
 		if(file_exists($model_path))
 		{
-			include "models/".$model_file;
+// 			include "models/".$model_file;
+            include $model_path;
+			
 		}
+// 		else
+// 		{
+// 		    echo($model_path);
+// 		    exit;
+// 		}
 
 		// подцепляем файл с классом контроллера
 		$controller_file = strtolower($controller_name).'.php';
 		$controller_path = "controllers/".$controller_file;
 		if(file_exists($controller_path))
 		{
-			include "controllers/".$controller_file;
+			include $controller_path;
+            // echo($controller_file);
+            // exit;
+            // Route::ErrorPage404();
 		}
 		else
 		{
@@ -78,6 +94,8 @@
 			но для упрощения сразу сделаем редирект на страницу 404
 			*/
 			Route::ErrorPage404();
+            // echo($controller_file);
+            // exit;
 		}
 
 		// создаем контроллер
@@ -97,12 +115,15 @@
 
 	}
 
-	static function ErrorPage404()
+	function ErrorPage404()
 	{
-        $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
+	   // echo($_SERVER['HTTP_HOST']);
+	   
+        $host = 'https://'.$_SERVER['HTTP_HOST'].'/';
+        // $host = $_SERVER['HTTP_HOST'].'/';
         header('HTTP/1.1 404 Not Found');
-		header("Status: 404 Not Found");
-		header('Location:'.$host.'404');
+// 		header("Status: 404 Not Found");
+		header('Location: /404');
     }
 }
 

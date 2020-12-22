@@ -9,13 +9,13 @@ class Controller_Organizations extends Controller
 
 	function action_index()
 	{
-		If(isset($_POST['org_add'])){
+		if(isset($_POST['org_add'])){
 			$this->model->add_data();
 		}
-		If(isset($_POST['del_id'])){
+		if(isset($_POST['del_id'])){
 			$this->model->del_data();
 		}
-		If(isset($_POST['org_edit'])){
+		if(isset($_POST['org_edit'])){
 			$this->model->update_data();
 		}
 		$data = $this->model->get_data();
