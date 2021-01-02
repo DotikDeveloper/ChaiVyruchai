@@ -86,6 +86,25 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./#src/js/modules/ajaxsend.js":
+/*!*************************************!*\
+  !*** ./#src/js/modules/ajaxsend.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function ajaxsend() {
+  var avatar = document.getElementById('userPhoto'); // avatar.addEventListener('change', () => {
+  //     uploadFile(file_attach.files[0]);
+  // });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ajaxsend);
+
+/***/ }),
+
 /***/ "./#src/js/modules/charts.js":
 /*!***********************************!*\
   !*** ./#src/js/modules/charts.js ***!
@@ -825,7 +844,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_sumTips__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/sumTips */ "./#src/js/modules/sumTips.js");
 /* harmony import */ var _modules_checkReviews__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/checkReviews */ "./#src/js/modules/checkReviews.js");
 /* harmony import */ var _modules_qrcode__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/qrcode */ "./#src/js/modules/qrcode.js");
+/* harmony import */ var _modules_ajaxsend__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/ajaxsend */ "./#src/js/modules/ajaxsend.js");
 'use string';
+
 
 
 
@@ -904,6 +925,12 @@ window.addEventListener('DOMContentLoaded', function () {
 
   try {
     Object(_modules_qrcode__WEBPACK_IMPORTED_MODULE_11__["default"])();
+  } catch (error) {
+    console.log(error);
+  }
+
+  try {
+    Object(_modules_ajaxsend__WEBPACK_IMPORTED_MODULE_12__["default"])();
   } catch (error) {
     console.log(error);
   }

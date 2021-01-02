@@ -11,13 +11,36 @@ class Controller_Main extends Controller
 	{
 		$user = null;
 		// $_SESSION['user_role'] = 0;
+
+		if(isset($_POST['get_data_user'])){
+			echo json_encode($this->model->get_user_current()); //отправляем json ответ с данными текущего юзера
+			exit;
+		}
+
+		if(isset($_POST['firstNameAdm'])){
+			$this->model->update_data();
+			header('Content-Type: application/json');
+			echo json_encode(array('answer' => 'ok'));
+			exit;
+		}
+
 		if(isset($_POST['login'])){
 			$user = $this->model->get_user($_POST['phone'], $_POST['password']);
 			// $this->view->generate('main_view.php', 'template_view.php', $user);
+			// switch ($_SESSION['user_role']) {
+			// 	case 1:
+			// 		header('Location: /admin');
+			// 	break;
+			// 	case 2:
+			// 		header('Location: /admin_org');
+			// 	break;
+			// 	case 3:
+			// 		header('Location: /admin_user');
+			// 	break;
+			// }
 			header('Location: /');
 		}
-		if (isset($_SESSION['user_role']))
-		{
+		if (isset($_SESSION['user_role'])){
 			switch ($_SESSION['user_role']) {
 				case 1:
 					header('Location: /admin');
@@ -26,17 +49,54 @@ class Controller_Main extends Controller
 					header('Location: /admin_org');
 				break;
 				case 3:
-					header('Location: /admin_personal');
+					header('Location: /admin_user');
 				break;
 			}
 		}
+
+		if (!empty($_FILES['file_attach']['tmp_name'])) {
+			// $path = __DIR__ . "/media/" . $_FILES['file_attach']['name'];
+			if( ! is_dir( $_SERVER['DOCUMENT_ROOT'] . "/media" ) ) mkdir(  $_SERVER['DOCUMENT_ROOT'] . "/media", 0777 );
+			// $path = "./" . $_FILES['file_attach']['name'];
+			$ext = substr($_FILES['file_attach']['name'], strpos($_FILES['file_attach']['name'],'.'), strlen($_FILES['file_attach']['name'])-1); // В переменную $ext заносим расширение загруженного файла.
+			$path =  "/media/user_avatar_" . $_SESSION['user_id'] . $ext;
+			if (copy($_FILES['file_attach']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . $path)) $file_attach = $_SERVER['DOCUMENT_ROOT'] . $path;
+
+			$this->model->update_ava($_SESSION['user_id'], $path);
+		}
+
+		if(isset($_POST['get_data'])){
+			// $user = $this->model->get_user($_POST['phone'], $_POST['password']);
+			// mkdir('./rest');
+			// echo 'test string';
+			header('Content-Type: application/json');
+			echo json_encode(array('success' => 1));
+			exit;
+
+			// switch ($_POST['get_data']) {
+			// 	case 'ava':
+			// 		// $array = $this->model->get_ava();
+			// 		// echo ($this->model->get_ava());
+			// 		// echo json_encode(array('success' => 1));
+			// 		echo 'тестовоя строка';
+			// 		exit;
+			// 	break;
+			// 	case 2:
+			// 		header('Location: /admin_org');
+			// 	break;
+			// 	case 3:
+			// 		header('Location: /admin_user');
+			// 	break;
+			// }
+		}
+
 		$this->view->generate('main_view.php', 'template_view.php', $user);
 	}
 
-		function action_logout()
-	{
-		session_unset();
-		session_destroy();
-		header('Location: /');
-	}
+	function action_logout()
+		{
+			session_unset();
+			session_destroy();
+			header('Location: /');
+		}
 }

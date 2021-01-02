@@ -3,12 +3,17 @@
             <div class="sidebar__top">
                 <div class="sidebar__login login">
                     <div class="login__avatar">
-                        <picture><source srcset="img/admin/ava__adm1.webp" type="image/webp"><img src="img/admin/ava__adm1.jpg" class="login__avatar--img" alt="ava"></picture>
+                        <!-- <picture><source srcset="img/admin/ava__adm1.webp" type="image/webp"><img src="img/admin/ava__adm1.jpg" class="login__avatar--img" alt="ava"></picture> -->
+                        <img src="<?php echo($_SESSION['user_ava'] == "" ? "img/admin/ava__adm1.jpeg" : $_SESSION['user_ava']) ?>   " class="login__avatar--img" alt="ava">
                     </div>
                     <div class="login__info">
                         <div class="login__info--item login__info--user-role">Администратор</div>
-                        <div class="login__info--item login__info--user-name">Евгений</div>
-                        <div class="login__info--item login__info--user-target">“Хочу в отпуск”</div>
+                        <div class="login__info--item login__info--user-name">
+                            <?php
+                                echo($_SESSION['user']);
+                            ?>
+                        </div>
+                        <!-- <div class="login__info--item login__info--user-target">“Хочу в отпуск”</div> -->
                         <div class="login__info--item login__info--user-company">чай выучай</div>
                     </div>
                     <div class="login__logo">
@@ -39,10 +44,10 @@
                     <picture data-btnMenu="settings"><source srcset="img/admin/icon__settings.svg" type="image/webp" data-btnMenu="settings"><img class="menu__icon" src="img/admin/icon__settings.svg" data-btnMenu="settings"></picture>
                     <span class="menu__item--title" data-btnMenu="settings">настройки</span>
                 </button>
-                <button class="sidebar__settings menu__item menu">
-                    <picture><source srcset="img/admin/icon__exit.svg" type="image/webp"><img class="menu__icon" src="img/admin/icon__exit.svg"></picture>
+                <a href="/main/logout" class="sidebar__settings menu__item menu">
+                    <img class="menu__icon" src="img/admin/icon__exit.svg">
                     <span class="menu__item--title">выйти из лк</span>
-                </button>
+                </a>
             </div>
         </div>
         <div class="adm__dashboard dashboard">
@@ -287,14 +292,21 @@
 
                         <div class="reg-form">
                             <div class="form__colume">
-                                <form class="modal__form form" data-form="admin" action="#">
                                     <div class="form__input--file">
                                         <input class="input__file" type="file" required name="userPhoto" id="userPhoto"
                                             placeholder="Ваше фото">
                                         <button class="form__input form__input--file" type="button">Загрузить
                                             фото</button>
                                     </div>
-                                    <input class="form__input" type="text" required pattern="\w" name="firstNameAdm"
+                                <form id="settings" class="modal__form form" name="settings" data-form="admin" action="#">
+                                    <!-- <div class="form__input--file">
+                                        <input class="input__file" type="file" required name="userPhoto" id="userPhoto"
+                                            placeholder="Ваше фото">
+                                        <button class="form__input form__input--file" type="button">Загрузить
+                                            фото</button>
+                                    </div> -->
+                                    <!-- <input class="form__input" type="text" required pattern="\w" name="firstNameAdm" -->
+                                    <input class="form__input" type="text" required name="firstNameAdm"
                                         id="firstNameAdm" placeholder="Имя">
                                     <input class="form__input" type="text" required name="lastNameAdm" id="lastNameAdm"
                                         placeholder="Фамилия">
@@ -305,8 +317,8 @@
                                         placeholder="Пароль" minlength="8" maxlength="20"></input>
                                     <input class="form__input" type="email" required name="mail" id="mailAdm"
                                         placeholder="email"></input>
-                                    <input class="form__input" type="text" required name="role" id="roleAdm"
-                                        placeholder="должность"></input>
+                                    <!-- <input class="form__input" type="text" required name="role" id="roleAdm"
+                                        placeholder="должность"></input> -->
                                     <button class="form__input form__input--submit" type="submit" id="adm_add"
                                         name="adm_add">добавить в базу данных</button>
                                 </form>

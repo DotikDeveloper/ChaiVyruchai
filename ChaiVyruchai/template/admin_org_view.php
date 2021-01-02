@@ -7,8 +7,12 @@
                     </div>
                     <div class="login__info">
                         <div class="login__info--item login__info--user-role">Управляющий</div>
-                        <div class="login__info--item login__info--user-name">Марина</div>
-                        <div class="login__info--item login__info--user-target">Хочу на Бали</div>
+                        <div class="login__info--item login__info--user-name">
+                            <?php
+                                    echo($_SESSION['user']);
+                            ?>
+                        </div>
+                        <!-- <div class="login__info--item login__info--user-target">Хочу на Бали</div> -->
                         <div class="login__info--item login__info--user-company">Демидофф</div>
                     </div>
                     <div class="login__logo">
@@ -34,10 +38,10 @@
                     <picture><source srcset="img/admin/icon__settings.svg" type="image/webp"><img class="menu__icon" src="img/admin/icon__settings.svg"></picture>
                     <span class="menu__item--title">настройки</span>
                 </button>
-                <button class="sidebar__settings menu__item menu">
-                    <picture><source srcset="img/admin/icon__exit.svg" type="image/webp"><img class="menu__icon" src="img/admin/icon__exit.svg"></picture>
+                <a href="/main/logout" class="sidebar__settings menu__item menu">
+                    <img class="menu__icon" src="img/admin/icon__exit.svg">
                     <span class="menu__item--title">выйти из лк</span>
-                </button>
+                </a>
             </div>
         </div>
         <div class="adm__dashboard dashboard">

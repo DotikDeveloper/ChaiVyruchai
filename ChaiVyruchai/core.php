@@ -1,4 +1,4 @@
-<?php
+<?php //test
     class chdb {
         public function create_bd($dbname){
             global $dbh, $pass, $user;
@@ -38,7 +38,7 @@
 
 		$routes = explode('?', $_SERVER['REQUEST_URI']); // убераем все переменные в запросе
 		$routes = explode('/', $routes[0]);
-        
+
 		// получаем имя контроллера
 		if ( !empty($routes[1]) )
 		{
@@ -50,7 +50,7 @@
 		{
 			$action_name = $routes[2];
 		}
-	
+
 
 		// добавляем префиксы
 		$model_name = 'Model_'.$controller_name;
@@ -61,15 +61,15 @@
 
 		$model_file = strtolower($model_name).'.php';
 		$model_path = "models/".$model_file;
-		
+
 // 		echo($model_path);
 //         exit;
-        
+
 		if(file_exists($model_path))
 		{
 // 			include "models/".$model_file;
             include $model_path;
-			
+
 		}
 // 		else
 // 		{
@@ -118,7 +118,7 @@
 	function ErrorPage404()
 	{
 	   // echo($_SERVER['HTTP_HOST']);
-	   
+
         $host = 'https://'.$_SERVER['HTTP_HOST'].'/';
         // $host = $_SERVER['HTTP_HOST'].'/';
         header('HTTP/1.1 404 Not Found');

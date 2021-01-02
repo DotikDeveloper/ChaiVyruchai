@@ -1,4 +1,6 @@
-let projectFolder = require("path").basename(__dirname);
+// let projectFolder = require("path").basename(__dirname);
+// console.log(require("path").basename(__dirname));
+let projectFolder = "ChaiVyruchai";
 let sourceFolder = "#src";
 
 let fs = require('fs');
@@ -7,6 +9,7 @@ let path = {
     build: {
         html: projectFolder + "/",
         php: projectFolder + "/",
+        htaccess: projectFolder + "/",
         css: projectFolder + "/css/",
         js: projectFolder + "/js/",
         jsmap: projectFolder + "/js/",
@@ -16,9 +19,10 @@ let path = {
     },
     src: {
         html: [sourceFolder + "/**/*.html", "!" + sourceFolder + "/_*.html"],
-        php: sourceFolder + "/**/*.php", 
+        php: sourceFolder + "/**/*.php",
+        htaccess: sourceFolder + "/**/.htaccess",
         css: sourceFolder + "/scss/style.scss",
-        js: sourceFolder + "/js/bundle.js",
+        js: sourceFolder + "/js/*.js",
         jsmap: sourceFolder + "/js/bundle.js.map",
         doc: sourceFolder + "/doc/*.pdf",
         img: sourceFolder + "/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}",
@@ -51,9 +55,9 @@ let {
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify-es').default,
     imagemin = require('gulp-imagemin'),
-    webp = require('gulp-webp'),
-    webphtml = require('gulp-webp-html'),
-    webpcss = require("gulp-webp-css"),
+    // webp = require('gulp-webp'),
+    // webphtml = require('gulp-webp-html'),
+    // webpcss = require("gulp-webp-css"),
     svgSprite = require('gulp-svg-sprite'),
     ttf2woff = require('gulp-ttf2woff'),
     ttf2woff2 = require('gulp-ttf2woff2'),
@@ -81,6 +85,11 @@ function html(params) {
 function php(params) {
     return src(path.src.php)
         .pipe(dest(path.build.php));
+}
+
+function htaccess(params) {
+    return src(path.src.htaccess)
+        .pipe(dest(path.build.htaccess));
 }
 
 function css(params) {
@@ -134,24 +143,24 @@ function doc(params) {
         .pipe(dest(path.build.doc));
 }
 
-function images(params) {
-    return src(path.src.img)
-        .pipe(webp({
-            quality: 70
-        }))
-        .pipe(dest(path.build.img))
-        .pipe(src(path.src.img))
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{
-                removeViewBox: false
-            }],
-            interlaced: true,
-            optimizationLevel: 3 // 0 to 7
-        }))
-        .pipe(dest(path.build.img))
-        .pipe(browsersync.stream());
-}
+// function images(params) {
+//     return src(path.src.img)
+//         .pipe(webp({
+//             quality: 70
+//         }))
+//         .pipe(dest(path.build.img))
+//         .pipe(src(path.src.img))
+//         .pipe(imagemin({
+//             progressive: true,
+//             svgoPlugins: [{
+//                 removeViewBox: false
+//             }],
+//             interlaced: true,
+//             optimizationLevel: 3 // 0 to 7
+//         }))
+//         .pipe(dest(path.build.img))
+//         .pipe(browsersync.stream());
+// }
 
 function fonts(params) {
     src(path.src.fonts)
@@ -176,7 +185,7 @@ gulp.task('svgSprite', function () { // запускается отдельно 
             mode: {
                 stack: {
                     sprite: '../icons/icons.svg', //sprite file name
-                    //example: true // включить настройку если нужен файл с примерами иконок 
+                    //example: true // включить настройку если нужен файл с примерами иконок
                 }
             }
         }));
@@ -186,7 +195,7 @@ function fontsStyle(params) {
     let fileContent = fs.readFileSync(sourceFolder + '/scss/_fonts.scss');
     if (fileContent == '') {
         fs.writeFile(sourceFolder + '/scss/_fonts.scss', '', cb);
-        return fs.readdir(path.build.fonts, 
+        return fs.readdir(path.build.fonts,
             function (err, items) {
                 if (items) {
                     let cFontname;
@@ -223,7 +232,7 @@ function fontsStyle(params) {
         return del(path.clean);
     }
 
-    let build = gulp.series(clean, gulp.parallel(js, jsmap, doc, css, html, php, images, fonts), fontsStyle);
+    let build = gulp.series(clean, gulp.parallel(js, jsmap, doc, css, html, php, htaccess, images, fonts), fontsStyle);
     let watch = gulp.parallel(build, watchFiles, browserSync);
 
     exports.fontsStyle = fontsStyle;
@@ -235,6 +244,7 @@ function fontsStyle(params) {
     exports.css = css;
     exports.html = html;
     exports.php = php;
+    exports.htaccess = htaccess;
     exports.build = build;
     exports.watch = watch;
     exports.default = watch;

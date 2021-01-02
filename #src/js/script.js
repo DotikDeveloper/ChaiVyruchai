@@ -1,4 +1,4 @@
-'use string';
+// 'use string';
 
 
 import date from './modules/date';
@@ -13,11 +13,12 @@ import openMenu from './modules/openMenu';
 import sumTips from './modules/sumTips';
 import checkReviews from './modules/checkReviews';
 import qrCode from './modules/qrcode';
+import ajaxsend from './modules/ajaxsend';
 
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    
+
     date('.footer__date');
     try {
         modal();
@@ -71,6 +72,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     try {
         qrCode();
+    } catch (error) {
+        console.log(error);
+    }
+    try {
+        ajaxsend();
     } catch (error) {
         console.log(error);
     }
