@@ -16,7 +16,7 @@
 
 <body>
     <header class="header container">
-    <a href="index.html" class="header__logo"><picture><source srcset="img/logo/logo__full.webp" type="image/webp"><img src="img/logo/logo__full.png" alt="logo"></picture></a>
+    <a href="index.html" class="header__logo"><img src="img/logo/logo__full.png" alt="logo"></a>
     <a href="#" class="header__menu-toggle"></a>
 
     <div class="header__menu">
@@ -42,6 +42,7 @@
     <script src="js/bundle.min.js"></script>
     <script src="js/frontback.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!-- <script type="text/javascript" src="js/charts.js"></script> -->
 </body>
 
 </html>

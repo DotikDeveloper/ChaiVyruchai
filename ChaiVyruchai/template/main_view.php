@@ -1,5 +1,5 @@
 <header class="header container">
-    <a href="index.html" class="header__logo"><picture><source srcset="img/logo/logo__full.webp" type="image/webp"><img src="img/logo/logo__full.png" alt="logo"></picture></a>
+    <a href="index.html" class="header__logo"><img src="img/logo/logo__full.png" alt="logo"></a>
     <div class="header__login">
         <button class="header__button" data-button="login" title="Войти в личный кабинет"><i
                 class="header__button--icon far fa-user"></i>
@@ -14,10 +14,10 @@
                 <h2 class="intro__subtitle">принимайте</h2>
                 <h1 class="intro__title">чаевые с карты</h1>
                 <h3 class="intro__description">все что нужно</h3>
-                <a href="registration.html" target="_blank" class="intro__button">Подключиться</a>
+                <a href="/registration" target="_blank" class="intro__button">Подключиться</a>
             </div>
             <div class="intro__img">
-                <picture><source srcset="img/homepage/intro_bg.webp" type="image/webp"><img src="img/homepage/intro_bg.jpeg" class="intro__img--picture"></picture></img>
+                <img src="img/homepage/intro_bg.jpeg" class="intro__img--picture"></img>
             </div>
         </div>
     </section>
@@ -26,7 +26,7 @@
         <h2 class="pay-tip__title">Оставить чаевые</h2>
         <div class="pay-tip__body">
             <div class="pay-tip__img">
-                <picture><source srcset="img/homepage/pay-tip.webp" type="image/webp"><img class="pay-tip__img pay-tip__img--picture" src="img/homepage/pay-tip.jpg" alt="Оставить чаевые"></picture>
+                <img class="pay-tip__img pay-tip__img--picture" src="img/homepage/pay-tip.jpg" alt="Оставить чаевые">
             </div>
             <div class="pay-tip__content">
                 <div class="pay-tip__block">
@@ -56,12 +56,12 @@
                     </ul>
                 </div>
                 <div class="why-we__item ">
-                    <picture><source srcset="img/homepage/payment.webp" type="image/webp"><img class="why-we__item--img" src="img/homepage/payment.jpg" alt="girl-in-caffe"></picture>
+                    <img class="why-we__item--img" src="img/homepage/payment.jpg" alt="girl-in-caffe">
                 </div>
             </div>
             <div class="why-we__content">
                 <div class="why-we__item ">
-                    <picture><source srcset="img/homepage/barmen.webp" type="image/webp"><img class="why-we__item--img" src="img/homepage/barmen.jpg" alt="girl-with-cell"></picture>
+                    <img class="why-we__item--img" src="img/homepage/barmen.jpg" alt="girl-with-cell">
                 </div>
                 <div class="why-we__item why-we__item--list">
                     <ul class="why-we__list">
@@ -132,25 +132,25 @@
                 <div class="all-simple__slider-wrapper">
                     <div class="all-simple__slider-inner">
                         <div class="all-simple__slide">
-                            <picture><source srcset="img/homepage/all-simple/payment-page.webp" type="image/webp"><img src="img/homepage/all-simple/payment-page.png" alt="Сканирование QR кода"></picture>
+                            <img src="img/homepage/all-simple/payment-page.png" alt="Сканирование QR кода">
                         </div>
                         <div class="all-simple__slide">
-                            <picture><source srcset="img/homepage/all-simple/payment-page.webp" type="image/webp"><img src="img/homepage/all-simple/payment-page.png" alt="Оплата чаевых"></picture>
+                            <img src="img/homepage/all-simple/payment-page.png" alt="Оплата чаевых">
                         </div>
                         <div class="all-simple__slide">
-                            <picture><source srcset="img/homepage/all-simple/payment-page.webp" type="image/webp"><img src="img/homepage/all-simple/payment-page.png" alt="Личный кабинет"></picture>
+                            <img src="img/homepage/all-simple/payment-page.png" alt="Личный кабинет">
                         </div>
                     </div>
                 </div>
                 <div class="all-simple__slider-counter">
                     <div class="all-simple__slider-prev">
-                        <picture><source srcset="img/homepage/all-simple/prev.webp" type="image/webp"><img src="img/homepage/all-simple/prev.png" alt="prev"></picture>
+                        <img src="img/homepage/all-simple/prev.png" alt="prev">
                     </div>
                     <span id="current">02</span>
                     /
                     <span id="total">04</span>
                     <div class="all-simple__slider-next">
-                        <picture><source srcset="img/homepage/all-simple/next.webp" type="image/webp"><img src="img/homepage/all-simple/next.png" alt="next"></picture>
+                        <img src="img/homepage/all-simple/next.png" alt="next">
                     </div>
                 </div>
             </div>
@@ -161,19 +161,19 @@
                 <div class="all-simple__list-block list-block">
                     <div class="list-block__item">
                         <div class="list-block__item list-block__item--mark">
-                            <picture><source srcset="img/homepage/all-simple/all-simple__1.webp" type="image/webp"><img src="img/homepage/all-simple/all-simple__1.png" alt="1"></picture>
+                            <img src="img/homepage/all-simple/all-simple__1.png" alt="1">
                         </div>
                         <div class="list-block__item list-block__item--text">сКАНИРУЕТЕ QR КОД НА ЧЕКЕ</div>
                     </div>
                     <div class="list-block__item">
                         <div class="list-block__item list-block__item--mark">
-                            <picture><source srcset="img/homepage/all-simple/all-simple__2.webp" type="image/webp"><img src="img/homepage/all-simple/all-simple__2.png" alt="2"></picture>
+                            <img src="img/homepage/all-simple/all-simple__2.png" alt="2">
                         </div>
                         <div class="list-block__item list-block__item--text">ПЕРЕХОДИТЕ В БРАУЗЕР ПО ССЫЛКЕ</div>
                     </div>
                     <div class="list-block__item">
                         <div class="list-block__item list-block__item--mark">
-                            <picture><source srcset="img/homepage/all-simple/all-simple__3.webp" type="image/webp"><img src="img/homepage/all-simple/all-simple__3.png" alt="3"></picture>
+                            <img src="img/homepage/all-simple/all-simple__3.png" alt="3">
                         </div>
                         <div class="list-block__item list-block__item--text">ОТПРАВЛЯЕТЕ ДЕНЬГИ УДОБНЫМ СПОСОБОМ</div>
                     </div>
@@ -189,7 +189,7 @@
                 <p class="main-call-to-action__paragraph">Откройте для себя мир новых возможностей. Подключите наш
                     сервис и получайте больше чаевых!</p>
             </div>
-            <a href="registration.html" target="_blank" class="main-call-to-action__button">Подключиться</a>
+            <a href="/registration" target="_blank" class="main-call-to-action__button">Подключиться</a>
         </div>
     </section>
 
@@ -211,14 +211,14 @@
         <button data-button="close-modal" class="modal__close">&times;</button>
         <div class="modal__title">Войти в личный кабинет</div>
         <div class="modal__description--danger">логин или пароль введены неверно</div>
-        <form class="modal__form form" action="/" method="POST">
+        <form class="modal__form form" action="/" method="post">
             <input class="form__input" name="phone"
                 pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required placeholder="+7 000 000 00 00"
                 type="tel"></input>
             <input class="form__input" id="form__password" name="password" required type="password"
                 placeholder="пароль"></input>
             <a href="#" class="password-control">
-                <picture><source srcset="img/modal/eye-close.svg" type="image/webp"><img src="img/modal/eye-close.svg" alt="скрыто" height="15"></picture>
+                <img src="img/modal/eye-close.svg" alt="скрыто" height="15">
             </a>
             <input class="form__input form__input--check" type="checkbox" id="modal__check" name="modal__check" checked>
             <label class="form__label" for="modal__check">запомнить логин и пароль</label>
@@ -254,7 +254,7 @@
                 </div>
 
             </div>
-            <button href="registration.html" target="_blank" class="footer__button">Подключиться</button>
+            <a href="/registration" target="_blank" class="footer__button">Подключиться</a>
         </div>
     </div>
                     <!-- Copyright -->

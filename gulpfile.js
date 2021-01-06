@@ -77,7 +77,7 @@ function browserSync(params) {
 function html(params) {
     return src(path.src.html)
         .pipe(fileincluder())
-        .pipe(webphtml())
+        // .pipe(webphtml())
         .pipe(dest(path.build.html))
         .pipe(browsersync.stream());
 }
@@ -105,7 +105,7 @@ function css(params) {
             overrideBrowserslist: ['last 5 versions'],
             cascade: true
         }))
-        .pipe(webpcss())
+        // .pipe(webpcss())
         .pipe(dest(path.build.css))
         .pipe(cleanCss())
         .pipe(
@@ -143,24 +143,24 @@ function doc(params) {
         .pipe(dest(path.build.doc));
 }
 
-// function images(params) {
-//     return src(path.src.img)
-//         .pipe(webp({
-//             quality: 70
-//         }))
-//         .pipe(dest(path.build.img))
-//         .pipe(src(path.src.img))
-//         .pipe(imagemin({
-//             progressive: true,
-//             svgoPlugins: [{
-//                 removeViewBox: false
-//             }],
-//             interlaced: true,
-//             optimizationLevel: 3 // 0 to 7
-//         }))
-//         .pipe(dest(path.build.img))
-//         .pipe(browsersync.stream());
-// }
+function images(params) {
+    return src(path.src.img)
+        // .pipe(webp({
+        //     quality: 70
+        // }))
+        .pipe(dest(path.build.img))
+        .pipe(src(path.src.img))
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{
+                removeViewBox: false
+            }],
+            interlaced: true,
+            optimizationLevel: 3 // 0 to 7
+        }))
+        .pipe(dest(path.build.img))
+        .pipe(browsersync.stream());
+}
 
 function fonts(params) {
     src(path.src.fonts)
@@ -224,7 +224,7 @@ function fontsStyle(params) {
         gulp.watch([path.watch.php], php);
         gulp.watch([path.watch.css], css);
         gulp.watch([path.watch.js], js);
-        gulp.watch([path.watch.img], images);
+        // gulp.watch([path.watch.img], images);
         gulp.watch([path.watch.doc], doc);
     }
 
@@ -233,6 +233,7 @@ function fontsStyle(params) {
     }
 
     let build = gulp.series(clean, gulp.parallel(js, jsmap, doc, css, html, php, htaccess, images, fonts), fontsStyle);
+    // let build = gulp.series(clean, gulp.parallel(js, jsmap, doc, css, html, php, htaccess, fonts), fontsStyle);
     let watch = gulp.parallel(build, watchFiles, browserSync);
 
     exports.fontsStyle = fontsStyle;

@@ -61,7 +61,6 @@ class Model_Organizations extends Model
             echo "Error: " . $e->getMessage();
             }
             $dbh = null;
-            // header('Location: /organizations');
     }
     public function update_data()
 	{
@@ -104,5 +103,63 @@ class Model_Organizations extends Model
             }
             $dbh = null;
             header('Location: /organizations');
+    }
+	public function add_data_with_user()
+	{
+            global $dbname, $pass, $user, $host;
+            try {
+
+            $dbh = new PDO("mysql:host=$host; dbname=$dbname", $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $dbh->prepare("INSERT INTO organizations (name, address, mail, phone, date)
+            VALUES (:name, :address, :mail, :phone, :date)");
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':address', $address);
+            $stmt->bindParam(':mail', $mail);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':date', $date);
+
+            $name = $_POST['org_name'];
+            $address = $_POST['org_address'];
+            $mail = $_POST['org_mail'];
+            $phone = $_POST['org_phone'];
+            $date = date("YmdHis");
+            $stmt->execute();
+            $id = $dbh->lastInsertId();
+
+
+            // echo $id;
+            // exit();
+
+            //запись данных ответственного лица...
+            $stmt = $dbh->prepare("INSERT INTO users (first_name, last_name, phone, password, mail, role_id, organization_id, date)
+            VALUES (:first_name, :last_name, :phone, :password, :mail, :role_id, :organization_id, :date)");
+            $stmt->bindParam(':first_name', $first_name);
+            $stmt->bindParam(':last_name', $last_name);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':mail', $mail);
+            $stmt->bindParam(':role_id', $role_id);
+            $stmt->bindParam(':organization_id', $id);
+            $stmt->bindParam(':date', $date);
+
+            $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $phone = $_POST['phone'];
+            $password = $_POST['password'];
+            $mail = $_POST['mail'];
+            $role_id = $_POST['role'];
+            $organization_id = $id;
+            $date = date("YmdHis");
+            $stmt->execute();
+            }catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+            }
+
+
+
+            $dbh = null;
+            // header('Location: /');
+
     }
 }

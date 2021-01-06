@@ -83,7 +83,6 @@ class Model_Main extends Model
             $stmt->bindParam(':last_name', $last_name);
             $stmt->bindParam(':phone', $phone);
             $stmt->bindParam(':mail', $mail);
-            // $stmt->bindParam(':role_id', $role_id);
             $stmt->bindParam(':password', $password);
             $stmt->bindParam(':date', $date);
             $stmt->bindParam(':edit_id', $user_id);
@@ -92,7 +91,6 @@ class Model_Main extends Model
             $last_name = $_POST['lastNameAdm'];
             $phone = $_POST['phone'];
             $mail = $_POST['mail'];
-            // $role_id = $_POST['role'];
             $user_id = $_SESSION['user_id'];
             $password = $_POST['password'];
             $date = date("YmdHis");
@@ -101,7 +99,6 @@ class Model_Main extends Model
             echo "Error: " . $e->getMessage();
             }
             $dbh = null;
-            // header('Location: /users');
             $_SESSION['user'] = $_POST['firstNameAdm'];
     }
 

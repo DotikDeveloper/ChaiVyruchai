@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const file_attach = document.getElementById('userPhoto'); // файл
-    const settings = document.getElementById('settings'); // форма
+    const settings = document.getElementById('settings'); // форма админ настройки
+    const org_add = document.getElementById('org_add_with_user'); // форма добавление организации
+    // const waiters = document.querySelector("button[data-btnmenu=waiters]");
+    const waiters = document.querySelector(".moderation-requests__list"); // кнопка официанты
+    const btn_yes = document.querySelector(".moderation-requests__item--yes"); // модерация, кнопка да
+    const btn_no = document.querySelector(".moderation-requests__item--no"); // модерация, кнопка нет
+
+    if (waiters) {
+        load_moderations();
+    }
 
     settings.onsubmit = async (e) => {
         e.preventDefault();
@@ -26,12 +35,95 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-      };
+    };
 
-    // обработчик события 'change' (происходит после выбора файла)
+    org_add.onsubmit = async (e) => {
+        e.preventDefault();
+        let response = await fetch('/organizations', {
+          method: 'POST',
+          body: new FormData(org_add)
+        });
+        console.log(response);
+
+        let result = await response.json();
+            console.log(result);
+
+        if (result.answer == 'ok') {
+            org_add.reset();
+        }
+
+    };
+
+        // обработчик события 'change' (происходит после выбора файла)
     file_attach.addEventListener('change', () => {
         uploadFile(file_attach.files[0]);
     });
+
+
+    // btn_yes.addEventListener('click', () => {
+
+    //     alert('Кнопка нажата');
+    // });
+
+    waiters.addEventListener('click', (e) => {
+        if (e.target.classList.contains('moderation-requests__item--yes')) {
+            // alert(e.target);
+        }
+        if (e.target.getAttribute('data-req') == "yes") {
+            e.target.closest('li').style.backgroundColor = 'rgba(111, 149, 145, 0.25)';
+            e.target.closest('li').style.border = '5px solid rgba(111, 149, 145, 0.25)';
+            e.target.closest('li').style.padding = '0';
+
+            let formData = new FormData();
+            formData.append('moderate_ok', e.target.closest('li').getAttribute('user_id'));
+            fetch('/users', { method: 'POST', body: formData })
+            .then(function (response) {
+            return response.json();
+            })
+            .then(function (data) {
+                console.log(data)
+            });
+            setTimeout(() => e.target.closest('li').remove(), 1000);
+        }
+        if (e.target.getAttribute('data-req') == "no") {
+            e.target.closest('li').style.backgroundColor = 'rgba(202, 88, 62, 0.25)';
+            e.target.closest('li').style.border = '5px solid rgba(202, 88, 62, 0.25)';
+            e.target.closest('li').style.padding = '0';
+
+            let formData = new FormData();
+            formData.append('moderate_failure', e.target.closest('li').getAttribute('user_id'));
+            fetch('/users', { method: 'POST', body: formData })
+            .then(function (response) {
+            return response.json();
+            })
+            .then(function (data) {
+                console.log(data)
+            });
+            setTimeout(() => e.target.closest('li').remove(), 1000);
+        }
+    });
+
+
+    function load_moderations() {
+        let formData = new FormData();
+        formData.append('load_moderations', '');
+        fetch('/users', { method: 'POST', body: formData })
+        .then(function (response) {
+        return response.json();
+        })
+        .then(function (data) {
+        // console.log(data);
+
+        data.forEach(element => {
+            console.log(element)
+            if (element['ava'] == '') {element['ava'] = 'img/admin/ava__adm1.jpeg'}
+            waiters.insertAdjacentHTML('beforeend','<li class="moderation-requests__item" user_id="'+element['user_id']+'"><div class="moderation-requests__item--avatar"><img class="moderation-requests__item--avatar-img" src="'+element['ava']+'" alt="ava"></div><div class="moderation-requests__item-block-name"><div class="moderation-requests__item--first_name">'+element['first_name']+'</div><div class="moderation-requests__item--last_name">'+element['last_name']+'</div><div class="moderation-requests__item--org_name">'+element['organization']+'</div></div><div class="moderation-requests__item--role">Официант</div><div class="moderation-requests__item-block-btn"><button class="moderation-requests__item--yes" data-req="yes">да</button><button class="moderation-requests__item--no" data-req="no">нет</button></div></li>');
+
+            // waiters.innerHTML += '<li class="moderation-requests__item"><div class="moderation-requests__item--avatar"><img class="moderation-requests__item--avatar-img" src="'+element['ava']+'" alt="ava"></div><div class="moderation-requests__item-block-name"><div class="moderation-requests__item--first_name">'+element['first_name']+'</div><div class="moderation-requests__item--last_name">'+element['last_name']+'</div><div class="moderation-requests__item--org_name">'+element['organization']+'</div></div><div class="moderation-requests__item--role">Официант</div><div class="moderation-requests__item-block-btn"><button class="moderation-requests__item--yes" data-req="yes">да</button><button class="moderation-requests__item--no" data-req="no">нет</button></div></li>';
+        });
+
+        });
+    }
 
     // Загрузка файла
     const uploadFile = (file) => {

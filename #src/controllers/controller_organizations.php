@@ -12,6 +12,13 @@ class Controller_Organizations extends Controller
 		If(isset($_POST['org_add'])){
 			$this->model->add_data();
 		}
+		If(isset($_POST['org_add_with_user_form'])){
+			$this->model->add_data_with_user();
+			header('Content-Type: application/json');
+			echo json_encode(array('answer' => 'ok'));
+
+			exit;
+		}
 		If(isset($_POST['del_id'])){
 			$this->model->del_data();
 		}

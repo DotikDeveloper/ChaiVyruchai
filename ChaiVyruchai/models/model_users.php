@@ -58,6 +58,34 @@ class Model_Users extends Model
         }
 
     }
+	public function get_moderations()
+	{
+        global $dbname, $pass, $user, $host;
+        try {
+
+            $dbh = new PDO("mysql:host=$host; dbname=$dbname", $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
+
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // $sth = $dbh->prepare("SELECT * FROM `users` WHERE role_id = 3 AND checked = 0");
+
+            $sth = $dbh->prepare("SELECT users.user_id, users.first_name, users.last_name, organizations.name AS organization, users.ava, users.date
+            FROM users
+            LEFT JOIN organizations ON users.organization_id = organizations.organization_id
+            WHERE users.role_id = 3 and users.checked = 0;");
+
+            $sth->execute();
+            $array = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+            }
+        catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+            }
+        $dbh = null;
+        return $array;
+
+
+    }
 	public function add_data()
 	{
             global $dbname, $pass, $user, $host;
@@ -125,6 +153,42 @@ class Model_Users extends Model
             }
             $dbh = null;
             // header('Location: /users');
+    }
+    public function moderate_ok()
+	{
+            global $dbname, $pass, $user, $host;
+            try {
+
+            $dbh = new PDO("mysql:host=$host; dbname=$dbname", $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
+
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $dbh->prepare("UPDATE `users` SET `checked` = :checked WHERE `user_id` = :edit_id");
+            $stmt->bindParam(':checked', $checked);
+            $stmt->bindParam(':edit_id', $user_id);
+
+            $checked = 1;
+            $user_id = $_POST['moderate_ok'];
+            $stmt->execute();
+            }catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+            }
+            $dbh = null;
+    }
+	public function moderate_failure()
+	{
+            global $dbname, $pass, $user, $host;
+            try {
+
+            $dbh = new PDO("mysql:host=$host; dbname=$dbname", $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $del_id = $_POST['moderate_failure'];
+            $dbh->exec("DELETE FROM `users` WHERE `user_id` = $del_id");
+            }catch(PDOException $e){
+            echo "Error: " . $e->getMessage();
+            }
+            $dbh = null;
     }
 	public function del_data()
 	{

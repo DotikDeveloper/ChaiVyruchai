@@ -1,23 +1,18 @@
 <header class="header container">
-        <div class="header__logo"><a href="/"><img class="header__logo--img" src="media/logo/logo__full.png"
-                    alt="logo"></a></div>
-        <div class="header__login">
-            <button class="header__button" data-button="login" title="Войти в личный кабинет"><i
-                    class="header__button--icon far fa-user"></i>
-            </button>
-        </div>
+    <a href="index.html" class="header__logo"><img src="img/logo/logo__full.png" alt="logo"></a>
+    <div class="header__login">
+        <button class="header__button" data-button="login" title="Войти в личный кабинет"><i
+                class="header__button--icon far fa-user"></i>
+        </button>
+    </div>
     </header>
 
-    <!-- main -->
     <main class="main__registration container">
-
         <section class="registration">
-
             <h2 class="registration__title">Регистрация</h2>
             <div class="registration__body">
                 <div class="registration__img">
-                    <img class="registration__img registration__img--picture"
-                        src="media/registration/registration__bg.jpg" alt="Подключайся">
+                    <img class="registration__img registration__img--picture" src="img/registration/registration__bg.jpg" alt="Подключайся">
                 </div>
                 <div class="registration__content">
                     <div id="tabsBtn" class="registration__tabs-container">
@@ -26,10 +21,9 @@
                         <button class="registration__btn" type="submit">Юридическое
                             лицо</button>
                     </div>
-
                     <div class="registration__list-block list-block ">
                         <form class="modal__form form registration__form" data-form="user" action="/registration" method="post">
-                            <input class="form__input" type="text" required name="first_name"
+                            <input class="form__input" type="text" required pattern="^[a-zA-Zа-яёА-ЯЁ]+$" name="first_name"
                                 id="first_name" placeholder="Имя">
                             <input class="form__input" type="text" required name="last_name" id="last_name"
                                 placeholder="Фамилия">
@@ -41,14 +35,16 @@
                             <input class="form__input" type="email" required name="mail" id="mail"
                                 placeholder="email"></input>
                             <select class="form__input" required name="org">
-                            <option></option>
-                            <?php
-                            foreach($data[2] as $row){
-                                echo '<option value="'.$row['organization_id'].'">'.$row['name'].'</option>';
-                            }
-                            ?>
+                                <option></option>
+                                <?php
+                                foreach($data[2] as $row){
+                                    echo '<option value="'.$row['organization_id'].'">'.$row['name'].'</option>';
+                                }
+                                ?>
                             </select>
                             <input type="hidden" name="role" id="role" value="3"></input>
+                            <!-- <input class="form__input" type="text" required name="role" id="role"
+                                placeholder="должность"></input> -->
                             <button class="form__input form__input--submit" type="submit" name="user_add"
                                 id="user_add">Зарегистрироваться</button>
                         </form>
@@ -69,26 +65,65 @@
                 </div>
             </div>
         </section>
-        <div class="overlay hide">
-            <div class="modal">
-                <button data-button="close-modal" class="modal__close">&times;</button>
-                <div class="modal__title">Войти в личный кабинет</div>
-                <div class="modal__description--danger">логин или пароль введены неверно</div>
-                <form class="modal__form form" action="#">
-                    <input class="form__input" name="phone"
-                        pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required
-                        placeholder="+7 000 000 00 00" type="tel"></input>
-                    <input class="form__input" id="form__password" name="form__password" required type="password"
-                        placeholder="пароль"></input>
-                    <a href="#" class="password-control"><img src="media/modal/eye-close.svg" height="15"
-                            alt="скрыто"></a>
-
-                    <input class="form__input form__input--check" type="checkbox" id="modal__check" name="modal__check"
-                        checked>
-                    <label class="form__label" for="modal__check">запомнить логин и пароль</label>
-
-                    <button class="form__input form__input--submit" type="submit" name="submit">войти</button>
-                </form>
-            </div>
-        </div>
     </main>
+
+    <div class="overlay hide">
+    <div class="modal">
+        <button data-button="close-modal" class="modal__close">&times;</button>
+        <div class="modal__title">Войти в личный кабинет</div>
+        <div class="modal__description--danger">логин или пароль введены неверно</div>
+        <form class="modal__form form" action="#">
+            <input class="form__input" name="phone"
+                pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required placeholder="+7 000 000 00 00"
+                type="tel"></input>
+            <input class="form__input" id="form__password" name="form__password" required type="password"
+                placeholder="пароль"></input>
+            <a href="#" class="password-control">
+                <img src="img/modal/eye-close.svg" alt="скрыто" height="15">
+            </a>
+            <input class="form__input form__input--check" type="checkbox" id="modal__check" name="modal__check" checked>
+            <label class="form__label" for="modal__check">запомнить логин и пароль</label>
+            <button target="_blank" class="form__input form__input--submit" type="submit" name="submit">войти</button>
+        </form>
+    </div>
+</div>
+    <footer class="footer">
+    <div class="footer__body container">
+        <div class="footer__call-to-action">
+            <div class="footer__description">
+                <div class="footer__title">Получай чаевые с карты</div>
+                <div class="footer__text">Отправь заявку на подключение. После подключения к сервису вы сможете
+                    в
+                    этот же день получить чаевые на карту.</div>
+                <div class="footer__link">
+                    <div class="footer__link--item">
+                        <a href="contacts.html" target="_blank" class="footer__link">Адрес и реквизиты</a>
+                    </div>
+                    <div class="footer__link--item">
+                        <a href="doc/offer-agreement.pdf" target="_blank" class="footer__link">Договор-оферта</a>
+                    </div>
+                    <div class="footer__link--item">
+                        <a href="doc/privacy-policy.pdf" target="_blank" class="footer__link">Политика
+                            конфиденциальности</a>
+                    </div>
+                    <div class="footer__link--item">
+                        <a href="doc/security-policy.pdf" target="_blank" class="footer__link">Политика
+                            безопастности</a>
+                    </div>
+                </div>
+
+            </div>
+            <button href="registration.html" target="_blank" class="footer__button">Подключиться</button>
+        </div>
+    </div>
+                    <!-- Copyright -->
+                <div class="footer__copyright copyright">
+                    <div class="copyright__text">
+                        &copy; <span class="footer__date"></span> <a href="https://chaivyruchai.ru"
+                            class="copyright__description copyright__link">ChaiVyruchai.ru</a> Все права
+                        защищены. Разработано <a href="https://dotdev.site"
+                            class="copyright__description copyright__link" target="_blank">dotdev.site</a>
+                    </div>
+                </div>
+                <!-- Copyright -->
+</footer>

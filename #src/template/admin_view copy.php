@@ -1,70 +1,48 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ЧайВыручай. Личный кабинет. Администратор.</title>
-    <meta name="description" content="ЧайВыручай. Принимайте чаевые картой">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link rel="shortcut icon" href="img/logo/favicon.ico" type="image/x-icon">
-    <!-- Normalize.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="css/style.min.css">
-</head>
-
-<body>
-    <header class="header container">
-    <a href="index.html" class="header__logo"><img src="img/logo/logo__full.png" alt="logo"></a>
-    <a href="#" class="header__menu-toggle"></a>
-
-    <div class="header__menu">
-        <button class="header__button" data-button="menu-admin" title="Меню"><i class="fas fa-bars"></i>
-        </button>
-    </div>
-</header>
-
-    <main class="adm adm__main">
+<main class="adm adm__main">
         <div class="adm__sidebar sidebar">
             <div class="sidebar__top">
                 <div class="sidebar__login login">
                     <div class="login__avatar">
-                        <img src="img/admin/ava__adm1.jpg" class="login__avatar--img" alt="ava">
+                        <!-- <picture><source srcset="img/admin/ava__adm1.webp" type="image/webp"><img src="img/admin/ava__adm1.jpg" class="login__avatar--img" alt="ava"></picture> -->
+                        <img src="<?php echo($_SESSION['user_ava'] == "" ? "img/admin/ava__adm1.jpeg" : $_SESSION['user_ava']) ?>   " class="login__avatar--img" alt="ava">
                     </div>
                     <div class="login__info">
                         <div class="login__info--item login__info--user-role">Администратор</div>
-                        <div class="login__info--item login__info--user-name">Евгений</div>
-                        <div class="login__info--item login__info--user-target">“Хочу в отпуск”</div>
+                        <div class="login__info--item login__info--user-name">
+                            <?php
+                                echo($_SESSION['user']);
+                            ?>
+                        </div>
+                        <!-- <div class="login__info--item login__info--user-target">“Хочу в отпуск”</div> -->
                         <div class="login__info--item login__info--user-company">чай выучай</div>
                     </div>
                     <div class="login__logo">
-                        <img class="login__logo--img" src="img/admin/logo__company.png" alt="logo">
+                        <picture><source srcset="img/admin/logo__company.webp" type="image/webp"><img class="login__logo--img" src="img/admin/logo__company.png" alt="logo"></picture>
                     </div>
                 </div>
 
                 <nav class="sidebar__menu menu menu__nav">
                     <button class="menu__item" href="admin-panel_adm.html" data-btnMenu="dashboard">
-                        <img src="img/admin/icon__dashbord.svg" alt="dashboard">
-                        <span class="menu__item--title">dashboard</span>
+                        <picture><source srcset="img/admin/icon__dashbord.svg" type="image/webp" data-btnMenu="dashboard"><img src="img/admin/icon__dashbord.svg" alt="dashboard" data-btnMenu="dashboard"></picture>
+                        <span class="menu__item--title" data-btnMenu="dashboard">dashboard</span>
                     </button>
                     <button class="menu__item" data-btnMenu="restorans">
-                        <img class="menu__icon" src="img/admin/icon__restaurants.svg" alt="R">
+                        <picture data-btnMenu="restorans"><source srcset="img/admin/icon__restaurants.svg" type="image/webp" data-btnMenu="restorans"><img class="menu__icon" data-btnMenu="restorans" src="img/admin/icon__restaurants.svg" alt="R"></picture>
                         <!-- <span class="menu__item--title">рестораны</span> -->
-                        <span class="menu__item--title">рестораны</span>
+                        <span class="menu__item--title" data-btnMenu="restorans">рестораны</span>
                     </button>
                     <button class="menu__item" data-btnMenu="waiters">
-                        <img class="menu__icon" src="img/admin/icon__waiters.svg" alt="W">
-                        <span class="menu__item--title" data-btnMenu="waiters">официанты</span></button>
+                        <picture data-btnMenu="waiters"><source srcset="img/admin/icon__waiters.svg" type="image/webp" data-btnMenu="waiters"><img class="menu__icon" src="img/admin/icon__waiters.svg" alt="W" data-btnMenu="waiters"></picture>
+                        <span class="menu__item--title" data-btnMenu="waiters" data-btnMenu="waiters">официанты</span></button>
                     <button class="menu__item" data-btnMenu="messages">
-                        <img class="menu__icon" src="img/admin/icon__messages.svg" alt="M">
-                        <span class="menu__item--title">сообщения</span></button>
+                        <picture data-btnMenu="messages"><source srcset="img/admin/icon__messages.svg" type="image/webp" data-btnMenu="messages"><img class="menu__icon" src="img/admin/icon__messages.svg" alt="M" data-btnMenu="messages"></picture>
+                        <span class="menu__item--title" data-btnMenu="messages">сообщения</span></button>
                 </nav>
             </div>
             <div class="sidebar__bottom">
                 <button class="sidebar__settings menu__item menu" data-btnMenu="settings">
-                    <img class="menu__icon" src="img/admin/icon__settings.svg">
-                    <span class="menu__item--title">настройки</span>
+                    <picture data-btnMenu="settings"><source srcset="img/admin/icon__settings.svg" type="image/webp" data-btnMenu="settings"><img class="menu__icon" src="img/admin/icon__settings.svg" data-btnMenu="settings"></picture>
+                    <span class="menu__item--title" data-btnMenu="settings">настройки</span>
                 </button>
                 <a href="/main/logout" class="sidebar__settings menu__item menu">
                     <img class="menu__icon" src="img/admin/icon__exit.svg">
@@ -78,7 +56,7 @@
                     <h3 class="dashboard__content-title">Общая статистика</h3>
                     <div class="dashboard__filter">
                         <button class="dashboard__filter-btn">
-                            <img class="dashboard__filter-ico" src="img/admin/edit-filter.svg" alt="filter">
+                            <picture><source srcset="img/admin/edit-filter.svg" type="image/webp"><img class="dashboard__filter-ico" src="img/admin/edit-filter.svg" alt="filter"></picture>
                         </button>
                         <div class="dashboard__filter-menu hide">
                             <div class="dashboard__filter-menu--item">сутки</div>
@@ -96,7 +74,7 @@
                     <h3 class="dashboard__content-title">статистика по по компаниям</h3>
                     <div class="dashboard__filter">
                         <button class="dashboard__filter-btn">
-                            <img class="dashboard__filter-ico" src="img/admin/edit-filter.svg" alt="filter">
+                            <picture><source srcset="img/admin/edit-filter.svg" type="image/webp"><img class="dashboard__filter-ico" src="img/admin/edit-filter.svg" alt="filter"></picture>
                         </button>
                         <div class="dashboard__filter-menu hide">
                             <div class="dashboard__filter-menu--item">сутки</div>
@@ -115,7 +93,7 @@
                     <h3 class="dashboard__content-title">запросы на модерацию</h3>
                     <div class="dashboard__filter">
                         <button class="dashboard__filter-btn">
-                            <img class="dashboard__filter-ico" src="img/admin/edit-filter.svg" alt="filter">
+                            <picture><source srcset="img/admin/edit-filter.svg" type="image/webp"><img class="dashboard__filter-ico" src="img/admin/edit-filter.svg" alt="filter"></picture>
                         </button>
                         <div class="dashboard__filter-menu hide">
                             <div class="dashboard__filter-menu--item">сутки</div>
@@ -128,7 +106,7 @@
                     <ul class="moderation-requests__list dashboard__list">
                         <li class="moderation-requests__item">
                             <div class="moderation-requests__item--avatar">
-                                <img class="moderation-requests__item--avatar-img" src="img/admin/user.jpg" alt="ava">
+                                <picture><source srcset="img/admin/user.webp" type="image/webp"><img class="moderation-requests__item--avatar-img" src="img/admin/user.jpg" alt="ava"></picture>
                             </div>
                             <div class="moderation-requests__item-block-name">
                                 <div class="moderation-requests__item--first_name">Виктория</div>
@@ -145,7 +123,7 @@
                         </li>
                         <li class="moderation-requests__item">
                             <div class="moderation-requests__item--avatar">
-                                <img class="moderation-requests__item--avatar-img" src="img/admin/user.jpg" alt="ava">
+                                <picture><source srcset="img/admin/user.webp" type="image/webp"><img class="moderation-requests__item--avatar-img" src="img/admin/user.jpg" alt="ava"></picture>
                             </div>
                             <div class="moderation-requests__item-block-name">
                                 <div class="moderation-requests__item--first_name">Виктория</div>
@@ -162,7 +140,7 @@
                         </li>
                         <li class="moderation-requests__item">
                             <div class="moderation-requests__item--avatar">
-                                <img class="moderation-requests__item--avatar-img" src="img/admin/user.jpg" alt="ava">
+                                <picture><source srcset="img/admin/user.webp" type="image/webp"><img class="moderation-requests__item--avatar-img" src="img/admin/user.jpg" alt="ava"></picture>
                             </div>
                             <div class="moderation-requests__item-block-name">
                                 <div class="moderation-requests__item--first_name">Виктория</div>
@@ -183,7 +161,7 @@
                     <h3 class="dashboard__content-title">рейтинг официантов</h3>
                     <div class="dashboard__filter">
                         <button class="dashboard__filter-btn">
-                            <img class="dashboard__filter-ico" src="img/admin/edit-filter.svg" alt="filter">
+                            <picture><source srcset="img/admin/edit-filter.svg" type="image/webp"><img class="dashboard__filter-ico" src="img/admin/edit-filter.svg" alt="filter"></picture>
                         </button>
                         <div class="dashboard__filter-menu hide">
                             <div class="dashboard__filter-menu--item">сутки</div>
@@ -196,7 +174,7 @@
                     <ul class="waiters-rating__list dashboard__list">
                         <li class="waiters-rating__item">
                             <div class="waiters-rating__item--avatar">
-                                <img class="waiters-rating__item--avatar-img" src="img/admin/user.jpg" alt="ava">
+                                <picture><source srcset="img/admin/user.webp" type="image/webp"><img class="waiters-rating__item--avatar-img" src="img/admin/user.jpg" alt="ava"></picture>
                             </div>
                             <div class="moderation-requests__item-block-name">
                                 <div class="waiters-rating__item--first_name">Мария</div>
@@ -208,7 +186,7 @@
                         </li>
                         <li class="waiters-rating__item">
                             <div class="waiters-rating__item--avatar">
-                                <img class="waiters-rating__item--avatar-img" src="img/admin/user.jpg" alt="ava">
+                                <picture><source srcset="img/admin/user.webp" type="image/webp"><img class="waiters-rating__item--avatar-img" src="img/admin/user.jpg" alt="ava"></picture>
                             </div>
                             <div class="moderation-requests__item-block-name">
                                 <div class="waiters-rating__item--first_name">Мария</div>
@@ -220,7 +198,7 @@
                         </li>
                         <li class="waiters-rating__item">
                             <div class="waiters-rating__item--avatar">
-                                <img class="waiters-rating__item--avatar-img" src="img/admin/user.jpg" alt="ava">
+                                <picture><source srcset="img/admin/user.webp" type="image/webp"><img class="waiters-rating__item--avatar-img" src="img/admin/user.jpg" alt="ava"></picture>
                             </div>
                             <div class="moderation-requests__item-block-name">
                                 <div class="waiters-rating__item--first_name">Мария</div>
@@ -285,7 +263,7 @@
                         <li class="messages__item">
                             <div class="messages__user">
                                 <div class="messages__user--avatar">
-                                    <img class="messages__user--avatar-img" src="img/admin/user.jpg" alt="ava">
+                                    <picture><source srcset="img/admin/user.webp" type="image/webp"><img class="messages__user--avatar-img" src="img/admin/user.jpg" alt="ava"></picture>
                                 </div>
                                 <div class="messages__user--first_name">Виктория</div>
                                 <div class="messages__user--last_name">Ланина</div>
@@ -314,14 +292,21 @@
 
                         <div class="reg-form">
                             <div class="form__colume">
-                                <form class="modal__form form" data-form="admin" action="#">
                                     <div class="form__input--file">
                                         <input class="input__file" type="file" required name="userPhoto" id="userPhoto"
                                             placeholder="Ваше фото">
                                         <button class="form__input form__input--file" type="button">Загрузить
                                             фото</button>
                                     </div>
-                                    <input class="form__input" type="text" required pattern="\w" name="firstNameAdm"
+                                <form id="settings" class="modal__form form" name="settings" data-form="admin" action="#">
+                                    <!-- <div class="form__input--file">
+                                        <input class="input__file" type="file" required name="userPhoto" id="userPhoto"
+                                            placeholder="Ваше фото">
+                                        <button class="form__input form__input--file" type="button">Загрузить
+                                            фото</button>
+                                    </div> -->
+                                    <!-- <input class="form__input" type="text" required pattern="\w" name="firstNameAdm" -->
+                                    <input class="form__input" type="text" required name="firstNameAdm"
                                         id="firstNameAdm" placeholder="Имя">
                                     <input class="form__input" type="text" required name="lastNameAdm" id="lastNameAdm"
                                         placeholder="Фамилия">
@@ -332,8 +317,8 @@
                                         placeholder="Пароль" minlength="8" maxlength="20"></input>
                                     <input class="form__input" type="email" required name="mail" id="mailAdm"
                                         placeholder="email"></input>
-                                    <input class="form__input" type="text" required name="role" id="roleAdm"
-                                        placeholder="должность"></input>
+                                    <!-- <input class="form__input" type="text" required name="role" id="roleAdm"
+                                        placeholder="должность"></input> -->
                                     <button class="form__input form__input--submit" type="submit" id="adm_add"
                                         name="adm_add">добавить в базу данных</button>
                                 </form>
@@ -360,37 +345,19 @@
         <button data-button="close-modal" class="modal__close">&times;</button>
         <div class="modal__title">Войти в личный кабинет</div>
         <div class="modal__description--danger">логин или пароль введены неверно</div>
-        <form class="modal__form form" action="#">            
+        <form class="modal__form form" action="#">
             <input class="form__input" name="phone"
                 pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required placeholder="+7 000 000 00 00"
-                type="tel"></input>            
+                type="tel"></input>
             <input class="form__input" id="form__password" name="form__password" required type="password"
                 placeholder="пароль"></input>
             <a href="#" class="password-control">
-                <img src="img/modal/eye-close.svg" alt="скрыто" height="15">
+                <picture><source srcset="img/modal/eye-close.svg" type="image/webp"><img src="img/modal/eye-close.svg" alt="скрыто" height="15"></picture>
             </a>
             <input class="form__input form__input--check" type="checkbox" id="modal__check" name="modal__check" checked>
             <label class="form__label" for="modal__check">запомнить логин и пароль</label>
-            <button target="_blank" class="form__input form__input--submit" type="submit" name="submit">войти</button>            
+            <button target="_blank" class="form__input form__input--submit" type="submit" name="submit">войти</button>
         </form>
     </div>
 </div>
     </main>
-    <footer class="footer">
-                        <!-- Copyright -->
-                <div class="footer__copyright copyright">
-                    <div class="copyright__text">
-                        &copy; <span class="footer__date"></span> <a href="https://chaivyruchai.ru"
-                            class="copyright__description copyright__link">ChaiVyruchai.ru</a> Все права
-                        защищены. Разработано <a href="https://dotdev.site"
-                            class="copyright__description copyright__link" target="_blank">dotdev.site</a>
-                    </div>
-                </div>
-                <!-- Copyright -->
-    </footer>
-    <script src="js/bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <!-- <script type="text/javascript" src="js/charts.js"></script> -->
-</body>
-
-</html>

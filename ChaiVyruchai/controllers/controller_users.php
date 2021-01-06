@@ -9,6 +9,29 @@ class Controller_Users extends Controller
 
 	function action_index()
 	{
+		If(isset($_POST['load_moderations'])){
+			header('Content-Type: application/json');
+			echo json_encode($this->model->get_moderations());
+			exit;
+		}
+		If(isset($_POST['moderate_ok'])){
+			// mkdir('./'.$_POST['moderate_ok']);
+			$this->model->moderate_ok();
+
+			header('Content-Type: application/json');
+			// echo json_encode($this->model->moderate_ok());
+			echo json_encode(array('answer' => 'ok'));
+			exit;
+		}
+		If(isset($_POST['moderate_failure'])){
+			// mkdir('./'.$_POST['moderate_ok']);
+			$this->model->moderate_failure();
+
+			header('Content-Type: application/json');
+			// echo json_encode($this->model->moderate_ok());
+			echo json_encode(array('answer' => 'ok'));
+			exit;
+		}
 		If(isset($_POST['user_add'])){
 			$this->model->add_data();
 		}
