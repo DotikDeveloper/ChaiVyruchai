@@ -845,8 +845,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_checkReviews__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/checkReviews */ "./#src/js/modules/checkReviews.js");
 /* harmony import */ var _modules_qrcode__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/qrcode */ "./#src/js/modules/qrcode.js");
 /* harmony import */ var _modules_ajaxsend__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/ajaxsend */ "./#src/js/modules/ajaxsend.js");
-'use string';
-
+// 'use string';
 
 
 
