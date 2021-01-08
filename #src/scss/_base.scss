@@ -1,14 +1,16 @@
 //-------------------------BASE----------------------------//
 
 body, 
-html {
-    height: 100vh;
+html {    
     width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;    
     overflow-x: hidden;
     background-color: $pallete-background;
+    @media (min-width:769px) {
+        height: 100vh;
+    }
 }
 
 *{

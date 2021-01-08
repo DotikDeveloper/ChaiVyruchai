@@ -90,7 +90,6 @@ h6 {
 
 body,
 html {
-  height: 100vh;
   width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -838,8 +837,8 @@ button.active {
 
 .footer__button {
   max-height: 3rem;
-  -webkit-box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
-          box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
+  -webkit-box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
+          box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
   border-radius: 15px;
   background-color: #ca583e;
   padding: 0.7rem 1.35rem;
@@ -1031,7 +1030,6 @@ button.active {
   display: flex;
   width: 100%;
   position: relative;
-  height: 100vh;
 }
 
 .adm__sidebar {
@@ -1539,7 +1537,7 @@ button.active {
   background-color: #e6e9ef;
   padding: 10px;
   color: #ca583e;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1563,7 +1561,7 @@ button.active {
   background-color: #e6e9ef;
   padding: 10px;
   color: #ca583e;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
@@ -2865,7 +2863,6 @@ textarea {
 }
 
 .main__oups {
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2925,6 +2922,21 @@ textarea {
   font-size: 1.75rem;
   font-weight: 400;
   text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+  body,
+  html {
+    height: 100vh;
+  }
+
+  .adm__main {
+    height: 100vh;
+  }
+
+  .main__oups {
+    height: 100vh;
+  }
 }
 
 @media (max-width: 1140px) {
@@ -4504,4 +4516,73 @@ textarea {
     font-size: 1.2rem;
     line-height: 1.5rem;
   }
+}
+@supports (-webkit-appearance:none){
+.intro__img--picture{background:url("../img/homepage/intro_bg.webp") no-repeat left center}
+.modal__picture{background:url("../img/modal/mistake.webp") no-repeat center center/cover}
+.form__input--check:checked + label::before{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e")}
+}
+
+ @media (min-width: 769px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 1140px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 1024px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 1024px) and (max-height: 375px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 812px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 768px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 768px) and (max-width: 768px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 375px){
+
+@supports (-webkit-appearance:none){
+
+}
+
 }

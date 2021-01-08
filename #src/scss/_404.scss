@@ -1,7 +1,10 @@
 .main {
 
     &__oups {
-        height: 100vh;
+        
+        @media (min-width:769px){
+            height: 100vh;
+        }
         display: flex;
         flex-direction: column;
         justify-content: center;
