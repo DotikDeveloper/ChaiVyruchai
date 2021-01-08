@@ -77,13 +77,13 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log('не работает qrCode', error);
     }
     // try {
-    //     test();
-    // } catch (error) {
-    //     console.log('не работает test', error);
-    // }
-    // try {
     //     ajaxsend();
     // } catch (error) {
     //     console.log(error);
+    // }
+    // try {
+    //     test();
+    // } catch (error) {
+    //     console.log('не работает test', error);
     // }
 });

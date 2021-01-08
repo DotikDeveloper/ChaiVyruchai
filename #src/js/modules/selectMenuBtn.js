@@ -55,7 +55,7 @@ function selectMenuBtn() {
             }
 
             btn.forEach(item => {
-                console.log(item.childNodes);
+                // console.log(item.childNodes);
                 let btnMenu = item.childNodes;
                 btnMenu.forEach(btnMenuItem => {
                     btnMenuItem.addEventListener('click', (e) => {

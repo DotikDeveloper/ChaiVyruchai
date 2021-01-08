@@ -14,7 +14,7 @@ import sumTips from './modules/sumTips';
 import checkReviews from './modules/checkReviews';
 import qrCode from './modules/qrcode';
 // import ajaxsend from './modules/ajaxsend';
-import test from './modules/test';
+// import test from './modules/test';
 
 
 
@@ -76,14 +76,14 @@ window.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
         console.log('не работает qrCode', error);
     }
-    try {
-        test();
-    } catch (error) {
-        console.log('не работает test', error);
-    }
     // try {
     //     ajaxsend();
     // } catch (error) {
     //     console.log(error);
+    // }
+    // try {
+    //     test();
+    // } catch (error) {
+    //     console.log('не работает test', error);
     // }
 });

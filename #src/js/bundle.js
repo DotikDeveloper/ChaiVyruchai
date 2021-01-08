@@ -204,10 +204,10 @@ function filterDashboard() {
   var filterBtn = document.querySelectorAll('.dashboard__filter-btn');
   filterBtn.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
-      if (e.target.parentElement.parentElement.nextElementSibling.classList.contains('hide')) {
-        e.target.parentElement.parentElement.nextElementSibling.classList.remove('hide');
+      if (e.target.parentNode.nextElementSibling.classList.contains('hide')) {
+        e.target.parentNode.nextElementSibling.classList.remove('hide');
       } else {
-        e.target.parentElement.parentElement.nextElementSibling.classList.add('hide');
+        e.target.parentNode.nextElementSibling.classList.add('hide');
       }
     });
   });
@@ -470,7 +470,7 @@ function selectMenuBtn() {
       }
 
       btn.forEach(function (item) {
-        console.log(item.childNodes);
+        // console.log(item.childNodes);
         var btnMenu = item.childNodes;
         btnMenu.forEach(function (btnMenuItem) {
           btnMenuItem.addEventListener('click', function (e) {
@@ -768,39 +768,6 @@ function sumTips() {
 
 /***/ }),
 
-/***/ "./#src/js/modules/test.js":
-/*!*********************************!*\
-  !*** ./#src/js/modules/test.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
-/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-function test() {
-  console.log(' проверка кнопок: ');
-  var btn = document.querySelectorAll('button[data-btnMenu]');
-  btn.forEach(function (item) {
-    var btnMenu = item.childNodes;
-    btnMenu.forEach(function (btnMenuItem) {
-      btnMenuItem.addEventListener('click', function (e) {
-        console.log(e.target.parentNode.dataset.btnmenu);
-      });
-    });
-  }); // console.log(item);
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (test);
-
-/***/ }),
-
 /***/ "./#src/js/modules/userModeration.js":
 /*!*******************************************!*\
   !*** ./#src/js/modules/userModeration.js ***!
@@ -863,7 +830,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_sumTips__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/sumTips */ "./#src/js/modules/sumTips.js");
 /* harmony import */ var _modules_checkReviews__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/checkReviews */ "./#src/js/modules/checkReviews.js");
 /* harmony import */ var _modules_qrcode__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/qrcode */ "./#src/js/modules/qrcode.js");
-/* harmony import */ var _modules_test__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/test */ "./#src/js/modules/test.js");
 // 'use string';
 
 
@@ -877,7 +843,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // import ajaxsend from './modules/ajaxsend';
-
+// import test from './modules/test';
 
 window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_date__WEBPACK_IMPORTED_MODULE_0__["default"])('.footer__date');
@@ -946,16 +912,15 @@ window.addEventListener('DOMContentLoaded', function () {
     Object(_modules_qrcode__WEBPACK_IMPORTED_MODULE_11__["default"])();
   } catch (error) {
     console.log('не работает qrCode', error);
-  }
-
-  try {
-    Object(_modules_test__WEBPACK_IMPORTED_MODULE_12__["default"])();
-  } catch (error) {
-    console.log('не работает test', error);
   } // try {
   //     ajaxsend();
   // } catch (error) {
   //     console.log(error);
+  // }
+  // try {
+  //     test();
+  // } catch (error) {
+  //     console.log('не работает test', error);
   // }
 
 });
