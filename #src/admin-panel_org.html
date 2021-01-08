@@ -52,10 +52,10 @@
                     <img class="menu__icon" src="img/admin/icon__settings.svg">
                     <span class="menu__item--title">настройки</span>
                 </button>
-                <button class="sidebar__settings menu__item menu">
+                <a href="/main/logout" class="sidebar__settings menu__item menu">
                     <img class="menu__icon" src="img/admin/icon__exit.svg">
                     <span class="menu__item--title">выйти из лк</span>
-                </button>
+                </a>
             </div>
         </div>
         <div class="adm__dashboard dashboard">
@@ -213,13 +213,13 @@
 
                         <div class="reg-form">
                             <div class="form__colume">
-                                <form class="modal__form form" data-form="admin" action="#">
                                     <div class="form__input--file">
                                         <input class="input__file" type="file" required name="userPhoto" id="userPhoto"
                                             placeholder="Ваше фото">
                                         <button class="form__input form__input--file" type="button">Загрузить
                                             фото</button>
                                     </div>
+                                <form class="modal__form form" data-form="admin" action="#">
                                     <div class="form__input--file">
                                         <input class="input__file" type="file" required name="userPhoto" id="orgLogo"
                                             placeholder="Лого ресторана">
@@ -242,7 +242,7 @@
                                     <button class="form__input form__input--submit" type="submit" id="adm_add"
                                         name="adm_add">отправить на проверку</button>
                                 </form>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>

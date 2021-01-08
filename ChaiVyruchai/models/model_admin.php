@@ -9,7 +9,7 @@ class Model_Admin extends Model
                 $dbh = new PDO("mysql:host=$host; dbname=$dbname", $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
                 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $query = 'SELECT*FROM users WHERE login="'.$login.'" AND password="'.$password.'"';
+                // $query = 'SELECT*FROM users WHERE login="'.$login.'" AND password="'.$password.'"';
 
                 $sth = $dbh->prepare("SELECT * FROM users WHERE phone=".$phone." AND password=".$password.";");
                 $sth->execute();

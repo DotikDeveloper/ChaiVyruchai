@@ -11,14 +11,39 @@ class Controller_Main extends Controller
 	{
 		$user = null;
 		// $_SESSION['user_role'] = 0;
+		if(isset($_POST['load_messages'])){
+			header('Content-Type: application/json');
+			echo json_encode($this->model->get_messages());
+			exit;
+		}
+
+		If(isset($_POST['message_ok'])){
+			$this->model->message_ok();
+
+			header('Content-Type: application/json');
+			echo json_encode(array('answer' => 'ok'));
+			exit;
+		}
 
 		if(isset($_POST['get_data_user'])){
 			echo json_encode($this->model->get_user_current()); //отправляем json ответ с данными текущего юзера
 			exit;
 		}
 
+		if(isset($_POST['get_data_org'])){
+			echo json_encode($this->model->get_org_current()); //отправляем json ответ с данными текущего юзера
+			exit;
+		}
+
 		if(isset($_POST['firstNameAdm'])){
 			$this->model->update_data();
+			header('Content-Type: application/json');
+			echo json_encode(array('answer' => 'ok'));
+			exit;
+		}
+
+		if(isset($_POST['req_message'])){
+			$this->model->write_message();
 			header('Content-Type: application/json');
 			echo json_encode(array('answer' => 'ok'));
 			exit;
@@ -63,6 +88,15 @@ class Controller_Main extends Controller
 			if (copy($_FILES['file_attach']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . $path)) $file_attach = $_SERVER['DOCUMENT_ROOT'] . $path;
 
 			$this->model->update_ava($_SESSION['user_id'], $path);
+		}
+
+		if (!empty($_FILES['logo_attach']['tmp_name'])) {
+			if( ! is_dir( $_SERVER['DOCUMENT_ROOT'] . "/media" ) ) mkdir(  $_SERVER['DOCUMENT_ROOT'] . "/media", 0777 );
+			$ext = substr($_FILES['logo_attach']['name'], strpos($_FILES['logo_attach']['name'],'.'), strlen($_FILES['logo_attach']['name'])-1); // В переменную $ext заносим расширение загруженного файла.
+			$path =  "/media/org_logo_" . $_SESSION['organization_id'] . $ext;
+			if (copy($_FILES['logo_attach']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . $path)) $logo_attach = $_SERVER['DOCUMENT_ROOT'] . $path;
+
+			$this->model->update_logo($_SESSION['organization_id'], $path);
 		}
 
 		if(isset($_POST['get_data'])){

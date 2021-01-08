@@ -62,10 +62,10 @@
                     <img class="menu__icon" src="img/admin/icon__settings.svg">
                     <span class="menu__item--title">настройки</span>
                 </button>
-                <button class="sidebar__settings menu__item menu">
+                <a href="/main/logout" class="sidebar__settings menu__item menu">
                     <img class="menu__icon" src="img/admin/icon__exit.svg">
                     <span class="menu__item--title">выйти из лк</span>
-                </button>
+                </a>
             </div>
         </div>
         <div class="adm__dashboard dashboard">
@@ -228,13 +228,14 @@
 
                         <div class="reg-form">
                             <div class="form__colume">
-                                <form class="modal__form form" data-form="admin" action="#">
                                     <div class="form__input--file">
                                         <input class="input__file" type="file" required name="userPhoto" id="userPhoto"
                                             placeholder="Ваше фото">
                                         <button class="form__input form__input--file" type="button">Загрузить
                                             фото</button>
                                     </div>
+                                <form class="modal__form form" data-form="admin" action="#">
+
                                     <input class="form__input" type="text" required pattern="\w" name="firstNameAdm"
                                         id="firstNameUser" placeholder="Имя">
                                     <input class="form__input" type="text" required name="lastNameAdm" id="lastNameUser"
@@ -264,7 +265,7 @@
                     <h3 class="dashboard__content-title">Визитка</h3>
                 </div>
                 <div class="dashboard__content--body business-card">
-                    <div class="form__colume business-card">                        
+                    <div class="form__colume business-card">
                         <div class="business-card__title">
                             Перейдите по ссылке в браузере
                         </div>
@@ -274,7 +275,7 @@
                         </canvas >
                         <div class="business-card__id-user">
                             id<span class="business-card__id-number">456-987</span>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
             </div>

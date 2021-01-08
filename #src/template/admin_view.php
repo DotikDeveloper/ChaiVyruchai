@@ -232,8 +232,8 @@
                                         placeholder="Пароль" minlength="8" maxlength="20">
                                     <input class="form__input" type="email" required name="mail" id="mail"
                                         placeholder="email">
-                                    <input class="form__input" type="text" required name="role" id="role"
-                                        placeholder="должность">
+                                    <!-- <input class="form__input" type="text" required name="role" id="role"
+                                        placeholder="должность"> -->
                                     <input type="hidden" name="role" id="role" value="2"></input>
                                     <input type="hidden" name="org_add_with_user_form"></input>
                                 </div>
@@ -291,7 +291,7 @@
                 </div>
                 <div class="dashboard__content dashboard__content--body">
                     <ul class="messages__list dashboard__list">
-                        <li class="messages__item">
+                        <!-- <li class="messages__item">
                             <div class="messages__user">
                                 <div class="messages__user--avatar">
                                     <img class="messages__user--avatar-img" src="img/admin/user.jpg" alt="ava">
@@ -309,7 +309,7 @@
                                 <bottom class="messages__btn btn-yes" data-req="no">ожидание</bottom>
                                 <bottom class="messages__btn btn-no" data-req="yes">сделано</bottom>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
