@@ -26,7 +26,7 @@ let path = {
         js: sourceFolder + "/js/*.js",
         jsmap: sourceFolder + "/js/bundle.js.map",
         doc: sourceFolder + "/doc/*.pdf",
-        img: [sourceFolder + "/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}", "!" + sourceFolder + "/img/media/*.{jpg,jpeg,png,svg,gif,ico,webp}"],
+        img: sourceFolder + "/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}",
         media: sourceFolder + "/img/media/*.{jpg,jpeg,png,svg,gif,ico,webp}",
         fonts: sourceFolder + "/fonts/**/*.ttf",
     },
@@ -39,7 +39,7 @@ let path = {
         doc: sourceFolder + "/doc/*.pdf",
         img: sourceFolder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
     },
-    clean: "./" + projectFolder + "/"
+    clean: ["./" + projectFolder + "/" + "!" + projectFolder + "/media/*.{jpg,jpeg,png,svg,gif,ico,webp}"]
 };
 
 let {
@@ -145,11 +145,6 @@ function doc(params) {
         .pipe(dest(path.build.doc));
 }
 
-function media(params) {
-    return src(path.src.media)
-        .pipe(dest(path.build.media));
-}
-
 function images(params) {
     return src(path.src.img)
         // .pipe(webp({
@@ -239,14 +234,13 @@ function fontsStyle(params) {
         return del(path.clean);
     }
 
-    let build = gulp.series(clean, gulp.parallel(js, jsmap, doc, css, html, php, htaccess, images, media, fonts), fontsStyle);
+    let build = gulp.series(clean, gulp.parallel(js, jsmap, doc, css, html, php, htaccess, images, fonts), fontsStyle);
     // let build = gulp.series(clean, gulp.parallel(js, jsmap, doc, css, html, php, htaccess, fonts), fontsStyle);
     let watch = gulp.parallel(build, watchFiles, browserSync);
 
     exports.fontsStyle = fontsStyle;
     exports.fonts = fonts;
     exports.images = images;
-    exports.media = media;
     exports.js = js;
     exports.jsmap = jsmap;
     exports.doc = doc;
