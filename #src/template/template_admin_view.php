@@ -16,7 +16,7 @@
 
 <body>
     <header class="header container">
-    <a href="index.html" class="header__logo"><img src="img/logo/logo__full.png" alt="logo"></a>
+    <a href="/" class="header__logo"><img src="img/logo/logo__full.png" alt="logo"></a>
     <a href="#" class="header__menu-toggle"></a>
 
     <div class="header__menu">
