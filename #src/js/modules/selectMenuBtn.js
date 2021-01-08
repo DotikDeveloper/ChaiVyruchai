@@ -1,7 +1,8 @@
 function selectMenuBtn() {
     try {
         const menuBtn = () => {
-            const btn = document.querySelectorAll('button.menu__item');
+            // const btn = document.querySelectorAll('button.menu__item');
+            let btn = document.querySelectorAll('button[data-btnMenu]');
    
             const leftTop = document.querySelector('[data-itemDashboard="leftTop"]'),
                 rightTop = document.querySelector('[data-itemDashboard="rightTop"]'),
@@ -52,87 +53,88 @@ function selectMenuBtn() {
             } catch (error) {
                 console.log(error);
             }
-   
-            btn.forEach((item) => {
-   
-                item.addEventListener('click', (e) => {
 
-                    try {
-                        switch (e.target.dataset.btnmenu) {
-                            case 'dashboard':
-                                location.href = location.href;
-                                tabHideContent(restoransAdd);
-                                tabHideContent(message);
-                                tabHideContent(settings);
-                                tabHideContent(businessCard);
-                                break;
-                            case 'restorans':
-                                console.log('restorans');
-                                tabBigContent(restoransAdd);
-                                tabHideContent(leftTop);
-                                tabHideContent(rightTop);
-                                tabHideContent(leftDown);
-                                tabHideContent(rightDown);
-                                tabHideContent(message);
-                                tabHideContent(settings);
-                                tabHideContent(businessCard);
-                                break;
-                            case 'waiters':
-                                console.log('запрос на модерацию');
-                                tabHideContent(restoransAdd);
-                                tabHideContent(leftTop);
-                                tabHideContent(rightTop);
-                                tabBigContent(leftDown);
-                                tabHideContent(rightDown);
-                                tabHideContent(message);
-                                tabHideContent(settings);
-                                tabHideContent(businessCard);
-                                break;
-                            case 'messages':
-                                console.log('messages');
-                                tabHideContent(restoransAdd);
-                                tabHideContent(leftTop);
-                                tabHideContent(rightTop);
-                                tabHideContent(leftDown);
-                                tabHideContent(rightDown);
-                                tabBigContent(message);
-                                tabHideContent(settings);
-                                tabHideContent(businessCard);
-                                break;
-                            case 'settings':
-                                console.log('settings');
-                                tabHideContent(restoransAdd);
-                                tabHideContent(leftTop);
-                                tabHideContent(rightTop);
-                                tabHideContent(leftDown);
-                                tabHideContent(rightDown);
-                                tabHideContent(message);
-                                tabBigContent(settings);
-                                tabHideContent(businessCard);
-                                break;
-                            case 'businessCard':
-                                console.log('businessCard');
-                                tabHideContent(restoransAdd);
-                                tabHideContent(leftTop);
-                                tabHideContent(rightTop);
-                                tabHideContent(leftDown);
-                                tabHideContent(rightDown);
-                                tabHideContent(message);
-                                tabHideContent(settings);
-                                tabBigContent(businessCard);
-                                break;
-       
-                            default:
-                                console.log('error');
-                                break;
+            btn.forEach(item => {
+                console.log(item.childNodes);
+                let btnMenu = item.childNodes;
+                btnMenu.forEach(btnMenuItem => {
+                    btnMenuItem.addEventListener('click', (e) => {
+                        try {
+                            switch (e.target.parentNode.dataset.btnmenu) {
+                                case 'dashboard':
+                                    location.href = location.href;
+                                    tabHideContent(restoransAdd);
+                                    tabHideContent(message);
+                                    tabHideContent(settings);
+                                    tabHideContent(businessCard);
+                                    break;
+                                case 'restorans':
+                                    console.log('restorans');
+                                    tabBigContent(restoransAdd);
+                                    tabHideContent(leftTop);
+                                    tabHideContent(rightTop);
+                                    tabHideContent(leftDown);
+                                    tabHideContent(rightDown);
+                                    tabHideContent(message);
+                                    tabHideContent(settings);
+                                    tabHideContent(businessCard);
+                                    break;
+                                case 'waiters':
+                                    console.log('запрос на модерацию');
+                                    tabHideContent(restoransAdd);
+                                    tabHideContent(leftTop);
+                                    tabHideContent(rightTop);
+                                    tabBigContent(leftDown);
+                                    tabHideContent(rightDown);
+                                    tabHideContent(message);
+                                    tabHideContent(settings);
+                                    tabHideContent(businessCard);
+                                    break;
+                                case 'messages':
+                                    console.log('messages');
+                                    tabHideContent(restoransAdd);
+                                    tabHideContent(leftTop);
+                                    tabHideContent(rightTop);
+                                    tabHideContent(leftDown);
+                                    tabHideContent(rightDown);
+                                    tabBigContent(message);
+                                    tabHideContent(settings);
+                                    tabHideContent(businessCard);
+                                    break;
+                                case 'settings':
+                                    console.log('settings');
+                                    tabHideContent(restoransAdd);
+                                    tabHideContent(leftTop);
+                                    tabHideContent(rightTop);
+                                    tabHideContent(leftDown);
+                                    tabHideContent(rightDown);
+                                    tabHideContent(message);
+                                    tabBigContent(settings);
+                                    tabHideContent(businessCard);
+                                    break;
+                                case 'businessCard':
+                                    console.log('businessCard');
+                                    tabHideContent(restoransAdd);
+                                    tabHideContent(leftTop);
+                                    tabHideContent(rightTop);
+                                    tabHideContent(leftDown);
+                                    tabHideContent(rightDown);
+                                    tabHideContent(message);
+                                    tabHideContent(settings);
+                                    tabBigContent(businessCard);
+                                    break;
+           
+                                default:
+                                    console.log('Не выбран раздел dashboard');
+                                    break;
+                            }
+                        } catch (error) {
+                            console.log(error);
                         }
-                    } catch (error) {
-                        console.log(error);
-                    }
-   
-                    
+                                                
+                    });
                 });
-            });
+            });     
         };
    
         menuBtn();

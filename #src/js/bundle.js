@@ -86,25 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./#src/js/modules/ajaxsend.js":
-/*!*************************************!*\
-  !*** ./#src/js/modules/ajaxsend.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function ajaxsend() {
-  var avatar = document.getElementById('userPhoto'); // avatar.addEventListener('change', () => {
-  //     uploadFile(file_attach.files[0]);
-  // });
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (ajaxsend);
-
-/***/ }),
-
 /***/ "./#src/js/modules/charts.js":
 /*!***********************************!*\
   !*** ./#src/js/modules/charts.js ***!
@@ -434,7 +415,8 @@ __webpack_require__.r(__webpack_exports__);
 function selectMenuBtn() {
   try {
     var menuBtn = function menuBtn() {
-      var btn = document.querySelectorAll('button.menu__item');
+      // const btn = document.querySelectorAll('button.menu__item');
+      var btn = document.querySelectorAll('button[data-btnMenu]');
       var leftTop = document.querySelector('[data-itemDashboard="leftTop"]'),
           rightTop = document.querySelector('[data-itemDashboard="rightTop"]'),
           leftDown = document.querySelector('[data-itemDashboard="leftDown"]'),
@@ -488,84 +470,88 @@ function selectMenuBtn() {
       }
 
       btn.forEach(function (item) {
-        item.addEventListener('click', function (e) {
-          try {
-            switch (e.target.dataset.btnmenu) {
-              case 'dashboard':
-                location.href = location.href;
-                tabHideContent(restoransAdd);
-                tabHideContent(message);
-                tabHideContent(settings);
-                tabHideContent(businessCard);
-                break;
+        console.log(item.childNodes);
+        var btnMenu = item.childNodes;
+        btnMenu.forEach(function (btnMenuItem) {
+          btnMenuItem.addEventListener('click', function (e) {
+            try {
+              switch (e.target.parentNode.dataset.btnmenu) {
+                case 'dashboard':
+                  location.href = location.href;
+                  tabHideContent(restoransAdd);
+                  tabHideContent(message);
+                  tabHideContent(settings);
+                  tabHideContent(businessCard);
+                  break;
 
-              case 'restorans':
-                console.log('restorans');
-                tabBigContent(restoransAdd);
-                tabHideContent(leftTop);
-                tabHideContent(rightTop);
-                tabHideContent(leftDown);
-                tabHideContent(rightDown);
-                tabHideContent(message);
-                tabHideContent(settings);
-                tabHideContent(businessCard);
-                break;
+                case 'restorans':
+                  console.log('restorans');
+                  tabBigContent(restoransAdd);
+                  tabHideContent(leftTop);
+                  tabHideContent(rightTop);
+                  tabHideContent(leftDown);
+                  tabHideContent(rightDown);
+                  tabHideContent(message);
+                  tabHideContent(settings);
+                  tabHideContent(businessCard);
+                  break;
 
-              case 'waiters':
-                console.log('запрос на модерацию');
-                tabHideContent(restoransAdd);
-                tabHideContent(leftTop);
-                tabHideContent(rightTop);
-                tabBigContent(leftDown);
-                tabHideContent(rightDown);
-                tabHideContent(message);
-                tabHideContent(settings);
-                tabHideContent(businessCard);
-                break;
+                case 'waiters':
+                  console.log('запрос на модерацию');
+                  tabHideContent(restoransAdd);
+                  tabHideContent(leftTop);
+                  tabHideContent(rightTop);
+                  tabBigContent(leftDown);
+                  tabHideContent(rightDown);
+                  tabHideContent(message);
+                  tabHideContent(settings);
+                  tabHideContent(businessCard);
+                  break;
 
-              case 'messages':
-                console.log('messages');
-                tabHideContent(restoransAdd);
-                tabHideContent(leftTop);
-                tabHideContent(rightTop);
-                tabHideContent(leftDown);
-                tabHideContent(rightDown);
-                tabBigContent(message);
-                tabHideContent(settings);
-                tabHideContent(businessCard);
-                break;
+                case 'messages':
+                  console.log('messages');
+                  tabHideContent(restoransAdd);
+                  tabHideContent(leftTop);
+                  tabHideContent(rightTop);
+                  tabHideContent(leftDown);
+                  tabHideContent(rightDown);
+                  tabBigContent(message);
+                  tabHideContent(settings);
+                  tabHideContent(businessCard);
+                  break;
 
-              case 'settings':
-                console.log('settings');
-                tabHideContent(restoransAdd);
-                tabHideContent(leftTop);
-                tabHideContent(rightTop);
-                tabHideContent(leftDown);
-                tabHideContent(rightDown);
-                tabHideContent(message);
-                tabBigContent(settings);
-                tabHideContent(businessCard);
-                break;
+                case 'settings':
+                  console.log('settings');
+                  tabHideContent(restoransAdd);
+                  tabHideContent(leftTop);
+                  tabHideContent(rightTop);
+                  tabHideContent(leftDown);
+                  tabHideContent(rightDown);
+                  tabHideContent(message);
+                  tabBigContent(settings);
+                  tabHideContent(businessCard);
+                  break;
 
-              case 'businessCard':
-                console.log('businessCard');
-                tabHideContent(restoransAdd);
-                tabHideContent(leftTop);
-                tabHideContent(rightTop);
-                tabHideContent(leftDown);
-                tabHideContent(rightDown);
-                tabHideContent(message);
-                tabHideContent(settings);
-                tabBigContent(businessCard);
-                break;
+                case 'businessCard':
+                  console.log('businessCard');
+                  tabHideContent(restoransAdd);
+                  tabHideContent(leftTop);
+                  tabHideContent(rightTop);
+                  tabHideContent(leftDown);
+                  tabHideContent(rightDown);
+                  tabHideContent(message);
+                  tabHideContent(settings);
+                  tabBigContent(businessCard);
+                  break;
 
-              default:
-                console.log('error');
-                break;
+                default:
+                  console.log('Не выбран раздел dashboard');
+                  break;
+              }
+            } catch (error) {
+              console.log(error);
             }
-          } catch (error) {
-            console.log(error);
-          }
+          });
         });
       });
     };
@@ -782,6 +768,39 @@ function sumTips() {
 
 /***/ }),
 
+/***/ "./#src/js/modules/test.js":
+/*!*********************************!*\
+  !*** ./#src/js/modules/test.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function test() {
+  console.log(' проверка кнопок: ');
+  var btn = document.querySelectorAll('button[data-btnMenu]');
+  btn.forEach(function (item) {
+    var btnMenu = item.childNodes;
+    btnMenu.forEach(function (btnMenuItem) {
+      btnMenuItem.addEventListener('click', function (e) {
+        console.log(e.target.parentNode.dataset.btnmenu);
+      });
+    });
+  }); // console.log(item);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (test);
+
+/***/ }),
+
 /***/ "./#src/js/modules/userModeration.js":
 /*!*******************************************!*\
   !*** ./#src/js/modules/userModeration.js ***!
@@ -844,7 +863,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_sumTips__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/sumTips */ "./#src/js/modules/sumTips.js");
 /* harmony import */ var _modules_checkReviews__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/checkReviews */ "./#src/js/modules/checkReviews.js");
 /* harmony import */ var _modules_qrcode__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/qrcode */ "./#src/js/modules/qrcode.js");
-/* harmony import */ var _modules_ajaxsend__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/ajaxsend */ "./#src/js/modules/ajaxsend.js");
+/* harmony import */ var _modules_test__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/test */ "./#src/js/modules/test.js");
 // 'use string';
 
 
@@ -857,6 +876,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // import ajaxsend from './modules/ajaxsend';
 
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -865,43 +885,43 @@ window.addEventListener('DOMContentLoaded', function () {
   try {
     Object(_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
   } catch (error) {
-    console.log(error);
+    console.log('не работает modal', error);
   }
 
   try {
     Object(_modules_slides__WEBPACK_IMPORTED_MODULE_3__["default"])();
   } catch (error) {
-    console.log(error);
+    console.log('не работает slides', error);
   }
 
   try {
     Object(_modules_registration__WEBPACK_IMPORTED_MODULE_2__["default"])('.registration__tabs-container', '.registration__btn', '.registration__form', 'active');
   } catch (error) {
-    console.log(error);
+    console.log('не работает registration', error);
   }
 
   try {
     Object(_modules_filterDashboard__WEBPACK_IMPORTED_MODULE_4__["default"])();
   } catch (error) {
-    console.log(error);
+    console.log('не работает filterDashboard', error);
   }
 
   try {
     Object(_modules_charts__WEBPACK_IMPORTED_MODULE_5__["default"])();
   } catch (error) {
-    console.log(error);
+    console.log('не работает charts', error);
   }
 
   try {
     Object(_modules_userModeration__WEBPACK_IMPORTED_MODULE_6__["default"])('.moderation-requests__item');
   } catch (error) {
-    console.log(error);
+    console.log('не работает userModeration', error);
   }
 
   try {
     Object(_modules_selectMenuBtn__WEBPACK_IMPORTED_MODULE_7__["default"])();
   } catch (error) {
-    console.log(error);
+    console.log('не работает selectMenuBtn', error);
   }
 
   try {
@@ -913,26 +933,31 @@ window.addEventListener('DOMContentLoaded', function () {
   try {
     Object(_modules_sumTips__WEBPACK_IMPORTED_MODULE_9__["default"])();
   } catch (error) {
-    console.log(error);
+    console.log('не работает sumTips', error);
   }
 
   try {
     Object(_modules_checkReviews__WEBPACK_IMPORTED_MODULE_10__["default"])();
   } catch (error) {
-    console.log(error);
+    console.log('не работает checkReviews', error);
   }
 
   try {
     Object(_modules_qrcode__WEBPACK_IMPORTED_MODULE_11__["default"])();
   } catch (error) {
-    console.log(error);
+    console.log('не работает qrCode', error);
   }
 
   try {
-    Object(_modules_ajaxsend__WEBPACK_IMPORTED_MODULE_12__["default"])();
+    Object(_modules_test__WEBPACK_IMPORTED_MODULE_12__["default"])();
   } catch (error) {
-    console.log(error);
-  }
+    console.log('не работает test', error);
+  } // try {
+  //     ajaxsend();
+  // } catch (error) {
+  //     console.log(error);
+  // }
+
 });
 
 /***/ }),
