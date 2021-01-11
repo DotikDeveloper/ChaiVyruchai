@@ -1,5 +1,5 @@
 <header class="header container">
-    <a href="index.html" class="header__logo"><picture><source srcset="img/logo/logo__full.webp" type="image/webp"><img src="img/logo/logo__full.png" alt="logo"></picture></a>
+    <a href="/" class="header__logo"><picture><source srcset="img/logo/logo__full.webp" type="image/webp"><img src="img/logo/logo__full.png" alt="logo"></picture></a>
     <div>
     </div>
 </header>
