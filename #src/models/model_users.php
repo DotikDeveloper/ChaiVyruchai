@@ -157,16 +157,27 @@ class Model_Users extends Model
     public function moderate_ok()
 	{
             global $dbname, $pass, $user, $host;
+            $params = $this->get_data($_POST['moderate_ok'])[0];
+            $pay = new Payapi;
+            $answer = $pay->user_register($params);
+            $result=new SimpleXMLElement($answer);
+            // $params['client_ref'] = $result->client_ref[0]->__toString();
+            // $result2=new SimpleXMLElement($pay->set_phone_service($params));
+            // $result2=$pay->set_phone_service($params);
+
             try {
 
             $dbh = new PDO("mysql:host=$host; dbname=$dbname", $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
 
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $dbh->prepare("UPDATE `users` SET `checked` = :checked WHERE `user_id` = :edit_id");
+            $stmt = $dbh->prepare("UPDATE `users` SET `checked` = :checked, `client_ref` = :client_ref WHERE `user_id` = :edit_id");
             $stmt->bindParam(':checked', $checked);
+            $stmt->bindParam(':client_ref', $client_ref);
             $stmt->bindParam(':edit_id', $user_id);
 
             $checked = 1;
+            $client_ref = $result->client_ref;
+            // $client_ref = $result->client_ref[0]->__toString();
             $user_id = $_POST['moderate_ok'];
             $stmt->execute();
             }catch(PDOException $e){
@@ -190,6 +201,46 @@ class Model_Users extends Model
             }
             $dbh = null;
     }
+	// public function registr()
+	// {
+    //     $url = 'https://test.best2pay.net/webapi/b2puser/Register';
+    //     $sector = 2391;
+    //     $password = 'test';
+    //     // $client_ref = '000004';
+    //     $first_name = 'Иван';
+    //     $last_name = 'Ивашкин';
+    //     $email = 'no@mail.ru';
+    //     // $str = $sector.$client_ref.$first_name.$last_name.$email.$password;
+    //     $str = $sector.$first_name.$last_name.$email.$password;
+    //     $str=md5($str);
+    //     $signature=base64_encode($str);
+
+    //     // массив для переменных, которые будут переданы с запросом
+    //     $paramsArray = array(
+    //         'sector' => $sector,
+    //         // 'client_ref' => $client_ref,
+    //         'first_name' => $first_name,
+    //         'last_name' => $last_name,
+    //         'email' => $email,
+    //         'signature' => $signature
+    //     );
+    //     // преобразуем массив в URL-кодированную строку
+    //     $vars = http_build_query($paramsArray);
+    //     // создаем параметры контекста
+    //     $options = array(
+    //         'http' => array(
+    //                     'method'  => 'POST',  // метод передачи данных
+    //                     'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
+    //                     'content' => $vars,  // переменные
+    //                 )
+    //     );
+    //     $context  = stream_context_create($options);  // создаём контекст потока
+    //     $result = file_get_contents($url, false, $context); //отправляем запрос
+
+    //     return $result;
+    //     // return $vars;
+
+    // }
 	public function del_data()
 	{
             global $dbname, $pass, $user, $host;
@@ -206,5 +257,31 @@ class Model_Users extends Model
             }
             $dbh = null;
             header('Location: /users');
+    }
+	public function check_phone()//взаимодействие с платежным сервисом для привязки номера телефона
+	{
+        $params = $this->get_data($_SESSION['user_id'])[0];
+        $pay = new Payapi;
+        // $result2=new SimpleXMLElement($pay->set_phone_service($params));
+        $info = $pay->info($params);
+        // $phone = $pay->set_phone($params);
+
+        $result=$pay->check_phone_service($params);
+
+        // return false;
+        return 'ok';
+        // return $phone;
+    }
+	public function set_phone()//взаимодействие с платежным сервисом для привязки номера телефона
+	{
+        $params = $this->get_data($_SESSION['user_id'])[0];
+        $pay = new Payapi;
+        // $result2=new SimpleXMLElement($pay->set_phone_service($params));
+        // $info = $pay->info($params);
+        // $phone = $pay->set_phone($params);
+        $result=$pay->set_phone_service($params, $_POST['sms']);
+        // return false;
+        return 'ok';
+        // return $phone;
     }
 }

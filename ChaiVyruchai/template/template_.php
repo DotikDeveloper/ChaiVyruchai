@@ -18,7 +18,6 @@
 
     <!-- End project here-->
     <script src="js/bundle.min.js"></script>
-    <script src="js/frontback.js"></script>
 </body>
 
 </html>

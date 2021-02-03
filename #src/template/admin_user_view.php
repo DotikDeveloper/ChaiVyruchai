@@ -20,7 +20,6 @@
                         </div>
                     </div>
                     <div class="login__logo">
-                        <!-- <img class="login__logo--img" src="img/admin/logo__company.png" alt="logo"> -->
                         <img src="<?php echo($_SESSION['org_logo'] == "" ? "img/admin/org_logo.jpeg" : $_SESSION['org_logo']) ?>   " class="login__logo--img" alt="org_logo">
                     </div>
             </div>
@@ -195,6 +194,8 @@
                                     <input class="form__input" type="tel"
                                         pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required
                                         placeholder="+7 000 000 00 00" name="phone" id="phoneUser"></input>
+                                    <button class="form__input form__input--submit" type="button" id="phone_confirm"
+                                    name="phone_confirm">Подтвердить номер</button>
                                     <input class="form__input" type="text" name="userCardSettings"
                                         id="userCardSettings" placeholder="укажите номер карты">
                                     <input class="form__input" type="password" required name="password"
@@ -235,20 +236,13 @@
         <div class="overlay hide">
     <div class="modal">
         <button data-button="close-modal" class="modal__close">&times;</button>
-        <div class="modal__title">Войти в личный кабинет</div>
-        <div class="modal__description--danger">логин или пароль введены неверно</div>
-        <form class="modal__form form" action="#">
-            <input class="form__input" name="phone"
-                pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required placeholder="+7 000 000 00 00"
-                type="tel"></input>
-            <input class="form__input" id="form__password" name="form__password" required type="password"
-                placeholder="пароль"></input>
-            <a href="#" class="password-control">
-                <img src="img/modal/eye-close.svg" alt="скрыто" height="15">
-            </a>
-            <input class="form__input form__input--check" type="checkbox" id="modal__check" name="modal__check" checked>
-            <label class="form__label" for="modal__check">запомнить логин и пароль</label>
-            <button target="_blank" class="form__input form__input--submit" type="submit" name="submit">войти</button>
+        <div class="modal__title">Подтвердить номер телефона</div>
+        <div class="modal__description--danger">введен неверный код</div>
+        <form class="modal__form form" action="#" id="check_code">
+            <input class="form__input" name="sms"
+                required placeholder="код из смс"
+                type="text"></input>
+            <button target="_blank" class="form__input form__input--submit" type="submit" name="submit">подтвердить</button>
         </form>
     </div>
 </div>

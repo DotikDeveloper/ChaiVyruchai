@@ -1,14 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const file_attach = document.getElementById('userPhoto'); // файловое поле аватар
-    const logo_attach = document.getElementById('orgLogo'); // файловое поле лого
-    const settings = document.getElementById('settings'); // форма админ настройки
-    const org_add = document.getElementById('org_add_with_user'); // форма добавление организации
-    // const waiters = document.querySelector("button[data-btnmenu=waiters]");
-    const waiters = document.querySelector(".moderation-requests__list"); // кнопка официанты
-    const messages = document.querySelector(".messages__list");
-    // const btn_yes = document.querySelector(".moderation-requests__item--yes"); // модерация, кнопка да
-    // const btn_no = document.querySelector(".moderation-requests__item--no"); // модерация, кнопка нет
-    const form_message = document.getElementById('form_message'); // форма отправки сообщения
+    const file_attach = document.getElementById('userPhoto'), // файловое поле аватар
+        logo_attach = document.getElementById('orgLogo'), // файловое поле лого
+        settings = document.getElementById('settings'), // форма админ настройки
+        org_add = document.getElementById('org_add_with_user'), // форма добавление организации
+        check_code = document.getElementById('check_code'), // форма проверки кода смс
+        waiters = document.querySelector(".moderation-requests__list"), // кнопка официанты
+        phone_confirm = document.getElementById("phone_confirm"), // подтверждение телефона
+        logoutBtn = document.querySelector("button[data-button=close-modal]"),
+        messages = document.querySelector(".messages__list"),
+        form_message = document.getElementById('form_message'), // форма отправки сообщения
+        form_chai = document.getElementById('form_chai'); // форма оплаты чаевых
+
+    if (form_chai){
+        form_chai.onsubmit = (e) => {
+            e.preventDefault();
+            document.location.href = "https://test.best2pay.net/webapi/b2puser/PayIn?sector=2391&to_client_ref=33b466a0-7784-477b-9da2-c75945ffe83b&amount=1000&currency=643&description=%D0%9E%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+%D1%87%D0%B0%D0%B5%D0%B2%D1%8B%D1%85&signature=ZjA2MGE0NmM5YjUxYjgyNmQ3NGQwYzlmMWZkYjg3ZTU=";
+        }
+    }
 
     if (waiters) {
         load_moderations();
@@ -43,6 +51,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     };
+
+    if (check_code) {
+        check_code.onsubmit = async (e) => {
+            e.preventDefault();
+
+            let response = await fetch('/users', {
+            method: 'POST',
+            body: new FormData(check_code)
+            });
+
+            let result = await response.json();
+
+            //данный код позволяет получить и загрузить страницу html
+            // let result = await response.text();
+            // let w = window.open('about:blank','Подтверждение телефона');
+            // w.document.body.innerHTML = result;
+
+            check_code.reset();
+
+            if (result.answer == false) {
+                document.querySelector(".modal__description--danger").style = "opacity: 1";
+                setTimeout(() => document.querySelector(".modal__description--danger").style = "opacity: 0", 3000);
+            }
+            if (result.answer == 'ok') {
+                document.querySelector('.overlay').classList.add("hide");
+            }
+
+        };
+    }
+
 
     if (form_message) {
         form_message.onsubmit = async (e) => {
@@ -324,5 +362,39 @@ document.addEventListener('DOMContentLoaded', () => {
         // ждём окончания операции
         return await fetchResponse.text();
     };
+
+    //показать модальное окно
+    if (phone_confirm){
+        phone_confirm.addEventListener("click", async (e) => {
+            const modalPage = document.querySelector('.overlay');
+            modalPage.classList.remove("hide");
+            let formData = new FormData();
+            formData.append('check_phone', '');
+
+            let response = await fetch('/users', {
+                method: 'POST',
+                body: formData
+                });
+
+            let result = await response.json();
+            // if (result.answer == 'ok'){
+
+            // }
+
+        });
+    }
+
+
+    //скрыть модальное окно
+    logoutBtn.addEventListener("click", () => {
+        const modalPage = document.querySelector('.overlay'),
+        inputModal = document.querySelectorAll("input");
+        modalPage.classList.add("hide");
+        inputModal.forEach((i) => {
+            if (true) {
+                i.value = '';
+            }
+        });
+    });
 
 });

@@ -32,6 +32,21 @@
     class Route {
 	static function start()
 	{
+		//need_make: в боевом режиме включить обработку исключений
+		// set_exception_handler(function (Throwable $exception) {
+		// 	// Функция будет вызвана, если исключение не будет
+		// 	// поймано и завершит программу.
+		// 	//
+		// 	// Она может записать исключение в журнал и вывести
+		// 	// страницу ошибки.
+		// 	error_log($exception->__toString());
+
+		// 	header("HTTP/1.0 503 Temporary unavailable");
+		// 	header("Content-type: text/plain; charset=utf-8");
+		// 	echo "Извините, на сайте произошла ошибка.\n";
+		// 	echo "Попробуйте перезагрузить страницу.\n";
+		// });
+
 		// контроллер и действие по умолчанию
 		$controller_name = 'Main';
 		$action_name = 'index';
@@ -62,20 +77,12 @@
 		$model_file = strtolower($model_name).'.php';
 		$model_path = "models/".$model_file;
 
-// 		echo($model_path);
-//         exit;
 
 		if(file_exists($model_path))
 		{
-// 			include "models/".$model_file;
             include $model_path;
 
 		}
-// 		else
-// 		{
-// 		    echo($model_path);
-// 		    exit;
-// 		}
 
 		// подцепляем файл с классом контроллера
 		$controller_file = strtolower($controller_name).'.php';
@@ -83,9 +90,6 @@
 		if(file_exists($controller_path))
 		{
 			include $controller_path;
-            // echo($controller_file);
-            // exit;
-            // Route::ErrorPage404();
 		}
 		else
 		{
@@ -109,13 +113,13 @@
 		}
 		else
 		{
-			// здесь также разумнее было бы кинуть исключение
+			// здесь также разумнее было бы кинуть исключение need_make
 			Route::ErrorPage404();
 		}
 
 	}
 
-	function ErrorPage404()
+	static function ErrorPage404()
 	{
 	   // echo($_SERVER['HTTP_HOST']);
 
@@ -164,4 +168,278 @@ class Controller {
 	function action_index()
 	{
 	}
+}
+
+class Payapi
+{
+	private $sector = 2391;
+	private static $test_mode = true;
+	private $params;
+
+	public function __construct()
+	{
+		if (self::$test_mode){
+			$this->params = [
+				'password' => '',
+				'sector' => '2391',
+				'host' => 'https://pay.best2pay.net/'
+			];
+		} else {
+			$this->params = [
+				'password' => 'test',
+				'sector' => '2391',
+				'host' => 'https://test.best2pay.net/'
+			];
+		}
+	}
+
+	public static function set_test_mode(bool $mode)
+	{
+		self::$test_mode = $mode;
+	}
+
+	private function get_signature(string $str)
+	{
+		return base64_encode(md5($str));
+	}
+
+
+	public function user_register($user)
+	{
+		$signature=$this->get_signature($this->params['sector'].$user['first_name'].$user['last_name'].$user['mail'].$this->params['password']);
+		//со своим client_ref
+		// $signature=$this->get_signature($this->params['sector'].$user['user_id'].'mutator'.$user['first_name'].$user['last_name'].$user['mail'].$this->params['password']);
+
+        // массив для переменных, которые будут переданы с запросом
+        $paramsArray = array(
+			'sector' => $this->params['sector'],
+			// 'client_ref' => $user['user_id'].'mutator',
+            'first_name' => $user['first_name'],
+            'last_name' => $user['last_name'],
+            'email' => $user['mail'],
+            'signature' => $signature
+        );
+        // преобразуем массив в URL-кодированную строку
+        $vars = http_build_query($paramsArray);
+        // создаем параметры контекста
+        $options = array(
+            'http' => array(
+                        'method'  => 'POST',  // метод передачи данных
+                        'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
+                        'content' => $vars,  // переменные
+                    )
+        );
+        $context  = stream_context_create($options);  // создаём контекст потока
+        $result = file_get_contents($this->params['host'].'webapi/b2puser/Register', false, $context); //отправляем запрос
+
+        return $result;
+
+	}
+	public function info($user)
+	{
+		$signature=$this->get_signature($this->params['sector'].$user['client_ref'].$this->params['password']);
+
+        // массив для переменных, которые будут переданы с запросом
+        $paramsArray = array(
+            'sector' => $this->params['sector'],
+            'client_ref' => $user['client_ref'],
+            'signature' => $signature
+        );
+        // преобразуем массив в URL-кодированную строку
+        $vars = http_build_query($paramsArray);
+        // создаем параметры контекста
+        $options = array(
+            'http' => array(
+                        'method'  => 'POST',  // метод передачи данных
+                        'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
+                        'content' => $vars,  // переменные
+                    )
+        );
+        $context  = stream_context_create($options);  // создаём контекст потока
+        $result = file_get_contents($this->params['host'].'webapi/b2puser/Info', false, $context); //отправляем запрос
+
+        return $result;
+	}
+	public function set_phone($user)
+	{
+		$signature=$this->get_signature($this->params['sector'].$user['client_ref'].$this->params['password']);
+
+        // массив для переменных, которые будут переданы с запросом
+        $paramsArray = array(
+            'sector' => $this->params['sector'],
+            'client_ref' => $user['client_ref'],
+            'signature' => $signature
+        );
+        // преобразуем массив в URL-кодированную строку
+        $vars = http_build_query($paramsArray);
+        // создаем параметры контекста
+        $options = array(
+            'http' => array(
+                        'method'  => 'POST',  // метод передачи данных
+                        'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
+                        'content' => $vars,  // переменные
+                    )
+        );
+        $context  = stream_context_create($options);  // создаём контекст потока
+        $result = file_get_contents($this->params['host'].'webapi/b2puser/SetPhone', false, $context); //отправляем запрос
+
+        return $result;
+	}
+	public function check_phone_service($user, $status='new')
+	{
+		$phone = $user['phone'];
+		$phone = preg_replace('~\D+~','', $phone);
+		$s=$this->params['sector'].$user['client_ref'].$this->params['password'];
+		// $signature=$this->get_signature($this->params['sector'].$user['client_ref'].$user['phone'].$user['phone'].$this->params['sector'].$this->params['password']);
+		$signature=$this->get_signature($s);
+
+        // массив для переменных, которые будут переданы с запросом
+        $paramsArray = array(
+			'sector' => $this->params['sector'],
+			'client_ref' => $user['client_ref'],
+			'phone' => $phone,
+			'passphrase' => 'qwertyuio',
+			'status' => $status,
+			'signature' => $signature
+        );
+        // преобразуем массив в URL-кодированную строку
+        $vars = http_build_query($paramsArray);
+        // создаем параметры контекста
+        $options = array(
+            'http' => array(
+                        'method'  => 'POST',  // метод передачи данных
+                        'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
+                        'content' => $vars,  // переменные
+                    )
+        );
+        $context  = stream_context_create($options);  // создаём контекст потока
+        $result = file_get_contents($this->params['host'].'webapi/b2puser/CheckPhoneService', false, $context); //отправляем запрос
+
+        return $result;
+
+	}
+	public function set_phone_service($user, $sms, $status='new')
+	{
+		$phone = $user['phone'];
+		$phone = preg_replace('~\D+~','', $phone);
+		$s=$this->params['sector'].$user['client_ref'].$this->params['password'];
+		// $signature=$this->get_signature($this->params['sector'].$user['client_ref'].$user['phone'].$user['phone'].$this->params['sector'].$this->params['password']);
+		$signature=$this->get_signature($s);
+
+        // массив для переменных, которые будут переданы с запросом
+        $paramsArray = array(
+			'sector' => $this->params['sector'],
+			'client_ref' => $user['client_ref'],
+			'phone' => $phone,
+			'passphrase' => 'qwertyuio',
+			'status' => $status,
+			'signature' => $signature,
+			'smscode' => $sms
+        );
+        // преобразуем массив в URL-кодированную строку
+        $vars = http_build_query($paramsArray);
+        // создаем параметры контекста
+        $options = array(
+            'http' => array(
+                        'method'  => 'POST',  // метод передачи данных
+                        'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
+                        'content' => $vars,  // переменные
+                    )
+        );
+        $context  = stream_context_create($options);  // создаём контекст потока
+        $result = file_get_contents($this->params['host'].'webapi/b2puser/SetPhoneService', false, $context); //отправляем запрос
+
+        return $result;
+
+	}
+	public function pay_in($user, $amount)
+	{
+		$s=$this->params['sector'].$user['client_ref'].$amount.'643'.$this->params['password'];
+		$signature=$this->get_signature($s);
+
+        // массив для переменных, которые будут переданы с запросом
+        $paramsArray = array(
+			'sector' => $this->params['sector'],
+			'to_client_ref' => $user['client_ref'],
+			'amount' => $amount,
+			'currency' => '643',
+			'description' => 'Оплата чаевых',
+			'signature' => $signature,
+        );
+        // преобразуем массив в URL-кодированную строку
+        $vars = http_build_query($paramsArray);
+        // создаем параметры контекста
+        $options = array(
+            'http' => array(
+                        'method'  => 'POST',  // метод передачи данных
+                        'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
+                        'content' => $vars,  // переменные
+                    )
+        );
+        $context  = stream_context_create($options);  // создаём контекст потока
+        $result = file_get_contents($this->params['host'].'webapi/b2puser/PayIn', false, $context); //отправляем запрос
+
+        return $result;
+
+	}
+	public function pay_in2($user, $amount)
+	{
+		$s=$this->params['sector'].$user['client_ref'].$amount.'643'.$this->params['password'];
+		$signature=$this->get_signature($s);
+
+        // массив для переменных, которые будут переданы с запросом
+        $paramsArray = array(
+			'sector' => $this->params['sector'],
+			'client_ref' => $user['client_ref'],
+			'amount' => $amount,
+			'currency' => '643',
+			'description' => 'Оплата чаевых',
+			'signature' => $signature,
+        );
+        // преобразуем массив в URL-кодированную строку
+        $vars = http_build_query($paramsArray);
+        // создаем параметры контекста
+        $options = array(
+            'http' => array(
+                        'method'  => 'POST',  // метод передачи данных
+                        'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
+                        'content' => $vars,  // переменные
+                    )
+        );
+
+		if( $curl = curl_init() ) {
+			curl_setopt($curl, CURLOPT_URL, $this->params['host'].'webapi/b2puser/PayIn');
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER,false);
+			curl_setopt($curl, CURLOPT_POST, true);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $vars);
+			curl_exec($curl);
+			// echo $out;
+			curl_close($curl);
+			exit;
+		  }
+
+        return $out;
+
+	}
+
+    // public static function createAdmin(string $name)
+    // {
+    //     return new self('admin', $name);
+    // }
+}
+
+class Db
+{
+   public static function getConnection()
+    {
+        // Получаем параметры подключения из файла
+		 global $dbname, $pass, $user, $host;
+
+        // Устанавливаем соединение
+        $dsn = "mysql:host={$host};dbname={$dbname}";
+        $db = new PDO($dsn, $user, $pass);
+        // Задаем кодировку
+        $db->exec("set names utf8");
+        return $db;
+     }
 }

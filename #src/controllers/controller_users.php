@@ -9,6 +9,18 @@ class Controller_Users extends Controller
 
 	function action_index()
 	{
+		If(isset($_POST['sms'])){
+			header('Content-Type: application/json');
+			// echo json_encode(array('answer' => $this->model->set_phone()));
+			echo $this->model->set_phone();
+			exit;
+		}
+		If(isset($_POST['check_phone'])){
+			header('Content-Type: application/json');
+			// echo json_encode(array('answer' => $this->model->set_phone()));
+			echo $this->model->check_phone();
+			exit;
+		}
 		If(isset($_POST['load_moderations'])){
 			header('Content-Type: application/json');
 			echo json_encode($this->model->get_moderations());

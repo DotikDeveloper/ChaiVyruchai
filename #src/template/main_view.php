@@ -30,9 +30,10 @@
             </div>
             <div class="pay-tip__content">
                 <div class="pay-tip__block">
-                    <form class="modal__form form pay-tip__form" data-form="pay-tip" action="#">
+                    <form class="modal__form form pay-tip__form" data-form="pay-tip" method="post" action="/pay">
                         <label class="form__label pay-tip__label" for="id-waiters">Укажите ID официанта </label>
-                        <input class="form__input pay-tip__input" type="text" required pattern="[0-9]{6}" maxlength="6" name="id-waiters" id="id-waiters">
+                        <!-- <input class="form__input pay-tip__input" type="text" required pattern="[0-9]{6}" maxlength="6" name="id-waiters" id="id-waiters"> -->
+                        <input class="form__input pay-tip__input" type="text" required maxlength="6" name="id-waiters" id="id-waiters">
                         <button class="form__input form__input--submit pay-tip__input--submit" type="submit" name="pay-tip__open"
                             id="pay-tip__open">Оплатить</button>
                     </form>
