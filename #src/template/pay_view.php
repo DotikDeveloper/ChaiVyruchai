@@ -26,6 +26,7 @@
                     <div class="form__block terminal__block--input-tip">
                         <label class="form__label" for="valueTips">Чаевые</label>
                         <input type="hidden"  name="id-waiters" value="<?php echo $data['user_id'] ?>">
+                        <input type="hidden"  name="query" value="<?php echo $data['query'] ?>">
                         <input class="terminal__input" id="valueTips" type="text"  name="valueTips">
                     </div>
                     <div class="form__block terminal__block--sum">

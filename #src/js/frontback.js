@@ -8,13 +8,56 @@ document.addEventListener('DOMContentLoaded', () => {
         phone_confirm = document.getElementById("phone_confirm"), // подтверждение телефона
         logoutBtn = document.querySelector("button[data-button=close-modal]"),
         messages = document.querySelector(".messages__list"),
+        money_out = document.querySelector(".many-output__number"),
         form_message = document.getElementById('form_message'), // форма отправки сообщения
-        form_chai = document.getElementById('form_chai'); // форма оплаты чаевых
+        form_chai = document.getElementById('form_chai'), // форма оплаты чаевых
+        pay_out = document.getElementById('pay_out');
+
+    if(pay_out){
+        pay_out.onsubmit = async (e) => {
+            e.preventDefault();
+
+            let response = await fetch('/pay', {
+                method: 'POST',
+                body: new FormData(pay_out)
+                });
+
+                let link = await response.json();
+                console.clear;
+                console.log(link);
+                // debugger;
+
+            document.location.href = link;
+        }
+    }
+
+    if (money_out){
+        let query_data = new FormData();
+        query_data.append('get_balance', '');
+        (async () => {
+        let response = await fetch('/pay', { method: 'POST', body: query_data });
+
+            let answer = await response.json();
+            money_out.innerHTML = answer;
+
+        })();
+
+    }
 
     if (form_chai){
-        form_chai.onsubmit = (e) => {
+        form_chai.onsubmit = async (e) => {
             e.preventDefault();
-            document.location.href = "https://test.best2pay.net/webapi/b2puser/PayIn?sector=2391&to_client_ref=33b466a0-7784-477b-9da2-c75945ffe83b&amount=1000&currency=643&description=%D0%9E%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+%D1%87%D0%B0%D0%B5%D0%B2%D1%8B%D1%85&signature=ZjA2MGE0NmM5YjUxYjgyNmQ3NGQwYzlmMWZkYjg3ZTU=";
+
+            let response = await fetch('/pay', {
+                method: 'POST',
+                body: new FormData(form_chai)
+                });
+
+                let link = await response.json();
+                console.clear;
+                console.log(link);
+
+            document.location.href = link;
         }
     }
 
@@ -26,31 +69,34 @@ document.addEventListener('DOMContentLoaded', () => {
         load_messages();
     }
 
-    settings.onsubmit = async (e) => {
-        e.preventDefault();
+    if(settings){
+        settings.onsubmit = async (e) => {
+            e.preventDefault();
 
-        let response = await fetch('/', {
-          method: 'POST',
-          body: new FormData(settings)
-        });
-
-        let result = await response.json();
-        settings.reset();
-        if (result.answer == 'ok') {
-            let formData = new FormData();
-            formData.append('get_data_user', '');
-
-            fetch('/', { method: 'POST', body: formData })
-            .then(function (response) {
-            return response.json()
-            })
-            .then(function (data) {
-            console.log(data['first_name']);
-            document.querySelector(".login__info--user-name").textContent = data['first_name'];
+            let response = await fetch('/', {
+            method: 'POST',
+            body: new FormData(settings)
             });
-        }
 
-    };
+            let result = await response.json();
+            settings.reset();
+            if (result.answer == 'ok') {
+                let formData = new FormData();
+                formData.append('get_data_user', '');
+
+                fetch('/', { method: 'POST', body: formData })
+                .then(function (response) {
+                return response.json()
+                })
+                .then(function (data) {
+                console.log(data['first_name']);
+                document.querySelector(".login__info--user-name").textContent = data['first_name'];
+                });
+            }
+
+        };
+    }
+
 
     if (check_code) {
         check_code.onsubmit = async (e) => {
@@ -62,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             let result = await response.json();
+            console.log(result);
 
             //данный код позволяет получить и загрузить страницу html
             // let result = await response.text();
@@ -133,10 +180,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
         // обработчик события 'change' (происходит после выбора файла)
-    file_attach.addEventListener('change', () => {
-        uploadFile(file_attach.files[0]);
-        console.log('Аватар загружен')
-    });
+    if(file_attach){
+        file_attach.addEventListener('change', () => {
+            uploadFile(file_attach.files[0]);
+            console.log('Аватар загружен')
+        });
+    }
+
+
         if (logo_attach) {
         logo_attach.addEventListener('change', () => {
             uploadLogo(logo_attach.files[0]);
@@ -243,7 +294,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
         })
         .then(function (data) {
-        console.log(data);
 
         data.forEach(element => {
             console.log(element)
@@ -386,15 +436,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //скрыть модальное окно
-    logoutBtn.addEventListener("click", () => {
-        const modalPage = document.querySelector('.overlay'),
-        inputModal = document.querySelectorAll("input");
-        modalPage.classList.add("hide");
-        inputModal.forEach((i) => {
-            if (true) {
-                i.value = '';
-            }
+    if(logoutBtn){
+        logoutBtn.addEventListener("click", () => {
+            const modalPage = document.querySelector('.overlay'),
+            inputModal = document.querySelectorAll("input");
+            modalPage.classList.add("hide");
+            inputModal.forEach((i) => {
+                if (true) {
+                    i.value = '';
+                }
+            });
         });
-    });
+    }
+
 
 });

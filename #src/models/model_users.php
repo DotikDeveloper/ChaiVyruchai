@@ -269,8 +269,9 @@ class Model_Users extends Model
         $result=$pay->check_phone_service($params);
 
         // return false;
-        return 'ok';
-        // return $phone;
+        // return 'ok';
+
+        return $result;
     }
 	public function set_phone()//взаимодействие с платежным сервисом для привязки номера телефона
 	{

@@ -173,15 +173,15 @@ class Controller {
 class Payapi
 {
 	private $sector = 2391;
-	private static $test_mode = true;
+	private static $test_mode = false;
 	private $params;
 
 	public function __construct()
 	{
-		if (self::$test_mode){
+		if (self::$test_mode == false){
 			$this->params = [
-				'password' => '',
-				'sector' => '2391',
+				'password' => 'nz849Gt0',
+				'sector' => '7083',
 				'host' => 'https://pay.best2pay.net/'
 			];
 		} else {
@@ -354,8 +354,10 @@ class Payapi
 	}
 	public function pay_in($user, $amount)
 	{
+		$amount = (int)$amount * 100;
 		$s=$this->params['sector'].$user['client_ref'].$amount.'643'.$this->params['password'];
 		$signature=$this->get_signature($s);
+
 
         // массив для переменных, которые будут переданы с запросом
         $paramsArray = array(
@@ -368,64 +370,40 @@ class Payapi
         );
         // преобразуем массив в URL-кодированную строку
         $vars = http_build_query($paramsArray);
-        // создаем параметры контекста
-        $options = array(
-            'http' => array(
-                        'method'  => 'POST',  // метод передачи данных
-                        'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
-                        'content' => $vars,  // переменные
-                    )
-        );
-        $context  = stream_context_create($options);  // создаём контекст потока
-        $result = file_get_contents($this->params['host'].'webapi/b2puser/PayIn', false, $context); //отправляем запрос
 
-        return $result;
+        // // создаем параметры контекста
+        // $options = array(
+        //     'http' => array(
+        //                 'method'  => 'POST',  // метод передачи данных
+        //                 'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
+        //                 'content' => $vars,  // переменные
+        //             )
+        // );
+        // $context  = stream_context_create($options);  // создаём контекст потока
+        // $result = file_get_contents($this->params['host'].'webapi/b2puser/PayIn', false, $context); //отправляем запрос
+
+        return $this->params['host'].'webapi/b2puser/PayIn?'.$vars;
+        // return $result;
 
 	}
-	public function pay_in2($user, $amount)
+	public function pay_out($user, $amount)
 	{
+		$amount = (int)$amount * 100;
 		$s=$this->params['sector'].$user['client_ref'].$amount.'643'.$this->params['password'];
 		$signature=$this->get_signature($s);
 
-        // массив для переменных, которые будут переданы с запросом
         $paramsArray = array(
 			'sector' => $this->params['sector'],
-			'client_ref' => $user['client_ref'],
+			'from_client_ref' => $user['client_ref'],
 			'amount' => $amount,
 			'currency' => '643',
-			'description' => 'Оплата чаевых',
+			'description' => 'Вывод средств на карту',
 			'signature' => $signature,
         );
-        // преобразуем массив в URL-кодированную строку
         $vars = http_build_query($paramsArray);
-        // создаем параметры контекста
-        $options = array(
-            'http' => array(
-                        'method'  => 'POST',  // метод передачи данных
-                        'header'  => 'Content-type: application/x-www-form-urlencoded',  // заголовок
-                        'content' => $vars,  // переменные
-                    )
-        );
-
-		if( $curl = curl_init() ) {
-			curl_setopt($curl, CURLOPT_URL, $this->params['host'].'webapi/b2puser/PayIn');
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER,false);
-			curl_setopt($curl, CURLOPT_POST, true);
-			curl_setopt($curl, CURLOPT_POSTFIELDS, $vars);
-			curl_exec($curl);
-			// echo $out;
-			curl_close($curl);
-			exit;
-		  }
-
-        return $out;
-
+        return $this->params['host'].'webapi/b2puser/PayOut?'.$vars;
 	}
 
-    // public static function createAdmin(string $name)
-    // {
-    //     return new self('admin', $name);
-    // }
 }
 
 class Db

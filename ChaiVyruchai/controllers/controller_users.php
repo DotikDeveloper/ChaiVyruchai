@@ -11,8 +11,8 @@ class Controller_Users extends Controller
 	{
 		If(isset($_POST['sms'])){
 			header('Content-Type: application/json');
-			// echo json_encode(array('answer' => $this->model->set_phone()));
-			echo $this->model->set_phone();
+			echo json_encode(array('answer' => $this->model->set_phone()));
+			// echo $this->model->set_phone();
 			exit;
 		}
 		If(isset($_POST['check_phone'])){

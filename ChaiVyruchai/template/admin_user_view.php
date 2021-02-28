@@ -75,12 +75,12 @@
                 </div>
                 <div class="dashboard__content dashboard__content--body">
                     <div class="dashboard__content dashboard__content--body">
-                        <form class="form" action="#">
+                        <form id="pay_out" class="form" action="#" method="post">
                             <div class="form__many-output many-output">
                                 <div class="form__colume many-output">
                                     <div class="many-output__title many-output__item">Остаток средств</div>
                                     <div class="many-output__volume many-output__item"><span
-                                            class="many-output__number">26540</span> руб.</div>
+                                            class="many-output__number">---</span> руб.</div>
                                 </div>
                                 <div class="form__colume many-output">
                                     <input class="form__input many-output" type="text" required name="idUser"
