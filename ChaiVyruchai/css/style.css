@@ -355,6 +355,7 @@ button.active {
 
 .pay-tip__img--picture {
   width: 450px;
+  height: 306.6px;
   -webkit-box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
           box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
   border: 10px solid #e6e9ef;
@@ -464,6 +465,7 @@ button.active {
 
 .why-we__item--img {
   width: 450px;
+  height: 306.6px;
   -webkit-box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
           box-shadow: -0.24109px -0.24109px 0.24109px rgba(255, 255, 255, 0.6), -4.8218px -4.8218px 9.64361px #FFFFFF, 4.8218px 4.8218px 9.64361px #D3DBE6;
   border: 10px solid #e6e9ef;
@@ -837,8 +839,8 @@ button.active {
 
 .footer__button {
   max-height: 3rem;
-  -webkit-box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
-          box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
+  -webkit-box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
+          box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
   border-radius: 15px;
   background-color: #ca583e;
   padding: 0.7rem 1.35rem;
@@ -1537,7 +1539,7 @@ button.active {
   background-color: #e6e9ef;
   padding: 10px;
   color: #ca583e;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1561,7 +1563,7 @@ button.active {
   background-color: #e6e9ef;
   padding: 10px;
   color: #ca583e;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
@@ -3000,6 +3002,7 @@ textarea {
 
   .pay-tip__img--picture {
     width: 350px;
+    height: 240px;
   }
 
   .pay-tip__input--submit.form__input--submit {
@@ -3031,6 +3034,7 @@ textarea {
 
   .why-we__item--img {
     width: 350px;
+    height: 240px;
   }
 
   .card__title {
@@ -3473,6 +3477,7 @@ textarea {
 
   .pay-tip__img--picture {
     width: 320px;
+    height: 220px !important;
   }
 
   .pay-tip__label.form__label {
@@ -3528,6 +3533,7 @@ textarea {
 
   .why-we__item--img {
     width: 320px;
+    height: 220px;
   }
 
   .for-whom__body {
