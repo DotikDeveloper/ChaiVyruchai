@@ -2479,11 +2479,6 @@ textarea {
   width: 100%;
 }
 
-.payment__comment {
-  width: 100%;
-  border-radius: 20px;
-}
-
 .payment.login {
   display: -ms-grid;
   display: grid;
@@ -2702,7 +2697,9 @@ textarea {
 }
 
 .payment .form__input--submit {
-  font-size: 18px;
+  font-size: 26px;
+  width: 100%;
+  border-radius: 25px;
 }
 
 .comment {
@@ -2730,6 +2727,7 @@ textarea {
 }
 
 .comment__block {
+  margin: 35px 0;
   padding: 15px 10px;
 }
 

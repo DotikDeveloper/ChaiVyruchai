@@ -34,10 +34,10 @@
         width: 100%;
     }
 
-    &__comment {
-        width: 100%;
-        border-radius: 20px;
-    }
+    // &__comment {
+    //     width: 100%;
+    //     border-radius: 20px;
+    // }
 }
 
 .payment.login {
@@ -268,10 +268,10 @@
     }
 
     &__input--submit {
-        font-size: 18px;
+        font-size: 26px;
+        width: 100%;
+        border-radius: 25px;
     }
-
-    &__input--check {}
 }
 
 
@@ -288,6 +288,7 @@
     }
 
     &__block {
+        margin: 35px 0;
         padding: 15px 10px;
 
         &--checked {
@@ -387,12 +388,4 @@
         @include fonts (8px, normal, $pallete-fonts, normal);
         text-align: center;
     }
-
-    // &__block--submit {
-
-    // }
 }
-
-// .rating-area {
-
-// }
