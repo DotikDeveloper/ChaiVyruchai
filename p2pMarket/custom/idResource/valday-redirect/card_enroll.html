@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://dev2.best2pay.net:4433/webapi/CardEnroll -->
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>Best2Pay. Страница оплаты
+</title>
+<script type="text/javascript" src="../../../cardenroll/best2pay-checkers-new.js"></script>
+<script type="text/javascript" src="../../../cardenroll/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../cardenroll/bootstrap.tooltip.js"></script>
+<script type="text/javascript" src="../../../cardenroll/jquery.validate.js"></script>
+<script type="text/javascript">
+    var notifies = {
+        
+    };
+    var cur = 'руб.';
+    var currencySymbol = 'icon-rouble';
+</script>
+<script type="text/javascript" src="../../../cardenroll/functions_new.js"></script>
+<script type="text/javascript" src="../../../cardenroll/3ds2.js"></script>
+<script type="text/javascript" src="../../../cardenroll/scripts.js"></script>
+    <link rel="stylesheet" href="../../../cardenroll/pay-form.css">
+
+<body data-width="575" onload="displayInline();">
+<noscript>
+    <div class="row page-header">
+        <div class="container header error">
+            Ваш браузер не поддерживает JavaScript. Пожалуйста, включите поддержку JavaScript и обновите страницу.
+Как включить поддержку JavaScript: <a href="http://best2pay.ru/question-277" title="Как включить поддержку JavaScript">http://best2pay.ru/question-277</a>
+        </div>
+    </div>
+</noscript>
+<div id="screen" style="display: inline;">
+    <div id="popup_loader" style="display: none;"></div>
+    <div class="header">
+        <div class="container">
+            <h1>Регистрация карты
+            </h1>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="b2p-title">
+                <div class="row shop">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 shop-name">
+                        <span>Интернет-магазин</span>
+                        <h2>Модный Приговор2
+                        </h2>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs shop-logo">
+                        <img class="logoShop" alt="Модный Приговор2" src="./Best2Pay. Страница оплаты_files/ee1adffb50ae94b1979117408e4e887f.png">
+                    </div>
+                    
+                    
+                    <div class="col-lg-4 col-md-4 col-sm-4 hidden-xs shop-site">
+                        <a href="https://dev2.best2pay.net:4433/webapi/vasylev.ru" target="_blank">vasylev.ru
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="divider"></div>
+                <div class="row payment">
+                    <div class="col-sm-6 payment-amount">
+                    </div>
+                    <div class="col-sm-12 payment-description">
+                        <p>Для проверки Вашей карты будет временно заблокирована небольшая случайная сумма.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="b2p-form">
+                <form id="payForm" name="data" method="post" action="https://dev2.best2pay.net:4433/webapi/CardEnroll" novalidate="novalidate">
+                    <input type="hidden" name="request_uuid" value="">
+                    <input type="hidden" name="sector" value="908">
+                    <input type="hidden" name="id" value="698923">
+                    <input type="hidden" name="amount" value="500000">
+                    <input type="hidden" name="currency" value="643">
+                    <input type="hidden" name="action" value="pay">
+                    <input type="hidden" name="cardholder_ip" value="127.0.0.1">
+                    <input type="hidden" name="browser_language" value="ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7">
+                    <input type="hidden" name="signature" value="OGIyMzJlMGViNmVmOWU2YTM5Y2ZmNGRjYjI2MzQwNDM=">
+                    <input id="resolution" type="hidden" name="resolution" value="2560x1080">
+                    <input id="time_zone_offset" type="hidden" name="time_zone_offset" value="3">
+                    <fieldset>
+                        <div class="form-horizontal">
+                            <div class="form-group b2p-input">
+                                <label class="col-lg-5 col-md-5 col-sm-5 text-right">Номер карты:</label>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input type="tel" name="pan" id="card" class="form-control" maxlength="22" autocomplete="off" onkeypress="return checkCardNumber(event, this);" required="" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="form-group b2p-card">
+                                <label class="col-lg-5 col-md-5 col-sm-5 text-right">
+                                    Имя и фамилия владельца:
+                                    <span class="hidden-xs">как напечатано на карте</span>
+                                </label>
+                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <input id="cardholder-name" type="text" name="name" class="form-control" value="" autocomplete="off" required="" aria-required="true" aria-invalid="true" data-original-title="" title="" aria-describedby="cardholder_name-error">
+                                    <div class="tooltip fade bottom in" role="tooltip" id="cardHolderNameTooltip">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner cardholder_tooltip">
+                                            Допускается только латиница
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group b2p-input">
+                                <label class="col-lg-5 col-md-5 col-sm-5 text-right">Месяц:</label>
+                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <select name="month" class="form-control" required="" aria-required="true">
+                                        <option value="" selected="">Месяц
+                                        </option>
+                                        
+                                        <option value="1">&nbsp;&nbsp;1 - январь
+                                        </option>
+                                        
+                                        <option value="2">&nbsp;&nbsp;2 - февраль
+                                        </option>
+                                        
+                                        <option value="3">&nbsp;&nbsp;3 - март
+                                        </option>
+                                        
+                                        <option value="4">&nbsp;&nbsp;4 - апрель
+                                        </option>
+                                        
+                                        <option value="5">&nbsp;&nbsp;5 - май
+                                        </option>
+                                        
+                                        <option value="6">&nbsp;&nbsp;6 - июнь
+                                        </option>
+                                        
+                                        <option value="7">&nbsp;&nbsp;7 - июль
+                                        </option>
+                                        
+                                        <option value="8">&nbsp;&nbsp;8 - август
+                                        </option>
+                                        
+                                        <option value="9">&nbsp;&nbsp;9 - сентябрь
+                                        </option>
+                                        
+                                        <option value="10">10 - октябрь
+                                        </option>
+                                        
+                                        <option value="11">11 - ноябрь
+                                        </option>
+                                        
+                                        <option value="12">12 - декабрь
+                                        </option>
+                                        
+                                    </select>
+                                </div>
+                                <label class="col-lg-1 col-md-1 col-sm-1 text-right">Год:</label>
+                                
+                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <select name="year" class="form-control" required="" aria-required="true">
+                                        <option value="" selected="">Год
+                                        </option>
+                                        
+                                        <option value="2020">2020
+                                        </option>
+                                        
+                                        <option value="2021">2021
+                                        </option>
+                                        
+                                        <option value="2022">2022
+                                        </option>
+                                        
+                                        <option value="2023">2023
+                                        </option>
+                                        
+                                        <option value="2024">2024
+                                        </option>
+                                        
+                                        <option value="2025">2025
+                                        </option>
+                                        
+                                        <option value="2026">2026
+                                        </option>
+                                        
+                                        <option value="2027">2027
+                                        </option>
+                                        
+                                        <option value="2028">2028
+                                        </option>
+                                        
+                                        <option value="2029">2029
+                                        </option>
+                                        
+                                        <option value="2030">2030
+                                        </option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group b2p-input b2p-cvc">
+                                <label class="col-lg-5 col-md-5 col-sm-5 text-right">Код безопасности:</label>
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="input-group cvc-tooltip">
+                                        <input type="tel" name="cvc" class="form-control" value="" onkeypress="return checkDigits(event);" required="" maxlength="3" autocomplete="off" aria-required="true">
+                                        <div class="input-group-addon">
+                                            <div class="cvc-tooltip" id="cvcTooltip" data-placement="bottom" title="" data-original-title="3-х значный код безопасности (CVV2/CVC2/ППК2) на обороте карты. Как правило, это отдельная группа из 3 цифр справа на полосе для подписи.">cvc2/cvv2</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-actions">
+                        <input id="submitButton" type="submit" class="btn btn-default pull-right" value="Зарегистрировать">
+                        <a href="https://dev2.best2pay.net:4433/webapi/CardEnroll#" class="btn btn-cancel pull-right" onclick="doCancel(); return false;">Отменить
+                        </a>
+                    </div>
+                    <p class="form-help text-right">Нажимая "Продолжить", Вы принимаете  <a href="https://pay.best2pay.net/oferts/Oferta_FL(a).pdf" target="_blank">Условия
+                    </a></p>
+                <input type="hidden" id="deviceChannel" name="deviceChannel" value="02"><input type="hidden" id="browserJavaEnabled" name="browserJavaEnabled" value="false"><input type="hidden" id="browserScreenHeight" name="browserScreenHeight" value="1080"><input type="hidden" id="browserScreenWidth" name="browserScreenWidth" value="2560"><input type="hidden" id="browserLanguage" name="browserLanguage" value="ru-RU"></form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="b2p-links-footer">
+                <div class="img-hover">
+                    <img src="../../../cardenroll/mastercard.svg">
+                </div>
+                <div class="img-hover">
+                    <img src="../../../cardenroll/maestro.svg">
+                </div>
+                <div class="img-hover">
+                    <img src="../../../cardenroll/mastercard-securecode.svg">
+                </div>
+                <div class="img-hover">
+                    <img src="../../../cardenroll/visa.svg">
+                </div>
+                <div class="img-hover">
+                    <img src="../../../cardenroll/visa-electron.svg">
+                </div>
+                <div class="img-hover">
+                    <img src="../../../cardenroll/visa-secure.svg">
+                </div>
+                <div class="img-hover">
+                    <img src="../../../cardenroll/mir.svg">
+                </div>
+                <div class="mir-accept--bg mir-accept--base">
+
+                </div>
+                <div class="img-hover">
+                    <img src="../../../cardenroll/thawte-site-seal.svg">
+                </div>
+                <div class="img-hover">
+                    <img src="../../../cardenroll/best2pay.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="wt-sky-root"></div></body></html>

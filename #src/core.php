@@ -47,6 +47,16 @@
 		// 	echo "Попробуйте перезагрузить страницу.\n";
 		// });
 
+		//Проверка наличия Get запроса
+
+		// if (isset($_GET) and !empty($_GET)) {
+		// 	print_r($_GET);
+		// 	die;
+		// }
+
+		// var_dump($_SERVER['REQUEST_URI']);
+		// die;
+
 		// контроллер и действие по умолчанию
 		$controller_name = 'Main';
 		$action_name = 'index';
@@ -57,11 +67,12 @@
 		// получаем имя контроллера
 		if ( !empty($routes[1]) )
 		{
-			$controller_name = $routes[1];
+			// $controller_name = $routes[1];
+			$controller_name = ($routes[1]=='tip') ? 'pay' : $routes[1] ;
 		}
 
 		// получаем имя экшена
-		if ( !empty($routes[2]) )
+		if ( !empty($routes[2]) and $routes[1]!='tip' )
 		{
 			$action_name = $routes[2];
 		}
@@ -109,7 +120,7 @@
 		if(method_exists($controller, $action))
 		{
 			// вызываем действие контроллера
-			$controller->$action();
+			$controller->$action($routes);
 		}
 		else
 		{
@@ -178,7 +189,7 @@ class Payapi
 
 	public function __construct()
 	{
-		if (self::$test_mode == false){
+		if (self::$test_mode == true){
 			$this->params = [
 				'password' => 'nz849Gt0',
 				'sector' => '7083',
@@ -364,9 +375,11 @@ class Payapi
 			'sector' => $this->params['sector'],
 			'to_client_ref' => $user['client_ref'],
 			'amount' => $amount,
+			'fee_value' => $amount/100*5,
 			'currency' => '643',
 			'description' => 'Оплата чаевых',
 			'signature' => $signature,
+			'url' => $_SERVER['SERVER_NAME']
         );
         // преобразуем массив в URL-кодированную строку
         $vars = http_build_query($paramsArray);

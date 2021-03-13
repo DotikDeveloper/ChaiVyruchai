@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://dev2.best2pay.net:4433/webapi/b2puser/ModifyPage -->
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../../../modify_files/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../modify_files/jquery-ui.min.css">
+    <link rel="stylesheet" href="../../../modify_files/b2p-style.css">
+    <link rel="stylesheet" href="../../../modify_files/b2p-style-redirect.css">
+    <link rel="stylesheet" href="../../../modify_files/b2p-user-style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>Редактирование пользователя</title>
+<script type="text/javascript">
+    var language = 'RUSSIAN';
+</script>
+<script type="text/javascript" src="../../../modify_files/best2pay-checkers-new.js"></script>
+<script type="text/javascript" src="../../../modify_files/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../../modify_files/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../../modify_files/datepicker-ru.js"></script>
+<script type="text/javascript" src="../../../modify_files/bootstrap.tooltip.js"></script>
+<script type="text/javascript" src="../../../modify_files/jquery.validate.js"></script>
+<script type="text/javascript" src="../../../modify_files/jquery.inputmask.min.js"></script>
+<script type="text/javascript" src="../../../modify_files/i18n.js"></script>
+<script type="text/javascript" src="../../../modify_files/functions_modify.js"></script>
+
+<script type="text/javascript" src="../../../modify_files/base-functions.js"></script>
+<script type="text/javascript" src="../../../modify_files/scripts.js"></script>
+    <script type="text/javascript" src="../../../modify_files/i18n.js"></script>
+<body onload="displayInline();">
+<div class="outer">
+    <div class="wrapper">
+        <noscript>
+            <div class="row page-header">
+                <div class="container header error">
+                    Ваш браузер не поддерживает JavaScript. Пожалуйста, включите поддержку JavaScript и обновите страницу.
+Как включить поддержку JavaScript: <a href="http://best2pay.ru/question-277" title="Как включить поддержку JavaScript">http://best2pay.ru/question-277</a>
+                </div>
+            </div>
+        </noscript>
+        <div id="screen" class="container-fluid" style="display: inline;">
+            <div class="header">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-4 header-logo text-center vertical-align-center">
+                        <img class="logoShop" alt="Модный Приговор2" src="./modify_files/ee1adffb50ae94b1979117408e4e887f.png">
+                    </div>
+                    <div class="col-sm-12 col-xs-8 text-center">
+                        <div class="header-desc">
+                            Редактирование пользователя
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <div id="content-data">
+                    <form method="post" id="payForm" action="https://dev2.best2pay.net:4433/webapi/b2puser/ModifyPage">
+                        <fieldset>
+                            <input type="hidden" name="action" value="update">
+                            <input type="hidden" name="sector" value="908">
+                            <input type="hidden" name="signature" value="YTVkZjBjMjFmOTVkMDk3MTRiMWE5NTBhZWNhMDZhM2Y=">
+                            <input type="hidden" name="client_ref" value="nikitas">
+                            <input type="hidden" name="url" value="">
+                            <input type="hidden" name="failurl" value="">
+
+                            <input type="hidden" name="inn" value="">
+                            <input type="hidden" name="snils" value="">
+                            <input type="hidden" name="persondoc_issdate" value="">
+                            <input type="hidden" name="persondoc_issby" value="">
+                            <input type="hidden" name="address" value="">
+                            <input type="hidden" name="email" value="">
+
+                            <div class="form-horizontal modify-form">
+                                <div class="form-group b2p-input">
+                                    <label class="col-sm-5 text-left">Фамилия</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="last_name" id="last_name" tabindex="1" class="form-control text-uppercase" value="" autocomplete="off" required="" maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="form-group b2p-input">
+                                    <label class="col-sm-5 text-left">Имя</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="first_name" id="first_name" tabindex="2" class="form-control text-uppercase" value="" autocomplete="off" required="" maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="form-group b2p-input">
+                                    <label class="col-sm-5 text-left">Отчество</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="patronymic" id="patronymic" tabindex="3" class="form-control text-uppercase" value="" autocomplete="off" required="" maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="form-group b2p-input">
+                                    <label class="col-sm-5 text-left">Дата рождения</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="birth_date" id="birth_date" tabindex="4" value="" class="form-control date-format" placeholder="ДД.ММ.ГГГГ" autocomplete="off" inputmode="text">
+                                    </div>
+                                </div>
+                                <div class="form-group b2p-input">
+                                    <label class="col-sm-5 text-left">Номер паспорта</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="persondoc_number" id="persondoc_number" tabindex="5" class="form-control" value="" autocomplete="off" maxlength="10">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                        <div id="amount-n-buttons">
+                            <div class="send-container">
+                                <input type="submit" id="submitButton" tabindex="6" class="btn btn-default" value="Сохранить">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="footer-row">
+                    <div class="footer-icons">
+                        <img src="../../../modify_files/visa-color.svg">
+                        <img src="../../../modify_files/mc-color.svg">
+                        <img src="../../../modify_files/mir-color.svg">
+                        <img src="../../../modify_files/mir-accept-color.svg">
+                    </div>
+                    <div class="footer-links">
+                        <a href="mailto:helpline@best2pay.net" id="feedback-link">Обратная связь</a>
+                        <img src="../../../modify_files/b2p.svg" class="footerImgBest2Pay">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="wt-sky-root"></div></body></html>

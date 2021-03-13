@@ -42,12 +42,12 @@
                     <button class="btn" data-percent="15">15%</button>
                     <button class="btn" data-percent="20">20%</button>
                 </div>
-                <button class="form__input form__input--submit" type="submit" id="payment" name="payment">оставить
+                <!-- <button class="form__input form__input--submit" type="submit" id="payment" name="payment">оставить
                     чаевые</button>
             </form>
         </section>
         <section class="payment__comment comment">
-            <form class="comment__form form" action="#" method="post">
+            <form class="comment__form form" action="#" method="post"> -->
                 <div class="comment__block comment__block--checked">
                     <h3 class="comment__title">Оцените обслуживание</h3>
                     <div class="comment__item">
@@ -102,8 +102,7 @@
                     <div class="comment__block--wishes">
                         <input class="form__input" type="text" name="review-text" id="reviewText"
                             placeholder="Ваши пожелания">
-                        <button class="form__input form__input--submit" type="submit" id="reviewAdd"
-                            name="payment">отправить</button>
+                        <button class="form__input form__input--submit" type="submit" id="payment" name="payment">оставить чаевые</button>
                     </div>
                     <div class="comment__block">
                         <input class="form__input form__input--check" required type="checkbox" id="reviewCheck"

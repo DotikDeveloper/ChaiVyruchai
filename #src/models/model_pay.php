@@ -1,7 +1,7 @@
 <?php
 class Model_Pay extends Model
 {
-	public function get_data_user()
+	public function get_data_user($routes)
 	{
         $db = Db::getConnection();
         $sql = 'SELECT users.user_id, users.first_name, users.last_name, users.phone, users.mail, users.ava, users.card, users.checked, users.client_ref, organizations.name AS organization, organizations.organization_id, organizations.logo
@@ -9,7 +9,8 @@ class Model_Pay extends Model
         LEFT JOIN organizations ON users.organization_id = organizations.organization_id
         WHERE user_cod=?';
         $result = $db->prepare($sql);
-        $result->execute([$_POST['id-waiters']]);
+        $user_id = ($routes[1] == 'tip') ? $routes[2] : $_POST['id-waiters'] ;
+        $result->execute([$user_id]);
         return $result->fetchAll(PDO::FETCH_ASSOC)[0];
     }
 	public function get_data_user_by_id($id)

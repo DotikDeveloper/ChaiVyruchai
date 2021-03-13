@@ -839,8 +839,8 @@ button.active {
 
 .footer__button {
   max-height: 3rem;
-  -webkit-box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
-          box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
+  -webkit-box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
+          box-shadow: 20px 20px 40px #887c7c, -20px -20px 40px #a39a9a, -1px -1px 1px #3f3b3b6e;
   border-radius: 15px;
   background-color: #ca583e;
   padding: 0.7rem 1.35rem;
@@ -1539,7 +1539,7 @@ button.active {
   background-color: #e6e9ef;
   padding: 10px;
   color: #ca583e;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1563,7 +1563,7 @@ button.active {
   background-color: #e6e9ef;
   padding: 10px;
   color: #ca583e;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
