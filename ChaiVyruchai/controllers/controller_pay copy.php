@@ -5,10 +5,12 @@ class Controller_Pay extends Controller
 	{
 		$this->model = new Model_Pay();
 		$this->view = new View();
+
 	}
 
 	function action_index()
 	{
+		print $waiter;
 		if (isset($_POST['valueTips'])){
 			$data = $this->model->get_chai();
 			header('Content-Type: application/json');

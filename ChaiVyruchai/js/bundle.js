@@ -86,56 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./#src/js/modules/charts.js":
-/*!***********************************!*\
-  !*** ./#src/js/modules/charts.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function charts() {
-  // Общая статистика
-  var ctx = document.getElementById('totalStats').getContext('2d');
-  var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-    // The data for our dataset
-    data: {
-      labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
-      datasets: [{
-        label: 'Сборы за месяц',
-        backgroundColor: 'rgba(111, 149, 145, 0.25)',
-        borderColor: ' #ca583e',
-        data: [0, 10, 15, 20, 25, 30, 54, 53, 37, 35, 28, 20, 30, 45, 50, 68, 56, 29, 112, 130, 145, 110, 101, 125, 124, 120, 130, 145, 120, 130, 145]
-      }]
-    },
-    // Configuration options go here
-    options: {}
-  }); // Статистика по компаниям
-
-  var ctx = document.getElementById('companyStatistics').getContext('2d');
-  var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'pie',
-    // The data for our dataset
-    data: {
-      labels: ['Finnegan\'s', 'Beer House', 'Italy'],
-      datasets: [{
-        data: [56, 21, 23],
-        backgroundColor: ['#ca583e', '#709591', '#696666']
-      }]
-    },
-    // Configuration options go here
-    options: {}
-  });
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (charts);
-
-/***/ }),
-
 /***/ "./#src/js/modules/checkReviews.js":
 /*!*****************************************!*\
   !*** ./#src/js/modules/checkReviews.js ***!
@@ -832,19 +782,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_registration__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/registration */ "./#src/js/modules/registration.js");
 /* harmony import */ var _modules_slides__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slides */ "./#src/js/modules/slides.js");
 /* harmony import */ var _modules_filterDashboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/filterDashboard */ "./#src/js/modules/filterDashboard.js");
-/* harmony import */ var _modules_charts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/charts */ "./#src/js/modules/charts.js");
-/* harmony import */ var _modules_userModeration__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/userModeration */ "./#src/js/modules/userModeration.js");
-/* harmony import */ var _modules_selectMenuBtn__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/selectMenuBtn */ "./#src/js/modules/selectMenuBtn.js");
-/* harmony import */ var _modules_openMenu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/openMenu */ "./#src/js/modules/openMenu.js");
-/* harmony import */ var _modules_sumTips__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/sumTips */ "./#src/js/modules/sumTips.js");
-/* harmony import */ var _modules_checkReviews__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/checkReviews */ "./#src/js/modules/checkReviews.js");
-/* harmony import */ var _modules_qrcode__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/qrcode */ "./#src/js/modules/qrcode.js");
+/* harmony import */ var _modules_userModeration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/userModeration */ "./#src/js/modules/userModeration.js");
+/* harmony import */ var _modules_selectMenuBtn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/selectMenuBtn */ "./#src/js/modules/selectMenuBtn.js");
+/* harmony import */ var _modules_openMenu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/openMenu */ "./#src/js/modules/openMenu.js");
+/* harmony import */ var _modules_sumTips__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/sumTips */ "./#src/js/modules/sumTips.js");
+/* harmony import */ var _modules_checkReviews__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/checkReviews */ "./#src/js/modules/checkReviews.js");
+/* harmony import */ var _modules_qrcode__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/qrcode */ "./#src/js/modules/qrcode.js");
 // 'use string';
 
 
 
 
-
+ // import charts from './modules/charts';
 
 
 
@@ -882,43 +831,43 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   try {
-    Object(_modules_charts__WEBPACK_IMPORTED_MODULE_5__["default"])();
+    charts();
   } catch (error) {
     console.log('не работает charts', error);
   }
 
   try {
-    Object(_modules_userModeration__WEBPACK_IMPORTED_MODULE_6__["default"])('.moderation-requests__item');
+    Object(_modules_userModeration__WEBPACK_IMPORTED_MODULE_5__["default"])('.moderation-requests__item');
   } catch (error) {
     console.log('не работает userModeration', error);
   }
 
   try {
-    Object(_modules_selectMenuBtn__WEBPACK_IMPORTED_MODULE_7__["default"])();
+    Object(_modules_selectMenuBtn__WEBPACK_IMPORTED_MODULE_6__["default"])();
   } catch (error) {
     console.log('не работает selectMenuBtn', error);
   }
 
   try {
-    Object(_modules_openMenu__WEBPACK_IMPORTED_MODULE_8__["default"])();
+    Object(_modules_openMenu__WEBPACK_IMPORTED_MODULE_7__["default"])();
   } catch (error) {
     console.log('не работает openMenu', error);
   }
 
   try {
-    Object(_modules_sumTips__WEBPACK_IMPORTED_MODULE_9__["default"])();
+    Object(_modules_sumTips__WEBPACK_IMPORTED_MODULE_8__["default"])();
   } catch (error) {
     console.log('не работает sumTips', error);
   }
 
   try {
-    Object(_modules_checkReviews__WEBPACK_IMPORTED_MODULE_10__["default"])();
+    Object(_modules_checkReviews__WEBPACK_IMPORTED_MODULE_9__["default"])();
   } catch (error) {
     console.log('не работает checkReviews', error);
   }
 
   try {
-    Object(_modules_qrcode__WEBPACK_IMPORTED_MODULE_11__["default"])();
+    Object(_modules_qrcode__WEBPACK_IMPORTED_MODULE_10__["default"])();
   } catch (error) {
     console.log('не работает qrCode', error);
   } // try {

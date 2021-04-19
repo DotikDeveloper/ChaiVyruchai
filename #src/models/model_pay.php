@@ -1,7 +1,7 @@
 <?php
 class Model_Pay extends Model
 {
-	public function get_data_user($routes)
+	public function get_data_user($routes = ['','',''])
 	{
         $db = Db::getConnection();
         $sql = 'SELECT users.user_id, users.first_name, users.last_name, users.phone, users.mail, users.ava, users.card, users.checked, users.client_ref, organizations.name AS organization, organizations.organization_id, organizations.logo
@@ -35,9 +35,17 @@ class Model_Pay extends Model
 	{
         $params = $this->get_data_user_by_id($_SESSION['user_id']);
         $pay = new Payapi;
-        $result=$pay->info($params);
+        $result=$pay->get_balance($params);
+        $result2=$pay->statement($params);
         $result = new SimpleXMLElement($result);
         return $result->available_balance/100;
+        // $params = $this->get_data_user_by_id($_SESSION['user_id']);
+        // $pay = new Payapi;
+        // $result=$pay->info($params);
+        // $result = new SimpleXMLElement($result);
+        // return $result->available_balance/100;
+
+
     }
 	public function get_out_link()
 	{
