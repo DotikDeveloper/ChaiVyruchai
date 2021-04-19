@@ -9,7 +9,7 @@ class Controller_Xml extends Controller
 
 	function action_index()
 	{
-		$this->model->xml_exec();
-		// $this->model->xml_exec($xml_str);
+		echo $this->model->xml_exec($xml_str = '');
+		exit;
 	}
 }

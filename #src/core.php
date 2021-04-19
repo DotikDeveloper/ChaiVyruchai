@@ -57,6 +57,7 @@ class Route
 		// }
 
 		if ($_SERVER["CONTENT_TYPE"] == 'application/xml') {
+		    header("HTTP/1.0 200 OK");
 			$controller_name = 'Xml';
 		}
 
@@ -68,12 +69,12 @@ class Route
 
 		// получаем имя контроллера
 		if (!empty($routes[1])) {
-			$controller_name = ($routes[1] == 'tip') ? 'pay' : $routes[1];
+			$controller_name = ($routes[1] == 'pay') ? 'pay' : $routes[1];
 		}
 
 		// получаем имя экшена
 		if (!empty($routes[2])) {
-			$action_name = $routes[1] == 'tip'?'waiter':$routes[2];
+			$action_name = $routes[1] == 'pay'?'waiter':$routes[2];
 			$_POST['id-waiters'] = $routes[2];
 		}
 

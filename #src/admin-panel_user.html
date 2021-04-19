@@ -15,7 +15,15 @@
 </head>
 
 <body>
-    @@include('_header-admin.html')
+    <header class="header container">
+    <a href="index.html" class="header__logo"><img src="img/logo/logo__full.png" alt="logo"></a>
+    <a href="#" class="header__menu-toggle"></a>
+
+    <div class="header__menu">
+        <button class="header__button" data-button="menu-admin" title="Меню"><i class="fas fa-bars"></i>
+        </button>
+    </div>
+</header>
     <main class="adm adm__main">
         <div class="adm__sidebar sidebar">
             <div class="sidebar__top">
@@ -272,10 +280,38 @@
                 </div>
             </div>
         </div>
-        @@include('_modal.html')
+        <div class="overlay hide">
+    <div class="modal">
+        <button data-button="close-modal" class="modal__close">&times;</button>
+        <div class="modal__title">Войти в личный кабинет</div>
+        <div class="modal__description--danger">логин или пароль введены неверно</div>
+        <form class="modal__form form" action="#">            
+            <input class="form__input" name="phone"
+                pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required placeholder="+7 000 000 00 00"
+                type="tel"></input>            
+            <input class="form__input" id="form__password" name="form__password" required type="password"
+                placeholder="пароль"></input>
+            <a href="#" class="password-control">
+                <img src="img/modal/eye-close.svg" alt="скрыто" height="15">
+            </a>
+            <input class="form__input form__input--check" type="checkbox" id="modal__check" name="modal__check" checked>
+            <label class="form__label" for="modal__check">запомнить логин и пароль</label>
+            <button target="_blank" class="form__input form__input--submit" type="submit" name="submit">войти</button>            
+        </form>
+    </div>
+</div>
     </main>
     <footer class="footer">
-        @@include('_copyright.html')
+                        <!-- Copyright -->
+                <div class="footer__copyright copyright">
+                    <div class="copyright__text">
+                        &copy; <span class="footer__date"></span> <a href="https://chaivyruchai.ru"
+                            class="copyright__description copyright__link">ChaiVyruchai.ru</a> Все права
+                        защищены. Разработано <a href="https://dotdev.site"
+                            class="copyright__description copyright__link" target="_blank">dotdev.site</a>
+                    </div>
+                </div>
+                <!-- Copyright -->
     </footer>
     <script src="js/bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>

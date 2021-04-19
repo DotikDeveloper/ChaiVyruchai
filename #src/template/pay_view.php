@@ -23,7 +23,7 @@
         <section class="payment__terminal terminal">
             <form class="terminal__form form" action="/pay" method="post" id="form_chai">
                 <div class="terminal__block terminal__block--value">
-                    <div class="form__block terminal__block--input-tip">
+                    <div class="form__block terminal__block--input-tip"">
                         <label class="form__label" for="valueTips">Чаевые</label>
                         <input type="hidden"  name="id-waiters" value="<?php echo $data['user_id'] ?>">
                         <input type="hidden"  name="query" value="<?php echo $data['query'] ?>">
@@ -32,7 +32,7 @@
                     <div class="form__block terminal__block--sum">
                         <p class="form__label">Сумма чека</p>
                         <p class="form__text">
-                            <span class="form__text" id="valueCheck">2398</span> руб.
+                            <span style="visibility: hidden" class="form__text" id="valueCheck">0</span> руб.
                         </p>
                     </div>
                 </div>

@@ -11,7 +11,6 @@ class Controller_Main extends Controller
 	{
 
 
-
 		$user = null;
 		// $_SESSION['user_role'] = 0;
 		if(isset($_POST['load_messages'])){
