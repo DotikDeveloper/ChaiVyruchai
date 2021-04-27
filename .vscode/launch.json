@@ -6,6 +6,7 @@
     "configurations": [
 
 
+
         {
             "name": "Listen for XDebug",
             "type": "php",

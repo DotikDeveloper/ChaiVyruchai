@@ -12,7 +12,11 @@
                                     echo($_SESSION['user']);
                             ?>
                         </div>
-                        <div class="login__info--item login__info--user-target">“Хочу в отпуск”</div>
+                        <div class="login__info--item login__info--user-target">
+                        <?php
+                                    echo($_SESSION['slogan']);
+                            ?>
+                        </div>
                         <div class="login__info--item login__info--user-company">
                             <?php
                                     echo($_SESSION['user_organization']);
@@ -26,7 +30,7 @@
                 <nav class="sidebar__menu menu menu__nav">
                     <button class="menu__item" href="admin-panel_adm.html" data-btnMenu="dashboard">
                         <img src="img/admin/icon__dashbord.svg" alt="dashboard">
-                        <span class="menu__item--title">dashboard</span>
+                        <span class="menu__item--title">панель</span>
                     </button>
                     <button class="menu__item" data-btnMenu="messages">
                         <img class="menu__icon" src="img/admin/icon__messages.svg" alt="M">
@@ -58,15 +62,15 @@
                         <button class="dashboard__filter-btn">
                             <img class="dashboard__filter-ico" src="img/admin/edit-filter.svg" alt="filter">
                         </button>
-                        <div class="dashboard__filter-menu hide">
-                            <div class="dashboard__filter-menu--item">сутки</div>
-                            <div class="dashboard__filter-menu--item">неделя</div>
-                            <div class="dashboard__filter-menu--item">месяц</div>
+                        <div id="filter_stat" class="dashboard__filter-menu hide">
+                            <div target="1" class="dashboard__filter-menu--item">сутки</div>
+                            <div target="2" class="dashboard__filter-menu--item">неделя</div>
+                            <div target="3" class="dashboard__filter-menu--item">месяц</div>
                         </div>
                     </div>
                 </div>
-                <div class="dashboard__content dashboard__content--body">
-                    <canvas id="totalStats"></canvas>
+                <div id="chart-waiter" class="dashboard__content dashboard__content--body">
+                    <canvas id="totalStats2"></canvas>
                 </div>
             </div>
             <div class="dashboard__item dashboard__item--company-statistics" data-itemDashboard="rightTop">
@@ -100,41 +104,15 @@
                         <button class="dashboard__filter-btn">
                             <img class="dashboard__filter-ico" src="img/admin/edit-filter.svg" alt="filter">
                         </button>
-                        <div class="dashboard__filter-menu hide">
-                            <div class="dashboard__filter-menu--item">сутки</div>
-                            <div class="dashboard__filter-menu--item">неделя</div>
-                            <div class="dashboard__filter-menu--item">месяц</div>
+                        <div id="filter_rating" class="dashboard__filter-menu hide">
+                            <div target="1" class="dashboard__filter-menu--item">сутки</div>
+                            <div target="2" class="dashboard__filter-menu--item">неделя</div>
+                            <div target="3" class="dashboard__filter-menu--item">месяц</div>
                         </div>
                     </div>
                 </div>
                 <div class="dashboard__content dashboard__content--body reviews">
                     <ul class="reviews__list dashboard__list">
-                        <li class="messages__item reviews__item">
-                            <div class="reviews__volume">5</div>
-                            <div class="reviews__cash"><span class="reviews__cash--number">1200</span> руб.</div>
-                            <div class="messages__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic
-                                voluptas aliquam libero.
-                                <span class="messages__date">28/10/2020 12:22</span>
-                            </div>
-                        </li>
-                        <li class="messages__item reviews__item">
-                            <div class="reviews__volume">4</div>
-                            <div class="reviews__cash"><span class="reviews__cash--number">400</span> руб.</div>
-                            <div class="messages__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                                libero repudiandae maiores repellat explicabo unde sequi est magnam tempore ab.
-                                Doloribus, quia.
-                                <span class="messages__date">28/10/2020 22:00</span>
-                            </div>
-                        </li>
-                        <li class="messages__item reviews__item">
-                            <div class="reviews__volume">5</div>
-                            <div class="reviews__cash"><span class="reviews__cash--number">100</span> руб.</div>
-                            <div class="messages__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
-                                incidunt at debitis natus, neque esse quam aperiam numquam mollitia distinctio maiores
-                                illum voluptas excepturi quisquam.
-                                <span class="messages__date">28/10/2020 22:00</span>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -198,12 +176,15 @@
                                     name="phone_confirm">Подтвердить номер</button>
                                     <input class="form__input" type="text" name="userCardSettings"
                                         id="userCardSettings" placeholder="укажите номер карты">
+                                    <button class="form__input form__input--submit" type="button" id="card_enroll" name="card_enroll">Привязать карту</button>
                                     <input class="form__input" type="password" required name="password"
                                         id="passwordUser" placeholder="Пароль" minlength="8" maxlength="20"></input>
                                     <input class="form__input" type="email" required name="mail" id="mailUser"
                                         placeholder="email"></input>
                                     <!-- <input class="form__input" type="text" required name="role" id="roleUser"
                                         placeholder="должность"></input> -->
+                                    <input class="form__input" type="text" name="slogan" id="slogan"
+                                        placeholder="Слоган">
                                     <button class="form__input form__input--submit" type="submit" id="admUser"
                                         name="adm_add">Сохранить</button>
                                 </form>

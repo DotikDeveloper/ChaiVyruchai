@@ -28,7 +28,7 @@
                 <nav class="sidebar__menu menu menu__nav">
                     <button class="menu__item" href="admin-panel_adm.html" data-btnMenu="dashboard">
                         <img src="img/admin/icon__dashbord.svg" alt="dashboard">
-                        <span class="menu__item--title">dashboard</span>
+                        <span class="menu__item--title">панель</span>
                     </button>
                     <button class="menu__item" data-btnMenu="waiters">
                         <img class="menu__icon" src="img/admin/icon__waiters.svg" alt="W">

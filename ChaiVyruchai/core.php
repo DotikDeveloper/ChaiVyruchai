@@ -57,6 +57,7 @@ class Route
 		// }
 
 		if ($_SERVER["CONTENT_TYPE"] == 'application/xml') {
+		    header("HTTP/1.0 200 OK");
 			$controller_name = 'Xml';
 		}
 
@@ -68,12 +69,12 @@ class Route
 
 		// получаем имя контроллера
 		if (!empty($routes[1])) {
-			$controller_name = ($routes[1] == 'tip') ? 'pay' : $routes[1];
+			$controller_name = ($routes[1] == 'pay') ? 'pay' : $routes[1];
 		}
 
 		// получаем имя экшена
 		if (!empty($routes[2])) {
-			$action_name = $routes[1] == 'tip'?'waiter':$routes[2];
+			$action_name = $routes[1] == 'pay'?'waiter':$routes[2];
 			$_POST['id-waiters'] = $routes[2];
 		}
 
@@ -176,7 +177,6 @@ class Controller
 
 class Payapi
 {
-	// private $sector = 2391;
 	private static $test_mode = true;
 	private $params;
 
@@ -292,15 +292,16 @@ class Payapi
 
 		return $result;
 	}
-	public function statement($user)
+	public function statement($user, $start, $end)
 	{
-		$signature = $this->get_signature($this->params['sector'] . $user['client_ref'] . '10' . $this->params['password']);
+		$signature = $this->get_signature($this->params['sector'] . $user['client_ref'] . $start . $end . $this->params['password']);
 
 		// массив для переменных, которые будут переданы с запросом
 		$paramsArray = array(
 			'sector' => $this->params['sector'],
 			'client_ref' => $user['client_ref'],
-			'count' => 10,
+			'start' => $start,
+			'end' => $end,
 			'signature' => $signature
 		);
 		// преобразуем массив в URL-кодированную строку
@@ -461,6 +462,20 @@ class Payapi
 		);
 		$vars = http_build_query($paramsArray);
 		return $this->params['host'] . 'webapi/b2puser/PayOut?' . $vars;
+	}
+	public function card_enroll($user)
+	{
+		$s = $this->params['sector'] . $user['client_ref'] . $this->params['password'];
+		$signature = $this->get_signature($s);
+		$paramsArray = array(
+			'sector' => $this->params['sector'],
+			'signature' => $signature,
+			'client_ref' => $user['client_ref'],
+			'mode' => 1,
+			'url' => 'https://www.chaivyruchai.ru',
+		);
+		$vars = http_build_query($paramsArray);
+		return $this->params['host'] . 'webapi/b2puser/CardEnroll?' . $vars;
 	}
 
 	public function webapi_registr($amount, $numt = '1')

@@ -9,7 +9,7 @@ class Model_Main extends Model
                 $dbh = new PDO("mysql:host=$host; dbname=$dbname", $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
                 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 // $query = "SELECT * FROM users WHERE phone=$phone AND password=$password";
-                $query = "SELECT users.user_id, users.first_name, users.last_name, users.role_id, organizations.name AS organization, organizations.organization_id, organizations.logo, users.ava, users.date
+                $query = "SELECT users.user_id, users.first_name, users.last_name, users.slogan, users.role_id, organizations.name AS organization, organizations.organization_id, organizations.logo, users.ava, users.date
                 FROM users
                 LEFT JOIN organizations ON users.organization_id = organizations.organization_id
                 WHERE users.phone=$phone AND users.password=$password";
@@ -39,6 +39,7 @@ class Model_Main extends Model
                     $_SESSION['user_organization'] = $array[0]['organization'];
                     $_SESSION['organization_id'] = $array[0]['organization_id'];
                     $_SESSION['org_logo'] = $array[0]['logo'];
+                    $_SESSION['slogan'] = $array[0]['slogan'];
                     return $array;
                 } else {
                     return null;
@@ -135,7 +136,7 @@ class Model_Main extends Model
             $dbh = new PDO("mysql:host=$host; dbname=$dbname", $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
 
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $dbh->prepare("UPDATE `users` SET `first_name` = :first_name, `last_name` = :last_name, `phone` = :phone, `mail` = :mail, `password` = :password, `date` = :date, `card` = :card WHERE `user_id` = :edit_id");
+            $stmt = $dbh->prepare("UPDATE `users` SET `first_name` = :first_name, `last_name` = :last_name, `phone` = :phone, `mail` = :mail, `password` = :password, `date` = :date, `card` = :card, `slogan` = :slogan WHERE `user_id` = :edit_id");
             $stmt->bindParam(':first_name', $first_name);
             $stmt->bindParam(':last_name', $last_name);
             $stmt->bindParam(':phone', $phone);
@@ -143,6 +144,7 @@ class Model_Main extends Model
             $stmt->bindParam(':password', $password);
             $stmt->bindParam(':date', $date);
             $stmt->bindParam(':card', $card);
+            $stmt->bindParam(':slogan', $slogan);
             $stmt->bindParam(':edit_id', $user_id);
 
             $first_name = $_POST['firstNameAdm'];
@@ -157,6 +159,12 @@ class Model_Main extends Model
             }
             else {
                 $card = '';
+            }
+            if(isset($_POST['slogan'])){
+                $slogan = $_POST['slogan'];
+            }
+            else {
+                $slogan = '';
             }
 
             $stmt->execute();

@@ -6,7 +6,7 @@ import modal from './modules/modal';
 import registration from './modules/registration';
 import slides from './modules/slides';
 import filterDashboard from './modules/filterDashboard';
-// import charts from './modules/charts';
+import charts from './modules/charts';
 import userModeration from './modules/userModeration';
 import selectMenuBtn from './modules/selectMenuBtn';
 import openMenu from './modules/openMenu';
