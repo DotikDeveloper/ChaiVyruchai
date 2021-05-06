@@ -776,6 +776,14 @@ button.active {
   background-color: #e6e9ef;
 }
 
+.partners__logo--1 {
+  background: center/cover no-repeat url("../img/homepage/logoPartners/Banshiki_logo.png");
+}
+
+.partners__logo--2 {
+  background: center/cover no-repeat url("../img/homepage/logoPartners/moika3_logo.png");
+}
+
 .footer {
   display: -webkit-box;
   display: -ms-flexbox;

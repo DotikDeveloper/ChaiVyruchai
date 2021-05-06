@@ -133,13 +133,13 @@
                 <div class="all-simple__slider-wrapper">
                     <div class="all-simple__slider-inner">
                         <div class="all-simple__slide">
-                            <img src="img/homepage/all-simple/payment-page.png" alt="Сканирование QR кода">
+                            <img src="img/homepage/check.jpg" alt="Сканирование QR кода">
                         </div>
                         <div class="all-simple__slide">
                             <img src="img/homepage/all-simple/payment-page.png" alt="Оплата чаевых">
                         </div>
                         <div class="all-simple__slide">
-                            <img src="img/homepage/all-simple/payment-page.png" alt="Личный кабинет">
+                            <img src="img/homepage/paymentPage.jpg" alt="Страница оплаты">
                         </div>
                     </div>
                 </div>
@@ -198,8 +198,10 @@
         <div class="partners__body">
             <h2 class="partners__title">Наши партнеры</h2>
             <div class="partners__content">
-                <div class="partners__logo partners__logo--1"></div>
-                <div class="partners__logo partners__logo--2"></div>
+                <div class="partners__logo partners__logo--1" title="Ресторан Банщики">
+                </div>                
+                <div class="partners__logo partners__logo--2" title="Ресторан Мойка 3">
+                </div>
                 <div class="partners__logo partners__logo--3"></div>
                 <div class="partners__logo partners__logo--4"></div>
                 <div class="partners__logo partners__logo--5"></div>
