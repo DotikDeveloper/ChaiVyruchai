@@ -41,6 +41,7 @@
     </footer>
     <script src="js/bundle.min.js"></script>
     <script src="js/frontback.js"></script>
+    <script src="js/toggleMenu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <!-- <script type="text/javascript" src="js/charts.js"></script> -->
 </body>

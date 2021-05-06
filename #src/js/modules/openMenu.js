@@ -1,9 +1,7 @@
 
 function openMenu() {
     const btnMenuAdmin = document.querySelector('[data-button=menu-admin]'),
-        sidebar = document.querySelector('.adm__sidebar');
-        console.log(sidebar, btnMenuAdmin);
-        
+        sidebar = document.querySelector('.adm__sidebar');       
 
     btnMenuAdmin.addEventListener('click', () => {
         console.log('message');
